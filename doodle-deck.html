@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f3ec">
+<title>Doodle Deck by Keith</title>
+<meta name="description" content="52 creatures, drawn the way I draw. Every one tells a joke.">
+<link rel="icon" type="image/svg+xml" href="assets/brand/doodle-deck-icon.svg">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta name="color-scheme" content="light">
+<style>
+/* Layout: a calm paper page in pen black; Keith's marker colors only ever appear inside the drawings and one highlighter swash per card */
+@font-face {
+  font-family: "Keith Hand";
+  src: url(data:font/woff2;base64,d09GMgABAAAAADNkAAwAAAAAWBwAADMQAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAAgUQRCAqBmSj5bwuDLgABNgIkA4ZYBCAFhBwHg1MMBxviRbMi2DgAoECPjaJUbs4RRZlclMl/lRDHGMccUmlplUZIabx6MTkTQyidg713z36tVEgX7On6nIP1TIyReC7PPz+O/9be9320GSeYCWxUApimOSkUOXRFV3fpDA9z69+ikq0ZMSpGrFgxVgwYGaNSlLQCsfJjcndWnhcm6rWKWf/O6kPvPCf7pa/0y9L09mDB9JMFmz+sIQAw/dJToB2HXQCQZnqSelw0BnY5YcfrgMOo91SGw7ENTubd/1Cvsc1d4lIPcPLm/9NZWgl76wByB1g0kaW78xFVeT3PpPy/HY3ItLuyLNtLYC8A/pkJ0OvTZ0pn1sq+24kcoIrwoA31gG26Ll6d4tvVEUkK2Bu0LmQ7KIcMYWqBSgRByAqvg3p2HpCL6luk7r8oKuKq+aLqft6q6cbvf6o6ldgGKe6NixWUtpRmo2gqOgj12iJBSPAS06GZszM6kjyvFyIUWS6/KBnd6zGabfuIvAoLULAuwSo7wxBAP+9qwDP9dvKzqADT6glgf3XOdco7HmxtA1qivaiwN/+XAy2bdaLtoFU+7iYVe7hrYRe0IwRI0wBut3gAUXPj0PqM2O5LIpLZ073em3vQRVyRUCQRKUSJIqNou1gioX75EtM/YoOdYuBpSxOxRfwuErTnuymf43NsFk7Tf+Y9xJM/ts9uu2z3tRWGKO/s3UkAUbjRFjJfkJxfuvIG8y2786vsrk+z65Z1+gEIrSQYROLRMTfUdkAxTOHxpEEBLAYDaA9CeElkXA/ijwDTjXowvJc/KDQmQgGbBQ2tEqh/OSAU6Ys0nrx4YsQRf4Ug2fMk3RVMgwIJpRc2tgU3P/RMbxiDMNkOjODCGDkZxHDu0bqUTs2B2RBr7kJ+FxOoQHZcXu+PI56v+bkluO+V9VQv00W4q7I8Vv2AYa5TPa2cinc6pkOwxrE69oxKZSj6vWySrKflZGmv8zE9r9TTIhuBYMwgjhyzk5zzBe5T1nbNCXO3n6kFIEESEIQOTSSZybmxAs5zoQCAFqlkiCR2zesvbLRMlcBkSsiyE/0k+GVLXrA/4Gi0TSx7AbSmiwg8t+EDoO+Ftp9jvIwt+WDOkcL1m8lNDEUFYwkABjHFHEGAgDIYcJLMWsGkFSCrLGfzhUI+lpeO3prO/S0ri9YEACo5DfnhAuCpBDkF9GLWiZyYNVwLyZ0plOLuMhP3mwYgBGf4+euPHs0zieCeVTCHPlKqgh2RlfOxOcD/VhfRYYzxbiu7joC1EIQYD9fjk+1c/DOc+LLriz0ALbHfGJxTXJvn7Xv0DYZgaXoVJSOEElImprqlcIs60gcNW8WqLwSclOn8c/z0ZsMdXoW1dL6TiPoqw9g0w7vMqfbS/llmYFSU5fXQCB9FwElgvc98xuSNIGjTwhgzYLAq2aQ1931/9MErkVBFe/dksk5CMguHDbEiuF2ZWcyXSmcHCnfySryL0XVjzPRxoEwTs9Pz92JbgLcqXoyl04WSSE5fn78MHI9VVaYwRfcBwJwkMbIEnwr3citB4EQnI7oNUnQPCrbZhG4up2zPZjxfPV1NW1mbIhcgrzw0w2jXAU/HPihD3uMrGws8bQkM0Jr5Stv1DngIITaTlGOVBlWAE0LSY242AwXkgU8iIEKUrN24mGhUUSX7fHDvG8jn782mZx+lNI3rUcNGOtEQPDOJ0UzPKZtW9uTzdxmZW+4p7X0xxkgWU+97fPLWCJFElsvQmFWL4ioC8vHfoNgIWiORnB426iA4bt5DUpQiZrACvMVlecsudRDYV3316lYIldlUZKeYm6uoTCEPdgEnRBLF2aMaN1cZNur+IAjTm+myLPk5nFPmrbiRmJL3YoRuBjAhvEx5Cg40IcD9BezffPv2+nAThl1NCyS3am/sG1zqkTlSH+fSPrtIQM7GTTusJzkks5Dn3Pr0ODOQUYmH/1/Qu7fPTIHd1ZbBUg3FpZvnxLjTsi1fmmGD1RFGu8osMzB4lFZnYyp4DmQt7Ar2VPOpSe5G+TiWdWiMWSzlvRTJuSfdEeTMsIayFS3z41ovp31djCwW05GhjUAyxhuqxqtSlj0JecOt1wCPCcmQ6xYif3hyQmLXDhGwtllllmHY45btPV6idoi0FaBWECS01fhy2DCiBtwCnSLveRl5K8eMURnAY+5M5HJc8zZ69Zvnvqm/JNPVB0Fgf3xlH0Dubo0ID7RVKI7BaotDBeyRAih+Z5iyuyWihk1jzKlSoWCXMULt6TZeDXy6xmYG2AcWIhQuHfD02iHIVUxLt33eOSe9CMEI9Qpue6qZNN8hrkue2ijLaTv0W1VfNi+dc5db9HKRSKHNjjsz4ca465vk+rzLXk3rELJGUo8a5W9Q73tzFBXt2jlGV/o8LZjToC+0tFBs1ZIUkQzZyMyqtqjPPUhM/cB48NHUZvQYGza7DEtgABYBv2SxqzlKw+kgyPRflLjbl710UHsaxfTvUMyw4a/gYK6o16+lE3bZkgkGB+h7WzyUJejPqUt17D6A4mYPDwLRUJlMwQ6xoo6t4mEB8KH/APcL2AptcCvAHbKmUxSyBfpQoitQjxCSnzsBEryqxi+pFvJZqcWK7Q7E0JI6JrOOXOYbk/Qqdr3FHgGUg6LcX+LU3jcH+c2JCVUYNtxG+Axuu3MCo015Re8qugjaQdrTMrbGGILuSJjFUq8CY55TjHEfzHUHbe94Rrbi0Tbu7VNYJXeHec48m7WbaIw5Zjpk7r2Av9KQnoGSc2HlwF6UlwGZe7m0lcj9Dv381zKc3Cy/NazA81XpAOS/M2bCxCaKqtvxYgPj7RnaPsGrsj59MgiCkw6fzlZ7iQSJ9INzA3tKoeA7v7w3s9seePQOJ5ksixmz2Aiv3ajdXqNocaKCEbSwMUGJ7tKxDzEInv5L6IcIxXcJRPLj22jPXS8TCd9fyRVj8G3mpVLrZyFh1ZhL5Oe8640XvHalxi0xmy07rcQcIU8fxOTmgCOhJSrq8cJC3LAYViJj3pREsHvOOwWNnmLlP2dkLR3birFM7fEWRS2Zp4s7hZZWiDu2IxF0hTe8wjvoyNWC2+UuTzWNGTZQmEbFVdsIG/CFczVNtEgl2emkV7LrIUZIXw+xy483KBoCvttmtYMbY45MlTqIh+0iS+OioegwvMkwr9UDgVYuO66dGTgaCtbf7mO+VS/gHdSQFc1BnDIR618cY+zqBXv4Yf3bfrGdbcp/X63xmWsGFjGCLxblN8x+bPUyxzX2KTvdcjwSBUG/TiyRkg59fTErci7VlxTOIPn+U/Yfxo0x0tE+dTjT+pWsC9c9Ce6czTo82YgXijv2LPj+a5CPCZm4AokZN/7QrS6+KXfU6nLXPjWmUQnel0boJ4R+Bbl7a0reW0/rYbzNHIazqnddGcO+b3ptNS9YiU5RZ2D9FwMYLxS4dfnKb/cNQW7zCj4OUFI2/5Vf9op7WqcISbiJ42pVW9xBLw6VpJkKlxuTfKkUpt+5yZ7rWdy2H2+u8bglEjPZevder7B6ImBNAkuAd/47yjHahdeDiMweDpjqOWcGRsKYVaHAdhxpr++35senIxWPI4mAdHqXAKeGLQ6MjzqMUGqdBX5xX3OJJtIjRGQRwZCGlKuHTSnr82N6A4DzvxkFeP7R4fNBC4l5DCcqKZXkQ8iIsKJxxJLWNtvSVeZ/WnPKqgigZSt47cIgHPCgFwiYmXFjfLu9RS5uMwOWQFLOPurcey9gyDADtPa0F3n1lHYXALdq6xPkyJGsRf1rTuoYAR+rZQ3Iv4PcvlzwhGdLJ4JujIKVCQi3VnYC0ajE/feRmaMPylTEhyFCFQGLwlF4FcBqKeyCsJvVt2KdH0upX/Wug0OFo8fqcCAhb9MJLV9pkj9lMCzsVTlj26x1TQaqLzzRqvYrGjh70J2ewBjXmiTL1P0tHiR0P3dj2PWxGqjSg7Foj5INXOO+T9WPWTMRSIe7PivwESGdIic17lF2L1W0sYz7GavwEeno5crfoCizRCz/xNO/C6Y9v4FxrwIcPSiCgHVk1uHGiDaO0Z+yh9m0erwALmk4hJzlsTWIfIG2COeL3J4+WARkRPPDfJGPQI9Qyx1oGnLjtiFaMgmUY9ULCG8VSJadSgCZcL4wNahoyC1GAdWMLakrTm+vfwFN6BHaz9Kmod5OhJ044YdVAdiCDfRdrlQ6OCNTtDoDHADDDqE4+jzad32oAU/q06yoxmohzH5DLwrrUwDfgEoXVN+5imAzkQBw7oNiUWYj8qTILm7jK3Fqyi5xXN4OAXwMvZM11LOOYYdCko2VM+Luy2WNrhunwBMkt+91MOwa5opI3sMfy7m+ytgK8HDjjBpd29lbRMD4yUBEDS7VeIgAD9ucaAaqgZFtvqr5Bu4MAU/EkHe8B2/2SzFRKdlnfdFfv8aB5flQJt+s1WOkW0YQJFYCP03Fngx74Xd8Ovyha5INqmwMdIFYFTiY1OI7jGLJytadbt1zaqJOdLbuPPjR8u1wc0W8zqzCGji/Ozsd2qdNG7RWeuPOm+5sNXUmS+XeAQTjUWPaF8aidT/x6WDX8KWZqGE+RtvjVgEgt6mSdRC3uQeorqlcpTls2CTg5Eh3TmJX3VdimJVKvZ7+fx7CJvNVkObhwS115bTUC5eVbWtvLGiTV7sP2qrnrl2LVtr6xMqtwBzNS+u7nk9z6uRUE0DKIlTJ3XDi41ev1s9ogztX5xxL0WXay0PhwpUz4drubN5ava3Oo1EgUHaqZthXtYUFVWmc68FShk92HsnC0PrBvLSchH6ELDOFWJg0Md6qKgm5/o7K0yRNmT9LEclxD5PniAT+iEtzVJVmst9cupkMyHfwbS5XtoZ25L1nLXZBhb18zLabDx+q+CT1MpaYLSc2ZLFoTSBAhl1bSUPiOqhzHQpzF8RHDnvdB4Wk/JsNFxdAOvR62loG3GKr51eYZtsXh9iSJjJOx8ywRWTaSZ23cuypY3xVhb2aSWnXPDWr/ErNLuleIg9Xmkm/VMhb9uMPN2GBW0TstJUlZMRnhKJvk2Sxh+RjyT7Dcixsu3ww6YysPwecwkug3/XTTTXkbOqOugp8APhJFmKlqpRy0OMOGnZrxowC5NvyPvh5MwCeEikfYquc1Equ8SoPsNuP3pmnpuymenrtmsrwfHV+PjYh5xILmQX8ff3bvHB4Ln2nBkTRm0c6KXQPsIza5Bq1OMwE4alfLNVDOV5EMA1dsSjua6NkcL3ZgVgsE1d+xl7dQuhh6BTcDpOFMbtPReJSUlwc9sq8P6oKffeF4eKSqjBtzFRIdDLSl2hPEoNx6MKM/AyM52c1EbwQVmHD+kzNpRhjIZ+2su2vMo6xqxSq8anWQdpVN6NVyAPhxskmQPq1jYR0pJE1h2DrTkQAyn/8du6L6TY99qD8NQjJopNG43bj6q1asF1FzwxJWBQsbqhSzWZFmXXSYY6xZrEp3FDxScBHOggSIHI5x1MPr7ntjVLGAMqsbXtUs1nTc3iX+wNMlaITdi9Qm7IQhkHBbZ0iTayy49jp4yHqFXNZ84zzoRkY7mn3pK/u4xTmWAdc0UYEk5tJiUkp596ZjvMZEFeXwZvvRln732kOA1PInWGYQqSUUSfUnUXjLry5AT9ZOGM3u/xz0eEBrIHTt6qheRrarGrJs90rjFWYSi9KgZNWcL7PFRRGOy7DGNvgzflZEB+F0IV8DUaBUPQ0BATzulDne+qt9Y4xb6FYKiiQQ8HeBmLpYjrcr4X9fRLMIwLmYnr2/LwwQTw3U+QQE4N4zL6fAtl6IR8ES/UiKaKLRt33N2jP9ljg8Ya7He+ucD87wuk+fjjQFhEt2eM87AFelc7FhrJDarBaw8eDwrEp/mUos+iZAf6JieZHMkwHO+HpokMHrFskkcHKpPV01C3hfzX3+5RicdTNYnKkgSVGv9WwaaXiakXIrU60qO4NuK2w2mYiO+GWaMD977x/u3TKPa/VLQVCmLtqbAhBbAtI3wX/Ud7bySbGKBfs4SykzUUrc3HfjW4aY5JXM9XuZvpSg8VVIY3rLycDr8z8Vd5fvRbfTF2VZac1wK+5Ol9Kss9Q/8XJl6p4yTI2YPNwgbOCtS/KVlOpZoLppCWi73MPDPhc2WEaEEitO6ZNuPEJbue4dHNTUSeMJDHlYzOcZshaIwdcvpdkeqr1DUoNxw2V3BA/XGzHi3PRtHrdNie68AlUI40XUD4pIuX6jHmOZpzb0yMzRR8Uhhk1u4hm61eIfaW5Wc8M1ajVhBA/WOTGoTPDSWdeS+YjZPnZeMxAqy9nEtXzXwOQ5REEUS2wXOI1eOkVypUSBBWBaScuRaOnExvKMTMiRdN3x1oFeiyqKqmZlEQPGMEtanUHhDY+iy93q1Szfqgdv4dGkeGl7TkU6vK91BPnZajaZGZRlARkn6ZsxpGqDSLCWLljd4TALB/MQlJcM9hrCoksjmJSrE5lxz2KEJ0+G3SADX58gA5Mm5QIb+0Z+Z+Ms2AMkT1TkVI/QmQDOHkp5D573PkwMAhozYKYfeGB3LpHyZHDgQG68mxeQAGctldIiWpGUAb0DVyFsH9ZVDr6j9j7N4mHEX+FqVjvqILrUQxhWnheYrW+/pWlETSk80ME1zEixktDv6H0NQQDO5JZRaAdEAen73ylR1Vq9PfDZJKxwI6GC8q89P3j6IWrEn68vBzbSv9sjdFV2WbqBTQqBXbXhMVOdai3bOn6Qqb0xF3jFNBMFgwVE+w94hoG1bVsqUqsX7Lgbdyu/eC0mJ58RKxnuqqIVjOpSNAU1Lo+0Z+Eg9kLpycN8tu7AgpkOQE5gPcpgNVDz9QWZLRyD5fE4fVsmyS9McIYD/8FjomyhFnEjkFZV2qpNwu4fzANZDJjH004VNhg7bWQOiZ2kftKe7icXrsqICCX+YQrunAxyW+KFu5l6cJ+8yVMrJ9IED5T9XLhv8AHwfl7NCllbWGWNQ11U1mIGG7Wgo0CXoJjfTAulU0Lo8cmY2wXeDYb4xiXVw7fNwULwrIK3lJbxgugqFZiePLCqi4G0g2cVyK5BP+sbNI7+uUEImIhA5wrpTKnLseJGHf5P0x9CJRUEfbplIQQqZ7JSkuZ5lsbZmvcBtqCY1VGF6tBVhidQ7FZigcMhSnevmVFngLn6tzsw7OOzZ27YBoc3tbSXY6joGKizOE6SVVAIThKg7qglbAmaCXECWNoONJkEoSSAjhbxZEH/a9O/HouoVlgkFSU2XSu6kmrcyiOnVdD2nBSOVifWsTjBg6X9+sWTNuWohwJczPzRbkCcO9TUrGrlTgZ0mXnv/iSmpIdrFFxeD7RRm1JQzSmZAntU5ND1POSubM0y5VuSnBY9aqnqxTfgvlERjBszNoFLIQVlGhDhHH9VY3+kRByE8o9oz1MvCyCO2Mz/ip8dPhjESo8F5sFuCKk0Y9248qTYMLbiHyCaa5gjnSOwISFZ2hSXzrJvdz98sm8gTcz0/EuHd/CQ2enGrMTSsOn8qfQ6W/p1M5q0c++uFX9Valz9GwpWQIYHEQoJ0vtSbHanUkuIocB72K4Kl0VUwIVWWj6v3NEu2HWYBtEkhwiJU4q07vi/LrKpuAQv45GlGjtYc6/dSZqsBWTq0zVglgVElGQMrA5onhmrP44Nj9isx+D8W8WmboIs+mzKEbyF9LacUx5oNNUDBQGEyQHufz9V0KjqaJONxBQlI13+ZQuzqv0D4KNNcz4v20GocpAScmaeshg4N6bXs7L9yZVs1z9vmyFR+7VDGVv1M5LMeZECIuEWsbEay17x9HVlH/A38dV1OJ4T3ZwVuyw5KzciVefOLP6AslWYXYnukhR0nftUlHF/uhkcU18sSzdfap33FheERjODd97pG1JlDcM2HtJ2yQMjoxMeBzw+ziOND7wAIliLItgAEM7X4u07OO5THwPl38sk+vmROAJtACQ+XAiy7CnzvuYkBVIjXmy969JZJfyDCiMmw690KQwcH8ziEHhXLYU9ivcjtcie4gmgkSGQiZkkybVsGOnkoWUKIkDvYmsxeEfYTlY0BF2TA+HBZhUNUmvslFlZKiHZyenM4fWO1KydV4DYEBkJlkphS6iU+D0dZHohBnWOYPumLAadvAg04CV4Hak9Aa2ZZbXy62GJvd3pcGtIlYrcGbV5mXIoqsSbgr0JeIvevhuzvyPTQ13Je5EtDM33hVVjPSuSmqvT1uWG1DUGqJlN+IzkSupRvrSkOr6MtI3ARDXkuSOiK9ZOfjCfXOrZFmCIlFoqWv7zMGdtuLZJQnC1JL2GzcWpzZFCSXh+gBZHiUuh0n7nCEFsgY+5f+0atfdwVfwtUzzuNT3Af4LDMwPJOtX8VuTcpX/oKGqpqBWda+qRZx31WFbHjiqtotyAnI3L4h4eqUnrl9s+sFYppxboz4LtCuspOlVmOQG4dJaUog9UlwkeYT3xN5UxqYneJIHAjvlVY7OAKgBtfwPZBOOTmH3ZI2gf0vMM4qCDms5Vxbw2zUczzDmbN5AUCa/LEJx9o+aRa0AE6RNdaYb47PNopbDscJyffTdshnYyfmcHOIZWlmWQd5rqEIhmxzGTEuDJ3FZVet8gztNvxzUVFo5k++4Gz7q0JiK9qrakrWJ1UojP66ZyPpx/A+0LzdIH1BJLoIYebdMNZEHcg2d3aBkcgU+YlMh0C6B5pOdHFJsjHEnqxgbFdcXhthU/ju1Fp1E39MfsotKZ7yF9a4wgcItXVSCW5wkXUpyG3WBR1IhSj1XD2bQddhpjLr70HwMBY6lanSUglnIhHZaO7ODlgAhoZWw0WYishK3tYzwAXvyG6IegQAvww8VaY1Zap1j0lw73Ml3a3bMdRkD86DQEXWUEzZPV9WYuGS105AaW6z+7dI9+lLh9VCo/jJSeHvLa4kO41l08dgrikcc8jVkKZ1yOx6s5oh7qT6HUkqS0YiICTXCCc+FO8lZS+fPRCT+HZDkisSV0KB2aCmsngytDEB2qazHY0NboId1kPAL46CGRGFTB478CpvOQnSjjikoYLsJ+n0o3Ig3kBH5kAI9pGaIPrzhbCm+jGALzonEG1l3dzHRF9My13CnYsBOuBOugxZAG6FtsMZkdPn9TjUgKshvkVrRJHuNNiuIIeUx3hTHNscVR3+mcD2yKnVj9PXqRCUBXorChmeGFqV2Gb3Ms7R3VdHAuR8y4YSirUTiO/azn+SYRWw4uwBM3gqzIEk14gGxgB3swZWi9an93feDzdL00ZiuVNyZfAdOxGF6yOX4+kxCz0seWzRRUYexYTyY9MlCOuXKzyvjsv2/XW3YGXpoZj+NIEJaQHFJ+DQLIrZocFukoWKGSkfz4apgaeJQNsOO9AehVt2BmDNbLrzYsfjcgoPU15uKqFItHISOdixWN8/O9k6b40spN8/cunLdxnuYkGcvOixpFmOzPzvWGtaSZ9QatMADOf4YbkO0kTLjw7UBO9Or+fPnVcS78hJb5PMqaUWwO3hoQWQw8pwNnkn0sih2lY6orab8P0IPz+F8F4JL3Qu4b7XBw1lNvQbPbvxUa4be1N5qKIEzxjaMU+CjvhNFKzdHZjo4Z1J6/S5jhDFpep7+4BYARVAPq0jXf+uNzAD5OKnh+54S6mMvOiVhiO9h6xNqOnygw10xnNctPcOO648JHIn99nQSovPcj/Z1WVtLO5ZyPnrxdHpfVkHq52aLjvF/ugTHWHonG3p2Kb5pUnB3NlUL7tPWBQdYKCLSLCM9Q5DaHCmiAqL/GVYCz+ssnJKQo7y2liJbX0DD/5+aVhpXl7RfODPcPfXEn3rJIG2U7REb0Igbr0KniPdFLaPFnEuLnSKvEiZH5UvPg8dPfBDpZWYh/cY0biFS+PwiDj2HycFboFbkbFzJeQvETHiTgkHqqIBAogaQZksw/fmOJTpRGuHcItI2h/LIT6kiLMBr4aJw8THlSIqOnvMQidwUuVaQDx8M5u6g0UpU8ZheFYCTuOZF/L7oehpBKtEmDVw1zT31ZdPl3q6bF6Ris4N4jdgY8GlLxAbdjlQFDjOZ6GfMI6SL90onx4fPvj3tWNqioKzoUM/zuPxP/3BsMy981NGx/mkIybNpOQiRVe6WuyBS2+w2QUxt3QgyuPLo3r7EFqC6uzTErDZEJDfzUD/cTTXlXhvYSaOPVqGP/vWCs/4lX5CtTY9XKRWsCHoKYFDIHFnTfjU39/o4llRDbBuT151ZOLg6cVtU2bNBmkaoi98q8DmegnAR+QP1D5EcvWLXvZaoV7TFuFZSKfk2S4AhrqDwMjbvOv7bo9qlK9CbCFY4gLzFwR2U2VXMMEL6FroBH59DGyQV4BbRdlF2Ff4nQaTF07XOaPAt5DVpG+F7KGQ97QxpZeWSqlWNw7oYOgtsXBSrHBlYakfmIMrsCD4sjqoOb1g4eRZyK9KL385YNaL4JbCEHQ5rTxbNhf4jNaGXnD+ng+lA4Ge/wiBdc1NEOByXz4jZNWT7pfv5T5l1hUAMofukx7HXcXk04iwSA+lFA3U6n4T5Ta/F6kL2xTnBpi22jh7eWNjdnAmjIiKUZo3OynSk5zO2hFITaY7j8L3wkhWaxASKFfttYkIJyupKKx6dFKoxYHMhbqek5gMQGaADZLdoWI3clZJZG+8LM2je95bLLBp9RkJnerCV795Dj52PKTqRdQOnOupV7Cw3RRaf1WmswTUpIQUyBRYPrnRn8MxMhBFv4mQyujxkk4skdqk8SJlAr9FPydTkUz4E776wZa2CzZxRYfoS7WB7I4rjU1EoLdbQkcUFb09gD6J3jhEaWDB6mEO8wF+mdMkTzJFUU2L62vzkOvU6KjxXjBhMKal7JN8ww5mA2aA61BIyMEOaUML6+O2Js1XTwZ9pvt1O3G2s0nAvvZTdyGcVU7WiGmdhXUxyollJ7eegkPyFM8ULEZYi1yA7D2r8LDLTvzcGSJ3IwKaybhIV+DIQsZxsFeWWC5ZHaxuMIAx9ZKyIoW27Iu0yBjpcYmtUlDaAbe2aZ4hKSqC65qxC9aWm2LFLmECz7ZyQpkhi8tj/x/qhTXCaCK6jYDcsX044ZtAIIhodVWx7isUb4yM9P4vop/sFDVlgCXVfsEF6daMuK4o8q5zRaeRbQ2+kpSbLwSvCQDqvMx1dctpMyN8q7EO2ZrDLYDOhTnh+f/tiGmsYD99cuCBXUxIgsynqtmYCRAtov4Q/gn5fFISrUR4VzJKqeLggRne36D+w/cyoDzNi+krL4MBs02Do9OBgAeatrJSwmvaon6WcF8haYAF27BKklTwCexv4ic2mQwjPRM+9oPcAPNvlamU+BB1u6ka3SIJGkZ/Dc7An0Hp0R6Y58r0tnEaeKmy0/+5L0uopXYr+AXkBnGdesAd9rIJ+OhAEfQvzoknOeQiylKrAfLNNrW2ORmyAdoEG0gBvWZ4YXg5raS8WBWOxZjN7vZ0731JSLx/OU3hk+mKImd6GON5GhNHhIy0MnQ5uErks6vyVXjHzRznVrwmjei8PR7R64L5UMHK960yfSFInJrsU08mG4+vmY6cFDpM5GpYNvaEzt5Kw0VcJHCHsZUhR1KsVEI8URP3QWWl2xbfgkCF2N09g+k6J6i0y5+imF5fkGB0piIWduRS5Lawy6X1gQpWDpEgPB5OHZ6nL+1Q6tSwyxZ84qWw7CwdwwECE2uUozgQXgYDAZPPPC5TRIN2USerkKODwHb+FZrmFkTHgYekIi7i/wsE2MxPUP/0OwSbGNVTn9IRqiIKPH3dC3Ngd5f1h9EpXYpa2NNxNikjD79bJ0gGifp0+xVSukuk+S5BxtIJw7QrqH52IHLQTW5SBLS9iSxmtN9PZ0zpOMZtd1Hk76JGgGdIYH3Qmz7MqAoUborTKrTE0dWcLL8JDTI3+obVU7Q8YY3eHf2Mr2D/O4assqEIa2FMM+Z+idg3EuBwaOPsWbXwKSTdDHPZWBKJpr6HmRTC4j0WIBIzpZAvMYCrAa1WHlNI5omwTS0XSF0XszhReW5CWhtQixzhfU82IElBdGnkEF0h1/vxSJ83FQYJedgPpVDphWVhJw2jcFIk2xB3uM4Z5MQw1GRbXXfTbsz2OwBR4QjFYTmNY+FOu5vFJoecyR92bVFTfOOeif+UCVU1gtjtGmKVsfr2w51i0+w8Mu4vqGRdlBhM34mF7ONn8PL5vXJSRhSpC5DsjnWAdKO/dnJn/6nx3TfW6018dy185HqXxJbKOElcQGFdn/eytUkxB7UCNBQ5dQW3wD9hyB6Xy6eD5JIeAeNbFKPA8vyqx1ay6woCALIelb+c/odaeh7+LPZr+aVjO9mgCA8yBVYTwc3J18ddN2tMYmRGeWYXVEil1lEHPdIkRuRj3XiBPM92a3/tDmWATUnG5bIKD1UyNzUFc9CIAuW2kHFewGNPMeJL9F41O2bA8wI6B5GWgfaL0+89Ui2HmUWxQTxFmRUZ+vnbBHOOELX45IzW/BOuTqzJrY6eCKgOXGgGiuRomFPCuwcyLg/8dNIaPqPMgWLvj6yEynYaq/ITIw7cJ8xatztkU25ji/kxum16NXt68/rWCcrf1cLYdkUfwcq3b5oMlsaIYF3I05KXGim+ln4pxBy+wzqhGNhKZ76hirXpHxEGQa+DRKMC6L9KzWyNQNle6y94snqsBPVJ6bur59/L87JM8xaPDvxg4TiZnpCGdU0ByQcsHOVQgWhinTNsoQGqxBsB/H8Uhdu+7CFUj89WMaw6OxlIU+otCKpmzoyVJLbxBnOIBqoPx+xiNgHu084g8bMnyLK67QNG/5U9Zg3V/9eZdViyOqIcfBCcavUkDoeyukyufYA2nHjdm26Yc+eJ0mPVx542yXDQqNGTtQkuVAEqqm5g+xXRcg0JmDD3tx/yW+2cNsbUnBT7ckUtFuUPDVL6wmPZIMOnbAsLD4EYC4m6zRBBFmUPEY8kmbM+BIcI/A9Nu1kArutwvJ/4d7El/rUy3RtdyzOyyduo7jGTGjApCyPKbrENUlhtiIaM2KEYXFxxg9EGm2IgathT+KziKouhRX9SK5dB4aDusoqDzoKEeg54PLXEh2gT1v/9HsgSp2k+NybOwGGksZZBREGKWKLvqqBEeotRQmkA0cKN0keXpw7hzoRiebH5CBpJImUNuPmfx0Qy5/DBFXoDMETaDG4jbXSAwhljVINfLluDpjHv876fub2NLCFKZJGB4pCL1qVtPRCKDlD6DxSIXooaPxZon0daQtdTQ0jgk4uFPEUbkzdPCrSTp4Rlvqv5T3kp5WHHQv5I44TWeqHHhj1d4GkTZasj5oSKIaxqsvp5z+10R2LwmlliKtp5jDsKDoNWHkVDtq+T9fVg3omszHzvr04pcKCymNKZQ87IRHQ6j1IggzWGZZ8t+soVad3CExcJayWnYlnm+4B79clpxycbvJ/rxRqWJjpLMJmOVK08KKG3AyYjkEP2zsonvgrbCMEMMEBQsiN2nVUY/Pq+IGggS6sqrudVZ2n3CCMqKx2LQDY/iEvwXrbhD9KiEuacLjZPuxv9KOqrcWpb8n6AjdFYMz46x4ENZagvOQHQR0jCqrVLMQgYoLLhAxi6m9M+FJj4Fons3g0mZiJTGeGTnLC33ge9dXS8/nFjLQ8m3VOFzJ1djweLlIuKEmCan7E1NmqP4hMXCclJ7Mun74CyBADEPxI9uQMJqAkjI8KnZfA4RUowtoDgzwhvThIihLC7xTCtUhKgUAeJLczOR2hnATuG+a8eBv+h4PDeSx6G6o77ulwe+nB/DewzDEvCUEVH8myMruvYEvZHUo0tC5ieROWJtJKYoZmBLD7pBRgbZxlz/fADX1XOhadeoOREkcZDlTBdJGxsth29qMyEGsNkRxJpAZCPuBqEEBXtHYb/exUk5NZ9h2pCT9JhLs0urQlorY/q+zuj8haX2/10NiV/0v0jPml9gffH9PQdZFSEH0u+GAs1x093NkmMtMwjsnWwrZ/JdT8NjHSpElKF35psqNTHd0Tk8xf7MUiFCErQ1fi+jCDu9HPLPIwib61PpA86BiXPFrWWMFtk3Wk+fHOWDrEM9Xov8eW37+PMRigIX+K/dfS7Bcs6HnR1x+TxsC/Cz2QLYUht2IYxeGjCshk+keArDdZKYlLup5XJ7Str8zMQc2gHlcZSTJJDkKmw5KRFFtw1h+JJ4Rc79MCK4XeUZJv5pxKadRH6PHlNF8d/xsom2ImSLfFQQ0unrDPwT7425GRhrjfUk96kuPkZmtJKG437iyj8YRJ0aKxpW8yrCEOZlDOnAXFnYulfEGuXRVPyRyooUgt1kjhCPS4V95XKRv65MmTJHiWy4YkMf7byi7p9PaG3pMmn/JbyTfeeV12UmfmILLlRnciJbGtm/oCxhRkdIoM4gDjLY+dRTJ+6E1GRZooaX871GVXPxkpWYqPBK5VeghU8UpKCQ3EfCEs54DavxGmxwmrKkb02QOFSTJ2/3fkWGULL58df+4ZN+Cc02flAGL/LlAGJaG7OSIveVg8OQ5+QMHik2OvkAsxgbGdsbBt/UUYTeScmhL1It7yV0Cn1n7dQz1S2K5TmepWnh3d685hhdu6UelI16Hm9W5Pn5xcc15j/DCm80gJPc9mzJU29mMGB9JS6/y0VF6kKvakrrBWgF4+90sv2+kI3ykn3IxQXIWyeC+ey86oRNZo5dgn2BSy6VpfPt5mJ1m6ZpS3FJTjVpTM7TpX73QljlIMnTI5jTU+ADbUb0t+byGMWRGdKUcSXCTyi+W7SLtBRpA4J8j8+cyvYA8mOK+scYH3Tw3unoZqQdaUGUBSLf+Ynm6bPpx3g/pov74uyH+3AoTxRgpfPGKS/HYdyRA65XsksCItBuw4m7VPIrgbNGlwI3OvzyhzBrRS6UuIf7K7YUPW+NTCx5OJql2zDu452bIDsd3bo7ozwekYlhy1wJ/rQuR4/P0QkSd75xPsFMKlGYbHgCkfx+mKy/zF3pHUzzzDQaFTMa4hxlz7x29LtHDV/du1gCPp/uWVLG3CaRoFmuHEZHO1Pbnmyfg7PoSKYQ4mma07QvqpI0ksmOs4ZzXBfA30+KIKoPb/+0X9i7/xihdzzviqk51C4vFPsEltdn8jtoGv6huTg//cefeJzX+/4SOh3rMaINyQIG+cqRFdGu+otXe48KdrbuRXykXE4VxrFgJjSlRjxMsWGc2HxcGS4f41gMb5LN8xPAQXPtdN/5h2QTMK6eXUIkuwN9BuC1/T+JN7kmE9L2/QyyMZMOYejI/eKM33gAL+6qFj8iVwO6YMsOzRdSyQpA/XOCbAKsh1iKO7K0cB1hwZFMYeqhYAfmIZgDLpLfJ1e/gho+lKC8nawEVAfmmaTPCg6wDwpU8flTSWb00ieaHz9TFUD2zz9kFDD43T+NDxTtDvhSnDTf1mJMrb/m/rC7IjlluwkokkluQSFwbhBv9lPR7juHBif12vrYDPw32t1ViPIy1yyibjNo/+Umik5+mPifaWfEIUqJfxHZGTy1nor2YMCy4qQjaosxiy0a+G0U8dgMqJffIcZHbfero6LdHUPpScP6Rwfm3xPHJKk8sJFGtJsAjtrtnm2Gda3bGNs19F84zvV19VzZlh+WbJxXWJqkwaTHadkV9mkLjimLdacb+K+BW8b2SqQnBn7UHvyiPNYjaIydEPtvAmQRXI09X9qlfToTUK+8Hi+JmgD64mOj9mGX8vFanqbOAiFOoUDu59J/A0CfsRUKZOcHagc4WUqOb/o8ff/Ou8f/2xYAdp6PetYMiPmv3ywWPrTGxs6TyVOSasw51p2dDwNeJLQTZyZa0l/xMHugk6nnXbd1FiKw3u8H/HlRaleh5r+EdBc6ZDGQcdz5vJj5BXU+507uYo1Tb+7Mh3mR9z2968cgrH530wZjVypzG843Cc8LnLyxsM24FsvPASxLAiBPIcxE2f0aC+ju3QMzz/pL1819hPT2OobveN2rHHdet2812SALdICwsxswR9hjXUUI9NzFL4AyPUu3D6Hni+Z+hC9aT+31OdP63qLN+QGHeyhXx1lzMRE7tJAACMBJD2D7k2vudD6MPv+V2fH0/8qXmvP+yDG7qBNA5n1rCDSDXWAIrGQkZ5gPa1tOYw6rDTk6NeXQGoBmsKv+SuKLsKKLSeZTHvSs6PnScE0OQDPYBYamXClRU8yZAsf1+khAGJbHrQFoBrs6X4n5v6+iNheuXDo0EECMbbPjhMxiUtJvaBwcmNafHD3va5DUF0di+mb6/+6Nn9cbwFZQQJUHvhVetPGVgJ0e6I00Tb/sftBm8xI2TY/XN2K7QHwTYUoT0J0QtuIlAik1uEUDZTmwDs6TpBAaxsoFjM6kMA2/NuRiALbfsvYSXqdithM2RZ2aCW0ToF+f+C/eTNDmgcgiAXYjRN7+MG6vEvaSfyVFi1w0ZqMx9tdjWCMRhTCMgv16ccuJ36k43UlogVS8jrfRV3cxUvuAno5Ogbh1ErFVYZ8Uf1FA9gkolBIfBOQk1B4lsltYMa5eKmFnY5YAMBDpLdG/EMlY+QfLGmwHZ6gdhDZgLgFuAdirWtFNlFIikDUGr1DAzHrkogGhNJKVRJ37qI3EzD9o8Yu2THSeYOcMrrlYnY3RwHlS7XypdD7kMxQKsOmhz6/RF9j+ztsqVh+X/8fCPZxyUDMAExec3Tj5QJzpqIaRQhGsDTdMrK4X2SkIXYm12mDyah50GGPTTW75mjoNcApmJjcQGgzeNWfGnO8RWEQFyX12G05DBEGoigTiXmXNeUxi115IcAoiyA3EByN2zfdjrtcjClFBUiLRhtMQQRCkNGzOZo3YjSSyRrGXAnFPwJTA/JJsIVz6/AZLbxoQhgmQZYw4ezCXMVzC8CagWmqCjSuAnruxhX+pAEI9xE3SmRBnAJbTcKuqaTYwALgn+iYDQhF+BhQxxAwYm1MZcLGGMhBkajOQosUiIgKBPdRoX7duligssE25Vn4faucGam2o3kZNAVQtCXQysdN5ULna4Zcrlcv9RqU6ZEKN398qlMdG1RDrlfpwdsfF1GvSSCSCWvgaRbmtI4WLiBl7/qKmG6KZo73da2RJl8NBc5iRPDsOKNigSbPuzPEsigQq5lalhkJclN7KDcp0Yr1uRmYW23RZsl+jcn51snmra79auaZ6E1SgTMGXfxbU/3eDnnDQMLBw8AiISMgoqGjoGJhY2Di4ePgEhAKIiElIycgpKAVSCRIsRCi1sNT+aEWKEi1GrDjxEiTSSJIsRSotHT0DozQmZhZWNunsMjg4ubh5ZPLKki2HT648+QoUKlKsRKlNppvhB8s9MtOQedb52mZzXTfNEm+8tcAKs51022vrfeO9dz7YaIefnLFTmXLDKvyi0lk/+8OvfvO7x6qMO+e8Xaq9sshlF11S46nn5qjlV6dBvUYjmrRoXsCPyw7tOnV5YpLJuk3Rq8dhG/TrM2DQMy8cccVue1x1yzV77XPQIafsd8CYWbb50VHfBwrme7nx72XBh+GXGe/AFwAAAA==) format("woff2");
+  font-display: swap;
+}
+:root {
+  --paper: #f6f3ec;
+  --card: #fffdf8;
+  --pen: #1f1d1a;
+  --pencil: #77736b;
+  --rule: #d9d3c6;
+  --yolk: #f2cc1d;
+  --fox: #ee6a1f;
+  --bacon: #c8142c;
+  --gum: #ff4f9a;
+  --grape: #8c1f73;
+  --sky: #8fb7d9;
+  --leaf: #4fae4a;
+  --hand: "Keith Hand", "Architects Daughter", "Chalkboard SE", "Comic Neue", system-ui, sans-serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--pen);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.45;
+}
+.nowrap { white-space: nowrap; }
+.hand { font-family: var(--hand); text-transform: uppercase; letter-spacing: .03em; }
+.swash {
+  background: linear-gradient(180deg, transparent 52%, color-mix(in srgb, var(--c, var(--yolk)) 55%, transparent) 52%, color-mix(in srgb, var(--c, var(--yolk)) 55%, transparent) 88%, transparent 88%);
+  padding: 0 .12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.keith-art { mix-blend-mode: multiply; display: block; max-width: 100%; height: auto; }
+.btn {
+  font: 600 1rem/1 var(--sans);
+  color: var(--card);
+  background: var(--pen);
+  border: 2px solid var(--pen);
+  border-radius: 999px;
+  padding: 14px 26px;
+  cursor: pointer;
+  transition: transform .08s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active { transform: translateY(2px); }
+.btn:focus-visible, .slot:focus-visible { outline: 3px solid var(--yolk); outline-offset: 3px; }
+.btn.ghost { background: var(--card); color: var(--pen); }
+
+/* the card */
+.card {
+  --c: var(--yolk);
+  background: var(--card);
+  border: 2px solid var(--pen);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 1px 0 var(--pen), 0 18px 40px -24px rgba(31, 29, 26, .45);
+  transform: rotate(-.6deg);
+  transition: transform .2s ease-in;
+}
+.card.out { transform: rotate(-.6deg) rotateY(90deg); }
+.card-top { display: flex; justify-content: space-between; align-items: baseline; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--pencil); font-variant-numeric: tabular-nums; }
+.card-name { margin: 0; font-family: var(--hand); text-transform: uppercase; letter-spacing: .03em; font-size: 2rem; line-height: 1.05; font-weight: 400; }
+.art {
+  position: relative;
+  border: 1.5px solid var(--pen);
+  border-radius: 12px;
+  background: #fff;
+  aspect-ratio: 200 / 210;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+.art svg { width: 92%; height: 92%; }
+.art img { width: 78%; height: 92%; object-fit: contain; }
+.art.boing > * { animation: boing .5s ease; }
+@keyframes boing { 30% { transform: scale(1.08, .92); } 60% { transform: scale(.95, 1.06); } }
+.badge {
+  position: absolute; left: 10px; top: 10px;
+  font: 600 .7rem/1 var(--sans); letter-spacing: .12em; text-transform: uppercase;
+  background: var(--yolk); color: var(--pen); border: 1.5px solid var(--pen); border-radius: 999px; padding: 6px 10px;
+}
+.chat { display: flex; flex-direction: column; gap: 8px; min-height: 56px; }
+.line { animation: pop .22s ease-out; max-width: 92%; }
+.line.them { font-family: var(--hand); font-size: 1.3rem; line-height: 1.25; }
+.line.them.punch { font-size: 1.5rem; }
+.line.you { align-self: flex-end; background: #efebe2; border-radius: 14px 14px 4px 14px; padding: 7px 12px; font-size: .95rem; }
+.badum { font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--pencil); }
+@keyframes pop { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+#say { width: 100%; background: var(--card); color: var(--pen); }
+#say.next { background: var(--pen); color: var(--card); }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0; border-top: 1.5px dashed var(--rule); padding-top: 10px; }
+.stats div { display: flex; flex-direction: column; gap: 2px; }
+.stats dt { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--pencil); }
+.stats dd { margin: 0; letter-spacing: .12em; font-size: .95rem; }
+.stats dd b { color: var(--c); font-weight: 400; }
+.stats dd i { color: var(--rule); font-style: normal; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .line { transition: none; animation: none; }
+  .art.boing > * { animation: none; }
+}
+
+html, body { height: 100%; margin: 0; overflow: hidden; overscroll-behavior: none; background: var(--paper); }
+/* Doodle Deck app: phone first, one screen, the card is the hero */
+.dd-app {
+  position: relative;
+  height: 100dvh;
+  max-width: 560px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: calc(env(safe-area-inset-top, 0px) + 10px) max(16px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 18px) max(16px, env(safe-area-inset-left, 0px));
+  overflow: hidden;
+  background:
+    radial-gradient(70% 45% at 50% 52%, color-mix(in srgb, var(--c, #f2cc1d) 16%, transparent), transparent 70%),
+    var(--paper);
+  transition: background .4s ease;
+}
+.dd-head { position: relative; height: 38px; display: flex; justify-content: center; align-items: center; padding: 0 48px; }
+.dd-home { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border: 2px solid var(--pen); border-radius: 12px; background: var(--card); color: var(--pen); display: grid; place-items: center; box-shadow: 0 2px 0 var(--pen); -webkit-tap-highlight-color: transparent; }
+.dd-home:active { transform: translateY(calc(-50% + 2px)); box-shadow: none; }
+.dd-home:focus-visible { outline: 3px solid var(--fox); outline-offset: 3px; }
+.dd-head img { height: 100%; width: auto; max-width: 100%; display: block; }
+
+/* stage + card */
+.dd-stage { container-type: size; min-height: 0; display: grid; place-items: center; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.dd-card {
+  --c: #f2cc1d;
+  position: relative;
+  width: min(100cqw, 100cqh * 0.716);
+  aspect-ratio: 63 / 88;
+  container-type: inline-size;
+  perspective: 1400px;
+}
+.dd-flip { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .42s cubic-bezier(.3, .7, .3, 1); }
+.dd-flip.back { transform: rotateY(180deg); }
+.dd-face {
+  position: absolute; inset: 0;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+  background: var(--card);
+  border: 2px solid var(--pen);
+  border-radius: 5.5cqw;
+  box-shadow: 0 1.2cqw 0 var(--pen), 0 8cqw 14cqw -8cqw rgba(31, 29, 26, .45);
+  padding: 4.4cqw;
+  display: flex; flex-direction: column; gap: 2.3cqw;
+  overflow: hidden;
+}
+.dd-back {
+  transform: rotateY(180deg);
+  align-items: center; justify-content: center; text-align: center; gap: 4cqw;
+  background:
+    repeating-linear-gradient(-32deg, rgba(242, 204, 29, .28) 0 2.2cqw, transparent 2.2cqw 4.6cqw),
+    var(--card);
+}
+.dd-back-logo { width: 66%; height: auto; }
+.dd-hello { margin: 0; max-width: 84%; font-family: var(--hand); font-size: 5.2cqw; line-height: 1.25; background: var(--card); padding: 1cqw 2cqw; border-radius: 2cqw; }
+.dd-hello2 { margin: 0; font: 600 3.4cqw/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--pencil); background: var(--card); padding: 1.4cqw 2cqw; border-radius: 2cqw; }
+
+.dd-top { display: flex; justify-content: space-between; font: 600 3cqw/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--pencil); font-variant-numeric: tabular-nums; }
+.dd-name { font-family: var(--hand); text-transform: uppercase; letter-spacing: .03em; font-size: 9cqw; line-height: 1; white-space: nowrap; }
+.dd-art {
+  position: relative; flex: 1 1 auto; min-height: 0;
+  border: 1.5px solid var(--pen); border-radius: 3.6cqw; background: #fff;
+  display: grid; place-items: center; overflow: hidden; cursor: pointer;
+}
+.dd-art > svg { width: 96%; height: 96%; }
+.dd-art > img { max-width: 70%; max-height: 92%; width: auto; height: auto; mix-blend-mode: multiply; }
+.dd-art.boing > svg, .dd-art.boing > img { animation: ddboing .5s ease; }
+@keyframes ddboing { 30% { transform: scale(1.08, .92); } 60% { transform: scale(.95, 1.06); } }
+.dd-badge { position: absolute; left: 2.6cqw; top: 2.6cqw; font: 650 2.5cqw/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; background: var(--yolk); border: 1.5px solid var(--pen); border-radius: 99px; padding: 1.4cqw 2.2cqw; }
+.dd-new { display: none; position: absolute; right: 2.6cqw; top: 2.6cqw; font-family: var(--hand); text-transform: uppercase; font-size: 4.4cqw; line-height: 1; color: #fff; background: var(--bacon); border: 1.5px solid var(--pen); border-radius: 2cqw; padding: 1.4cqw 2.4cqw; transform: rotate(8deg); }
+.dd-card.is-new .dd-new { display: block; animation: ddstamp .45s cubic-bezier(.3, 1.6, .5, 1) .35s both; }
+.dd-stamp { display: none; position: absolute; right: 3cqw; bottom: 3cqw; font-family: var(--hand); text-transform: uppercase; font-size: 4.2cqw; line-height: 1; background: color-mix(in srgb, var(--c) 30%, #fff); border: 1.5px solid var(--pen); border-radius: 2cqw; padding: 1.4cqw 2.4cqw; transform: rotate(-6deg); }
+.dd-card.punch .dd-stamp { display: block; animation: ddstamp .4s cubic-bezier(.3, 1.6, .5, 1) both; }
+@keyframes ddstamp { from { opacity: 0; transform: scale(1.8) rotate(-6deg); } to { opacity: 1; } }
+
+.dd-joke { height: 22cqw; flex: none; display: flex; flex-direction: column; justify-content: flex-end; gap: 1cqw; }
+.dd-you { margin: 0; min-height: 3.8cqw; font: 500 3.2cqw/1.2 var(--sans); color: var(--pencil); }
+.dd-line { margin: 0; font-family: var(--hand); font-size: 5.8cqw; line-height: 1.16; animation: ddpop .22s ease-out; }
+.dd-line.long { font-size: 5cqw; }
+.dd-line.punch { font-size: 6.4cqw; }
+.dd-line.long.punch { font-size: 5.5cqw; }
+@keyframes ddpop { from { opacity: 0; transform: translateY(1cqw); } to { opacity: 1; transform: none; } }
+.dd-say {
+  flex: none; font-family: var(--hand); font-size: 5.2cqw; line-height: 1; color: var(--pen);
+  background: var(--card); border: 2px solid var(--pen); border-radius: 99px; padding: 3cqw; cursor: pointer;
+  box-shadow: 0 1cqw 0 var(--pen); -webkit-tap-highlight-color: transparent;
+}
+.dd-say:active { transform: translateY(1cqw); box-shadow: none; }
+.dd-say.again { background: color-mix(in srgb, var(--c) 35%, #fff); }
+.dd-stats { flex: none; display: flex; justify-content: space-between; gap: 2cqw; border-top: 1.5px dashed var(--rule); padding-top: 2.2cqw; font: 650 2.4cqw/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--pencil); }
+.dd-stats b { color: var(--c); font-weight: 400; }
+.dd-stats i { color: var(--rule); font-style: normal; }
+
+/* actions under the card */
+.dd-actions { display: grid; grid-template-columns: auto 1fr; gap: 10px; }
+.dd-deckbtn, .dd-deal {
+  height: 58px; border: 2px solid var(--pen); border-radius: 18px; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 4px 0 var(--pen); transition: transform .06s ease;
+}
+.dd-deckbtn:active, .dd-deal:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--pen); }
+.dd-deckbtn { display: flex; align-items: center; gap: 8px; padding: 0 14px; background: var(--card); color: var(--pen); font: 700 1rem/1 var(--sans); font-variant-numeric: tabular-nums; }
+.dd-ring { width: 24px; height: 24px; }
+.dd-deal { background: var(--yolk); color: var(--pen); font-family: var(--hand); text-transform: uppercase; font-size: 1.4rem; letter-spacing: .03em; }
+.dd-app button:focus-visible { outline: 3px solid var(--fox); outline-offset: 3px; }
+
+/* toast */
+.dd-toast {
+  position: absolute; left: 50%; top: calc(env(safe-area-inset-top, 0px) + 56px); z-index: 3;
+  transform: translate(-50%, -12px); opacity: 0; pointer-events: none;
+  background: var(--pen); color: var(--card); border-radius: 99px; padding: 10px 16px;
+  font: 600 .95rem/1.2 var(--sans); white-space: nowrap; max-width: calc(100% - 32px); overflow: hidden; text-overflow: ellipsis;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.dd-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* the deck sheet */
+.dd-sheet {
+  position: absolute; inset: 0; z-index: 4;
+  background: var(--paper);
+  display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; gap: 12px;
+  padding: inherit;
+  transform: translateY(102%); transition: transform .32s cubic-bezier(.3, .7, .3, 1); visibility: hidden;
+}
+.dd-sheet.open { transform: none; visibility: visible; }
+.dd-sheet-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 4px; }
+.dd-sheet h2 { margin: 0; font-family: var(--hand); font-weight: 400; text-transform: uppercase; font-size: 1.9rem; line-height: 1; }
+.dd-sheet .count { font: 700 .95rem/1 var(--sans); color: var(--pencil); font-variant-numeric: tabular-nums; }
+.dd-bar { height: 10px; border: 1.5px solid var(--pen); border-radius: 99px; background: var(--card); overflow: hidden; }
+.dd-bar i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(-35deg, var(--fox) 0 6px, #f48a4d 6px 10px); transition: width .4s ease; }
+.dd-grid { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; align-content: start; padding: 2px 2px 8px; }
+@media (min-width: 480px) { .dd-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.dd-slot {
+  aspect-ratio: 63 / 88; display: flex; flex-direction: column; gap: 2px; padding: 4px 4px 6px; min-width: 0;
+  background: var(--card); border: 1.5px solid var(--pen); border-radius: 10px; cursor: pointer; color: var(--pen); font: inherit;
+  box-shadow: 0 2px 0 var(--pen);
+}
+.dd-slot .pic { flex: 1 1 auto; min-height: 0; display: grid; place-items: center; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: inset 0 -3px 0 color-mix(in srgb, var(--c, #f2cc1d) 55%, transparent); }
+.dd-slot .pic > svg { width: 100%; height: 100%; }
+.dd-slot .pic > img { max-width: 72%; max-height: 90%; width: auto; height: auto; mix-blend-mode: multiply; }
+.dd-slot .nm { font-family: var(--hand); text-transform: uppercase; font-size: .78rem; line-height: 1.1; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dd-slot.missing { cursor: default; background: transparent; border: 1.5px dashed #c9c2b3; box-shadow: none; }
+.dd-slot.missing .pic { background: transparent; box-shadow: none; }
+.dd-slot.missing .pic > * { filter: brightness(0); opacity: .1; }
+.dd-slot.missing .nm { font: 650 .62rem/1.1 var(--sans); letter-spacing: .08em; color: var(--pencil); }
+.dd-sheet-foot { display: flex; flex-direction: column; gap: 10px; }
+.dd-sheet-foot p { margin: 0; text-align: center; font-family: var(--hand); font-size: 1rem; color: var(--pencil); }
+.dd-close { height: 54px; border: 2px solid var(--pen); border-radius: 18px; background: var(--pen); color: var(--card); font: 700 1.05rem/1 var(--sans); cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dd-flip, .dd-sheet, .dd-toast { transition: none; }
+  .dd-line, .dd-card.is-new .dd-new, .dd-card.punch .dd-stamp, .dd-art.boing > * { animation: none; }
+}
+
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="keithPen" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="dd-app" id="app">
+  <header class="dd-head"><a class="dd-home" href="./" aria-label="Back to my apps"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a><img src="assets/brand/doodle-deck-lockup.svg" alt="Doodle Deck"></header>
+  <main class="dd-stage" id="stage" aria-live="polite"></main>
+  <nav class="dd-actions">
+    <button class="dd-deckbtn" id="deckbtn" type="button" aria-label="Open your deck"></button>
+    <button class="dd-deal" id="deal" type="button">Deal a card</button>
+  </nav>
+  <div class="dd-toast" id="toast" role="status"></div>
+  <section class="dd-sheet" id="sheet" aria-label="Your deck" aria-hidden="true">
+    <div class="dd-sheet-head"><h2>Your deck</h2><span class="count" id="count"></span></div>
+    <div class="dd-bar"><i id="bar"></i></div>
+    <div class="dd-grid" id="grid"></div>
+    <div class="dd-sheet-foot">
+      <p>Cards 1 to 3 are my real drawings. The rest are drawn the way I draw.</p>
+      <button class="dd-close" id="close" type="button">Back to dealing</button>
+    </div>
+  </section>
+</div>
+
+<script>
+window.ASSET_BASE = "assets/";
+/* Keith-style creature renderer + the 52-card deck.
+   Style rules (from Keith's drawings): thin black pen outline, marker scribble fill
+   that runs past the lines, tall pencil-gray eyes with white highlight blobs,
+   tiny nose (often with a red tip), usually no mouth, little nub feet and ears. */
+var KEITH = (function () {
+  "use strict";
+  var PEN = "#1f1d1a";
+  var C = {
+    yolk: "#f2cc1d", fox: "#ee6a1f", bacon: "#c8142c", gum: "#ff4f9a", grape: "#8c1f73",
+    sky: "#8fb7d9", leaf: "#4fae4a", toast: "#b9773a", cream: "#f3e2b3", pencil: "#9a9a9a", white: "#ffffff"
+  };
+
+  function rng(seed) {
+    var a = seed * 2654435761 >>> 0;
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      var t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  function f(n) { return Math.round(n * 10) / 10; }
+
+  // closed smooth path through points (Catmull-Rom -> cubic bezier)
+  function smooth(pts) {
+    var n = pts.length, d = "M" + f(pts[0][0]) + " " + f(pts[0][1]);
+    for (var i = 0; i < n; i++) {
+      var p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
+      d += " C" + f(p1[0] + (p2[0] - p0[0]) / 6) + " " + f(p1[1] + (p2[1] - p0[1]) / 6) + " " +
+        f(p2[0] - (p3[0] - p1[0]) / 6) + " " + f(p2[1] - (p3[1] - p1[1]) / 6) + " " + f(p2[0]) + " " + f(p2[1]);
+    }
+    return d + " Z";
+  }
+
+  var SHAPES = {
+    blob:   { rx: 60, ry: 54, cy: 112 },
+    bean:   { rx: 48, ry: 62, cy: 108 },
+    wide:   { rx: 72, ry: 44, cy: 118 },
+    star:   { rx: 64, ry: 64, cy: 108, r: function (t) { return 0.74 + 0.26 * Math.cos(5 * (t + Math.PI / 2)); } },
+    cloud:  { rx: 62, ry: 54, cy: 110, r: function (t) { return 0.88 + 0.12 * Math.abs(Math.cos(4 * t)); } },
+    drop:   { rx: 54, ry: 58, cy: 116, r: function (t) { var s = Math.max(0, -Math.sin(t)); return 1 + 0.45 * Math.pow(s, 6); } },
+    berry:  { rx: 56, ry: 56, cy: 104, r: function (t) { var s = Math.max(0, Math.sin(t)); return 1 + 0.35 * Math.pow(s, 5); } },
+    square: { rx: 58, ry: 56, cy: 110, p: 4.5 },
+    pill:   { rx: 74, ry: 38, cy: 116, p: 2.6 },
+    tall:   { rx: 34, ry: 70, cy: 104, p: 2.8 },
+    tri:    { rx: 66, ry: 66, cy: 98, tri: true }
+  };
+
+  function bodyPoints(shape, R) {
+    var S = SHAPES[shape], pts = [], N = 56;
+    var ph = [R() * 6.28, R() * 6.28, R() * 6.28];
+    for (var i = 0; i < N; i++) {
+      var t = -Math.PI / 2 + i * 2 * Math.PI / N, ct = Math.cos(t), st = Math.sin(t), k;
+      if (S.tri) {
+        // rounded triangle pointing down
+        var a = ((t - Math.PI / 2) % (2 * Math.PI / 3) + 2 * Math.PI / 3) % (2 * Math.PI / 3);
+        k = Math.cos(Math.PI / 3) / Math.cos(a - Math.PI / 3);
+        k = Math.min(k, 0.86);
+      } else if (S.p) {
+        k = 1 / Math.pow(Math.pow(Math.abs(ct), S.p) + Math.pow(Math.abs(st), S.p), 1 / S.p);
+      } else {
+        k = S.r ? S.r(t) : 1;
+      }
+      var wob = 1 + 0.025 * Math.sin(3 * t + ph[0]) + 0.018 * Math.sin(5 * t + ph[1]) + 0.012 * Math.sin(7 * t + ph[2]);
+      var x = 100 + ct * S.rx * k * wob, y = S.cy + st * S.ry * k * wob;
+      if (S.tri) y = S.cy + 8 + st * S.ry * k * wob * 1.05;
+      pts.push([x, y]);
+    }
+    return pts;
+  }
+  function bbox(pts) {
+    var b = { x0: 999, y0: 999, x1: -999, y1: -999 };
+    pts.forEach(function (p) { b.x0 = Math.min(b.x0, p[0]); b.x1 = Math.max(b.x1, p[0]); b.y0 = Math.min(b.y0, p[1]); b.y1 = Math.max(b.y1, p[1]); });
+    b.cx = (b.x0 + b.x1) / 2; b.cy = (b.y0 + b.y1) / 2; b.rx = (b.x1 - b.x0) / 2; b.ry = (b.y1 - b.y0) / 2;
+    return b;
+  }
+
+  // marker scribble: a back-and-forth stroke across the box, at an angle
+  function scribble(b, color, R, opts) {
+    opts = opts || {};
+    var ang = opts.angle != null ? opts.angle : -55 + R() * 30;
+    var D = Math.max(b.rx, b.ry) * 1.5, step = opts.step || 6.5, pts = [], y = -D, side = -1;
+    while (y < D) {
+      pts.push(f(b.cx + side * (D * (0.75 + R() * 0.3))) + "," + f(b.cy + y + (R() - 0.5) * 6));
+      y += step * (0.8 + R() * 0.5); side = -side;
+    }
+    return '<polyline points="' + pts.join(" ") + '" fill="none" stroke="' + color + '" stroke-width="' + (opts.w || 7) +
+      '" stroke-linejoin="round" stroke-linecap="round" opacity="' + (opts.op || 0.88) + '" transform="rotate(' + f(ang) + ' ' + f(b.cx) + ' ' + f(b.cy) + ')"/>';
+  }
+  function scaled(pts, s, b) {
+    return pts.map(function (p) { return [b.cx + (p[0] - b.cx) * s, b.cy + (p[1] - b.cy) * s]; });
+  }
+  // a filled, outlined little part (ear, foot...) with its own scribble
+  function part(shapeSvgFn, color, uid, R, n) {
+    var id = uid + "p" + n;
+    var s = shapeSvgFn();
+    return '<clipPath id="' + id + '">' + s.clip + '</clipPath>' +
+      '<g clip-path="url(#' + id + ')"><rect x="' + (s.b.x0 - 4) + '" y="' + (s.b.y0 - 4) + '" width="' + (s.b.x1 - s.b.x0 + 8) + '" height="' + (s.b.y1 - s.b.y0 + 8) + '" fill="' + color + '" opacity=".35"/>' +
+      scribble(s.b, color, R, { step: 4.5, w: 5 }) + '</g>' + s.line;
+  }
+  function ell(cx, cy, rx, ry, rot) {
+    var tr = rot ? ' transform="rotate(' + rot + ' ' + cx + ' ' + cy + ')"' : "";
+    var attrs = 'cx="' + f(cx) + '" cy="' + f(cy) + '" rx="' + f(rx) + '" ry="' + f(ry) + '"' + tr;
+    var r = Math.max(rx, ry);
+    return { clip: '<ellipse ' + attrs + '/>', line: '<ellipse ' + attrs + ' fill="none" stroke="' + PEN + '" stroke-width="2"/>',
+      b: { x0: cx - r, y0: cy - r, x1: cx + r, y1: cy + r, cx: cx, cy: cy, rx: r, ry: r } };
+  }
+  function poly(pts) {
+    var d = "M" + pts.map(function (p) { return f(p[0]) + " " + f(p[1]); }).join(" L") + " Z";
+    var b = bbox(pts);
+    return { clip: '<path d="' + d + '"/>', line: '<path d="' + d + '" fill="none" stroke="' + PEN + '" stroke-width="2" stroke-linejoin="round"/>', b: b };
+  }
+
+  // the Keith eye: tall pencil-gray oval, darker at the top, white highlight blobs
+  function eye(x, y, o, uid, side) {
+    var s = o.size || 1, tilt = (o.tilt || 0) * (o.mirror ? side : 1);
+    var big = side === 1 && o.odd ? 1.15 : 1;
+    s *= big;
+    var shape, hi;
+    if (o.style === "square") {
+      var w = 38 * s, h = 36 * s;
+      shape = '<rect x="' + f(x - w / 2) + '" y="' + f(y - h / 2) + '" width="' + f(w) + '" height="' + f(h) + '" rx="' + f(14 * s) + '"';
+      hi = '<circle cx="' + f(x - 7 * s) + '" cy="' + f(y + 8 * s) + '" r="' + f(8 * s) + '" fill="#fff"/>' +
+        '<circle cx="' + f(x + 9 * s) + '" cy="' + f(y + 7 * s) + '" r="' + f(6 * s) + '" fill="#fff"/>' +
+        '<ellipse cx="' + f(x - 3 * s) + '" cy="' + f(y - 7 * s) + '" rx="' + f(7 * s) + '" ry="' + f(5 * s) + '" fill="#fff"/>';
+    } else {
+      var rx = (o.style === "tall" ? 11.5 : 14.5) * s, ry = (o.style === "tall" ? 22 : 29) * s;
+      shape = '<ellipse cx="' + f(x) + '" cy="' + f(y) + '" rx="' + f(rx) + '" ry="' + f(ry) + '"';
+      hi = '<ellipse cx="' + f(x) + '" cy="' + f(y + ry * 0.5) + '" rx="' + f(rx * 0.55) + '" ry="' + f(ry * 0.3) + '" fill="#fff"/>' +
+        '<circle cx="' + f(x - rx * 0.15) + '" cy="' + f(y - ry * 0.55) + '" r="' + f(rx * 0.3) + '" fill="#fff"/>';
+    }
+    var tr = tilt ? ' transform="rotate(' + tilt + ' ' + f(x) + ' ' + f(y) + ')"' : "";
+    return '<g' + tr + '>' + shape + ' fill="url(#' + uid + 'pen)"/>' + shape + ' fill="url(#' + uid + 'shade)"/>' + hi +
+      shape + ' fill="none" stroke="' + PEN + '" stroke-width="2"/></g>';
+  }
+  function nose(x, y, kind) {
+    if (kind === "pencil") {
+      return '<path d="M' + f(x - 5) + ' ' + f(y - 3) + ' Q' + f(x) + ' ' + f(y - 6) + ' ' + f(x + 5) + ' ' + f(y - 3) + ' L' + f(x + 1) + ' ' + f(y + 6) + ' Z" fill="#8a8a8a" stroke="' + PEN + '" stroke-width="1.6" stroke-linejoin="round"/>' +
+        '<circle cx="' + f(x + 1) + '" cy="' + f(y + 4) + '" r="2.2" fill="#e0142c"/>';
+    }
+    if (kind === "dot") return '<ellipse cx="' + f(x) + '" cy="' + f(y) + '" rx="5" ry="4.2" fill="#ff4f6e" stroke="' + PEN + '" stroke-width="1.2"/>';
+    if (kind === "snout") return '<ellipse cx="' + f(x) + '" cy="' + f(y + 4) + '" rx="13" ry="9" fill="#ff9cc0" stroke="' + PEN + '" stroke-width="2"/>' +
+      '<ellipse cx="' + f(x - 4) + '" cy="' + f(y + 4) + '" rx="2" ry="3" fill="' + PEN + '"/><ellipse cx="' + f(x + 4) + '" cy="' + f(y + 4) + '" rx="2" ry="3" fill="' + PEN + '"/>';
+    return "";
+  }
+  function mouth(x, y, kind) {
+    if (kind === "tiny") return '<path d="M' + f(x - 5) + ' ' + f(y) + ' q5 5 10 0" fill="none" stroke="' + PEN + '" stroke-width="1.6" stroke-linecap="round"/>';
+    if (kind === "w") return '<path d="M' + f(x - 8) + ' ' + f(y) + ' q4 5 8 0 q4 5 8 0" fill="none" stroke="' + PEN + '" stroke-width="1.6" stroke-linecap="round"/>';
+    if (kind === "o") return '<ellipse cx="' + f(x) + '" cy="' + f(y + 2) + '" rx="3.5" ry="4.5" fill="' + PEN + '"/>';
+    return "";
+  }
+
+  // extras: things drawn behind ("back") or on top ("front") of the body
+  var X = {
+    roundEars: function (b, c, u, R) { return { back: part(function () { return ell(b.cx - b.rx * 0.6, b.y0 + 8, 13, 13); }, c.c2 || c.c, u, R, 1) + part(function () { return ell(b.cx + b.rx * 0.6, b.y0 + 8, 13, 13); }, c.c2 || c.c, u, R, 2) }; },
+    bunnyEars: function (b, c, u, R) {
+      var e = function (sx, n) { return part(function () { return ell(b.cx + sx * b.rx * 0.38, b.y0 - 22, 12, 32, sx * 14); }, c.c2 || c.c, u, R, n) +
+        '<ellipse cx="' + f(b.cx + sx * b.rx * 0.38) + '" cy="' + f(b.y0 - 20) + '" rx="4" ry="20" fill="' + C.gum + '" opacity=".75" transform="rotate(' + sx * 14 + ' ' + f(b.cx + sx * b.rx * 0.38) + ' ' + f(b.y0 - 20) + ')"/>'; };
+      return { back: e(-1, 1) + e(1, 2) };
+    },
+    catEars: function (b, c, u, R) {
+      var t = function (sx, n) { var x = b.cx + sx * b.rx * 0.5; return part(function () { return poly([[x - 16, b.y0 + 16], [x + sx * 6, b.y0 - 22], [x + 16, b.y0 + 16]]); }, c.c2 || c.c, u, R, n); };
+      return { back: t(-1, 1) + t(1, 2) };
+    },
+    antennae: function (b) {
+      var a = function (sx) { var x = b.cx + sx * 14, tx = b.cx + sx * 30; return '<path d="M' + f(x) + ' ' + f(b.y0 + 6) + ' Q' + f(x + sx * 4) + ' ' + f(b.y0 - 16) + ' ' + f(tx) + ' ' + f(b.y0 - 26) + '" fill="none" stroke="' + PEN + '" stroke-width="2"/><circle cx="' + f(tx) + '" cy="' + f(b.y0 - 28) + '" r="5" fill="' + C.yolk + '" stroke="' + PEN + '" stroke-width="2"/>'; };
+      return { back: a(-1) + a(1) };
+    },
+    sprout: function (b, c, u, R) {
+      return { front: '<path d="M' + f(b.cx) + ' ' + f(b.y0 + 4) + ' V' + f(b.y0 - 14) + '" stroke="' + PEN + '" stroke-width="2"/>' +
+        part(function () { return ell(b.cx + 12, b.y0 - 16, 13, 6, -25); }, C.leaf, u, R, 3) };
+    },
+    leafTop: function (b, c, u, R) {
+      return { front: part(function () { return poly([[b.cx - 26, b.y0 + 6], [b.cx - 10, b.y0 - 8], [b.cx, b.y0 + 2], [b.cx + 10, b.y0 - 8], [b.cx + 26, b.y0 + 6], [b.cx, b.y0 + 14]]); }, C.leaf, u, R, 3) +
+        '<path d="M' + f(b.cx) + ' ' + f(b.y0 + 2) + ' V' + f(b.y0 - 14) + '" stroke="' + PEN + '" stroke-width="2.4" stroke-linecap="round"/>' };
+    },
+    horns: function (b, c, u, R) {
+      var h = function (sx, n) { var x = b.cx + sx * b.rx * 0.45; return part(function () { return poly([[x - 7, b.y0 + 10], [x + sx * 4, b.y0 - 14], [x + 7, b.y0 + 10]]); }, C.yolk, u, R, n); };
+      return { back: h(-1, 1) + h(1, 2) };
+    },
+    tufts: function (b) {
+      return { back: '<path d="M' + f(b.cx - 10) + ' ' + f(b.y0 + 4) + ' q-6 -18 -16 -18 M' + f(b.cx) + ' ' + f(b.y0 + 2) + ' q2 -20 10 -24 M' + f(b.cx + 10) + ' ' + f(b.y0 + 4) + ' q10 -12 20 -10" fill="none" stroke="' + PEN + '" stroke-width="2" stroke-linecap="round"/>' };
+    },
+    owlTufts: function (b, c, u, R) {
+      var t = function (sx, n) { var x = b.cx + sx * b.rx * 0.62; return part(function () { return poly([[x - 12, b.y0 + 18], [x + sx * 10, b.y0 - 12], [x + 12, b.y0 + 18]]); }, c.c, u, R, n); };
+      return { back: t(-1, 1) + t(1, 2) };
+    },
+    spikes: function (b, c, u, R) {
+      var pts = [], x0 = b.cx - b.rx * 0.7, x1 = b.cx + b.rx * 0.5, n = 4, w = (x1 - x0) / n;
+      for (var i = 0; i < n; i++) pts.push(part((function (i) { return function () { var x = x0 + i * w; return poly([[x, b.y0 + 16], [x + w / 2, b.y0 - 12 + (i % 2) * 6], [x + w, b.y0 + 16]]); }; })(i), c.c2 || C.leaf, u, R, 10 + i));
+      return { back: pts.join("") };
+    },
+    wings: function (b, c, u, R) {
+      var w = function (sx, n) { return part(function () { return ell(b.cx + sx * (b.rx + 10), b.cy - 6, 18, 10, sx * -25); }, c.c2 || C.sky, u, R, n); };
+      return { back: w(-1, 4) + w(1, 5) };
+    },
+    legs4: function (b, c, u, R) {
+      var s = "";
+      [-0.6, -0.2, 0.2, 0.6].forEach(function (k, i) { s += part(function () { return ell(b.cx + k * b.rx, b.y1 + 6, 9, 16, k * 20); }, c.c, u, R, 20 + i); });
+      return { back: s };
+    },
+    claws: function (b, c, u, R) {
+      var cl = function (sx, n) { var x = b.cx + sx * (b.rx + 8), y = b.cy - 22; return part(function () { return ell(x, y, 13, 13); }, c.c, u, R, n) +
+        '<path d="M' + f(x - 6) + ' ' + f(y - 12) + ' L' + f(x) + ' ' + f(y - 2) + ' L' + f(x + 6) + ' ' + f(y - 12) + '" fill="#fffdf8" stroke="' + PEN + '" stroke-width="2" stroke-linejoin="round"/>'; };
+      return { back: cl(-1, 6) + cl(1, 7) };
+    },
+    fin: function (b, c, u, R) {
+      return { back: part(function () { return poly([[b.x1 - 6, b.cy], [b.x1 + 22, b.cy - 22], [b.x1 + 18, b.cy + 22]]); }, c.c2 || c.c, u, R, 8) };
+    },
+    stick: function (b) { return { back: '<rect x="' + f(b.cx - 4) + '" y="' + f(b.cy) + '" width="8" height="' + f(196 - b.cy) + '" rx="3" fill="#fffdf8" stroke="' + PEN + '" stroke-width="2"/>' }; },
+    cone: function (b, c, u, R) {
+      return { back: part(function () { return poly([[b.cx - 34, b.y1 - 10], [b.cx, 196], [b.cx + 34, b.y1 - 10]]); }, C.toast, u, R, 9) +
+        '<path d="M' + f(b.cx - 20) + ' ' + f(b.y1 + 2) + ' l26 30 M' + f(b.cx + 20) + ' ' + f(b.y1 + 2) + ' l-26 30" stroke="' + PEN + '" stroke-width="1.4" opacity=".5"/>' };
+    },
+    stem: function (b, c, u, R) { return { back: part(function () { return ell(b.cx, b.y1 + 14, 22, 30); }, C.cream, u, R, 9) }; },
+    wrapper: function (b, c, u, R) {
+      return { back: part(function () { return poly([[b.cx - 46, b.cy + 10], [b.cx - 34, 192], [b.cx + 34, 192], [b.cx + 46, b.cy + 10]]); }, c.c2 || C.sky, u, R, 9) +
+        '<path d="M' + f(b.cx - 22) + ' ' + f(b.cy + 14) + ' l4 70 M' + f(b.cx) + ' ' + f(b.cy + 14) + ' v70 M' + f(b.cx + 22) + ' ' + f(b.cy + 14) + ' l-4 70" stroke="' + PEN + '" stroke-width="1.4" opacity=".55"/>' };
+    },
+    tendrils: function (b) {
+      var s = "";
+      [-30, -10, 10, 30].forEach(function (dx) { s += '<path d="M' + f(b.cx + dx) + ' ' + f(b.y1 - 6) + ' q-6 12 0 22 q6 10 0 20" fill="none" stroke="' + PEN + '" stroke-width="2" stroke-linecap="round"/>'; });
+      return { back: s };
+    },
+    eraser: function (b, c, u, R) {
+      return { back: part(function () { return ell(b.cx, b.y0 + 6, b.rx * 0.95, 14); }, C.gum, u, R, 9) +
+        part(function () { return poly([[b.cx - b.rx * 0.8, b.y1 - 10], [b.cx, b.y1 + 26], [b.cx + b.rx * 0.8, b.y1 - 10]]); }, C.cream, u, R, 10) +
+        '<path d="M' + f(b.cx - 6) + ' ' + f(b.y1 + 16) + ' L' + f(b.cx) + ' ' + f(b.y1 + 26) + ' L' + f(b.cx + 6) + ' ' + f(b.y1 + 16) + ' Z" fill="' + PEN + '"/>' };
+    },
+    sweat: function (b) { return { front: '<path d="M' + f(b.x1 + 6) + ' ' + f(b.y0 + 18) + ' q-6 10 0 14 q6 -4 0 -14 Z" fill="' + C.sky + '" stroke="' + PEN + '" stroke-width="1.6"/>' }; },
+    zzz: function (b) { return { front: '<text x="' + f(b.x1 - 6) + '" y="' + f(b.y0 + 6) + '" font-family="Keith Hand, sans-serif" font-size="22" fill="' + PEN + '">z</text><text x="' + f(b.x1 + 8) + '" y="' + f(b.y0 - 10) + '" font-family="Keith Hand, sans-serif" font-size="16" fill="' + PEN + '">z</text>' }; },
+    sparkles: function (b) {
+      var st = function (x, y, k) { return '<path transform="translate(' + f(x) + ' ' + f(y) + ') scale(' + k + ')" d="M0 -9 L2.5 -2.5 L9 0 L2.5 2.5 L0 9 L-2.5 2.5 L-9 0 L-2.5 -2.5 Z" fill="' + C.yolk + '" stroke="' + PEN + '" stroke-width="1.6" stroke-linejoin="round"/>'; };
+      return { front: st(b.x0 - 8, b.y0 + 4, 1) + st(b.x1 + 6, b.y0 + 20, 0.7) };
+    },
+    // toppings (drawn on the body, clipped to it)
+    spots: function (b, c) { return { top: [[-0.4, -0.35, 14], [0.45, 0.25, 11], [-0.1, 0.55, 8], [0.5, -0.5, 7]].map(function (s) { return '<ellipse cx="' + f(b.cx + s[0] * b.rx) + '" cy="' + f(b.cy + s[1] * b.ry) + '" rx="' + s[2] + '" ry="' + f(s[2] * 0.8) + '" fill="' + (c.spot || PEN) + '" opacity=".85"/>'; }).join("") }; },
+    holes: function (b) { return { top: [[-0.35, 0.1, 8], [0.3, -0.25, 6], [0.15, 0.45, 5], [-0.05, -0.55, 4]].map(function (s) { return '<circle cx="' + f(b.cx + s[0] * b.rx) + '" cy="' + f(b.cy + s[1] * b.ry) + '" r="' + s[2] + '" fill="#fffdf8" stroke="' + PEN + '" stroke-width="1.4"/>'; }).join("") }; },
+    pepperoni: function (b) { return { top: [[-0.45, -0.45], [0.42, -0.5], [0.05, 0.35], [-0.1, -0.05]].map(function (s, i) { return i === 3 ? "" : '<circle cx="' + f(b.cx + s[0] * b.rx) + '" cy="' + f(b.cy + s[1] * b.ry + 6) + '" r="8" fill="' + C.bacon + '" stroke="' + PEN + '" stroke-width="1.4"/>'; }).join("") }; },
+    sprinkles: function (b, c, u, R) {
+      var s = "", cols = [C.sky, C.yolk, C.leaf, "#fffdf8", C.grape];
+      for (var i = 0; i < 16; i++) { var x = b.cx + (R() - 0.5) * b.rx * 1.6, y = b.cy + (R() - 0.5) * b.ry * 1.6, a = R() * 180; s += '<rect x="' + f(x) + '" y="' + f(y) + '" width="8" height="3" rx="1.5" fill="' + cols[i % 5] + '" transform="rotate(' + f(a) + ' ' + f(x) + ' ' + f(y) + ')"/>'; }
+      return { top: s };
+    },
+    chips: function (b, c, u, R) {
+      var s = "";
+      for (var i = 0; i < 7; i++) { var x = b.cx + (R() - 0.5) * b.rx * 1.5, y = b.cy + (R() - 0.5) * b.ry * 1.5; s += '<path d="M' + f(x) + ' ' + f(y) + ' l5 -3 l3 5 l-5 3 Z" fill="#5a3416"/>'; }
+      return { top: s };
+    },
+    seeds: function (b, c, u, R) {
+      var s = "";
+      for (var i = 0; i < 12; i++) { var x = b.cx + (R() - 0.5) * b.rx * 1.5, y = b.cy + (R() - 0.3) * b.ry * 1.3; s += '<ellipse cx="' + f(x) + '" cy="' + f(y) + '" rx="2" ry="3" fill="' + C.yolk + '" stroke="' + PEN + '" stroke-width=".8"/>'; }
+      return { top: s };
+    },
+    kernels: function (b) {
+      var s = "";
+      for (var r = -3; r <= 3; r++) for (var k = -1; k <= 1; k++) s += '<ellipse cx="' + f(b.cx + k * 15 + (r % 2 ? 7 : 0)) + '" cy="' + f(b.cy + r * 16) + '" rx="6" ry="7" fill="none" stroke="' + PEN + '" stroke-width="1" opacity=".45"/>';
+      return { top: s };
+    },
+    grid: function (b) {
+      var s = "";
+      for (var k = -2; k <= 2; k++) s += '<path d="M' + f(b.cx + k * 22) + ' ' + f(b.y0) + ' V' + f(b.y1) + ' M' + f(b.x0) + ' ' + f(b.cy + k * 22) + ' H' + f(b.x1) + '" stroke="#8a5a2b" stroke-width="3" opacity=".45"/>';
+      return { top: s };
+    },
+    stripes: function (b, c) {
+      var s = "";
+      for (var k = -3; k <= 3; k++) s += '<rect x="' + f(b.x0) + '" y="' + f(b.cy + k * 24 - 5) + '" width="' + f(b.x1 - b.x0) + '" height="10" fill="' + (c.c2 || "#fffdf8") + '" opacity=".9"/>';
+      return { top: s };
+    },
+    craters: function (b) { return { top: [[-0.4, -0.3, 9], [0.45, 0.35, 12], [0.05, 0.6, 6]].map(function (s) { return '<circle cx="' + f(b.cx + s[0] * b.rx) + '" cy="' + f(b.cy + s[1] * b.ry) + '" r="' + s[2] + '" fill="#7d7d7d" opacity=".35" stroke="' + PEN + '" stroke-width="1" />'; }).join("") }; },
+    bread: function (b, c, u, R) {
+      var pts = [];
+      for (var i = 0; i < 40; i++) { var t = i / 40 * 6.283, ct = Math.cos(t), st = Math.sin(t), k = 1 / Math.pow(Math.pow(Math.abs(ct), 4) + Math.pow(Math.abs(st), 4), 0.25); pts.push([b.cx + ct * b.rx * 0.78 * k, b.cy + 4 + st * b.ry * 0.74 * k]); }
+      return { top: '<path d="' + smooth(pts) + '" fill="' + C.cream + '" stroke="' + PEN + '" stroke-width="1.4" opacity=".95"/>' };
+    },
+    syrup: function (b) { return { top: '<path d="M' + f(b.x0 + 10) + ' ' + f(b.y0 + 4) + ' H' + f(b.x1 - 10) + ' V' + f(b.y0 + 16) + ' q-8 0 -8 14 q0 8 -6 8 q-6 0 -6 -10 V' + f(b.y0 + 18) + ' H' + f(b.cx - 10) + ' q0 22 -8 22 q-8 0 -8 -18 V' + f(b.y0 + 16) + ' H' + f(b.x0 + 10) + ' Z" fill="#a0521d" opacity=".75"/>' }; },
+    layers: function (b) { return { top: '<path d="M' + f(b.x0) + ' ' + f(b.cy + 14) + ' H' + f(b.x1) + ' M' + f(b.x0) + ' ' + f(b.cy + 30) + ' H' + f(b.x1) + '" stroke="' + PEN + '" stroke-width="1.6" opacity=".6"/>' }; },
+    swirl: function (b) { return { top: '<path d="M' + f(b.cx) + ' ' + f(b.cy) + ' m-4 0 a4 4 0 1 1 8 0 a10 10 0 1 1 -20 0 a16 16 0 1 1 32 0 a22 22 0 1 1 -44 0 a28 28 0 1 1 56 0" fill="none" stroke="#fffdf8" stroke-width="5" opacity=".75"/>' }; },
+    belly: function (b) { return { top: '<ellipse cx="' + f(b.cx) + '" cy="' + f(b.cy + b.ry * 0.45) + '" rx="' + f(b.rx * 0.5) + '" ry="' + f(b.ry * 0.32) + '" fill="#fffdf8" opacity=".85" stroke="' + PEN + '" stroke-width="1.4"/>' }; },
+    wavyBottom: function () { return {}; }
+  };
+
+  function draw(cr, size) {
+    var R = rng(cr.n * 97 + 13), u = "k" + cr.n + "_" + (size || 0) + "_";
+    var pts = bodyPoints(cr.shape, R), b = bbox(pts), d = smooth(pts);
+    var colors = { c: C[cr.color] || cr.color, c2: cr.color2 ? (C[cr.color2] || cr.color2) : null, spot: cr.spot ? (C[cr.spot] || cr.spot) : null };
+    var back = "", front = "", top = "";
+    (cr.extras || []).forEach(function (name) {
+      var r = X[name] ? X[name](b, colors, u, R) : {};
+      back += r.back || ""; front += r.front || ""; top += r.top || "";
+    });
+    var feet = "";
+    if (cr.feet !== false) {
+      var fc = cr.feetColor ? (C[cr.feetColor] || cr.feetColor) : colors.c;
+      feet = part(function () { return ell(b.cx - b.rx * 0.38, b.y1 - 2, 13, 9); }, fc, u, R, 30) + part(function () { return ell(b.cx + b.rx * 0.38, b.y1 - 2, 13, 9); }, fc, u, R, 31);
+    }
+    var clipPts = scaled(pts, 1.06, b);
+    var defs = '<defs>' +
+      '<pattern id="' + u + 'pen" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(' + (30 + cr.n * 7 % 40) + ')"><rect width="4" height="4" fill="#a8a8a8"/><path d="M0 2 H4" stroke="#5a5a5a" stroke-width="1.1"/></pattern>' +
+      '<linearGradient id="' + u + 'shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#222" stop-opacity=".6"/><stop offset=".7" stop-color="#222" stop-opacity="0"/></linearGradient>' +
+      '<clipPath id="' + u + 'body"><path d="' + smooth(clipPts) + '"/></clipPath>' +
+      '<clipPath id="' + u + 'in"><path d="' + d + '"/></clipPath>' +
+      '</defs>';
+    var e = cr.eyes || {};
+    var ey = b.cy - b.ry * 0.1 + (e.dy || 0), gap = Math.min(b.rx * 0.42, 30) * (e.gap || 1);
+    var faceSvg = eye(b.cx - gap, ey, e, u, -1) + eye(b.cx + gap, ey, e, u, 1);
+    var ny = ey + (e.style === "square" ? 26 : e.style === "tall" ? 25 : 32) * (e.size || 1);
+    faceSvg += nose(b.cx + (e.noseDx || 0), ny, cr.nose == null ? "pencil" : cr.nose);
+    faceSvg += mouth(b.cx, ny + (cr.nose === "snout" ? 20 : 11), cr.mouth);
+    if (cr.blush) faceSvg += '<ellipse cx="' + f(b.cx - gap - 16) + '" cy="' + f(ny + 2) + '" rx="7" ry="4" fill="' + C.gum + '" opacity=".55"/><ellipse cx="' + f(b.cx + gap + 16) + '" cy="' + f(ny + 2) + '" rx="7" ry="4" fill="' + C.gum + '" opacity=".55"/>';
+    var body = '<g clip-path="url(#' + u + 'body)"><path d="' + d + '" fill="' + colors.c + '" opacity=".28"/>' + scribble(b, colors.c, R, { w: 6.5 }) + scribble(b, colors.c, R, { op: 0.55, step: 10, w: 5, angle: 20 + R() * 40 }) + scribble(b, colors.c, R, { op: 0.4, step: 14, w: 4, angle: 75 + R() * 30 }) + '</g>' +
+      (top ? '<g clip-path="url(#' + u + 'in)">' + top + '</g>' : "") +
+      '<path d="' + d + '" fill="none" stroke="' + PEN + '" stroke-width="2.2" stroke-linejoin="round"/>';
+    return '<svg viewBox="0 0 200 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drawing of ' + cr.name + '">' + defs +
+      '<g filter="url(#keithPen)">' + back + feet + body + faceSvg + front + '</g></svg>';
+  }
+
+  function kk(who, punch) { return ["Knock knock!", "Who's there?", who + ".", who + " who?", punch]; }
+  function dj(q, a) { return [q, null, a]; }
+
+  // n, name, kind, shape, color, extras, eyes, joke
+  var DECK = [
+    { n: 1, name: "Bacon", kind: "Breakfast", keith: "keith-bacon.webp", joke: dj("Why did the bacon laugh?", "Because the egg cracked a yolk!") },
+    { n: 2, name: "Egg", kind: "Breakfast", keith: "keith-egg.webp", joke: dj("Why don't eggs tell jokes?", "They'd crack each other up!") },
+    { n: 3, name: "Sunbun", kind: "Critter", keith: "keith-sunny.webp", joke: dj("Why are bunnies so lucky?", "They have four rabbit's feet!") },
+    { n: 4, name: "Toasty", kind: "Breakfast", shape: "square", color: "toast", extras: ["bread"], eyes: { style: "almond", tilt: -12, size: 0.85 }, joke: kk("Butter", "Butter let me in, it's cold out here!") },
+    { n: 5, name: "Flapjack", kind: "Breakfast", shape: "wide", color: "#e3a04a", extras: ["syrup", "layers"], eyes: { style: "tall", dy: -6 }, nose: "dot", joke: dj("Why did the pancake get a job?", "It wanted to make some dough!") },
+    { n: 6, name: "Waffo", kind: "Breakfast", shape: "square", color: "#e0a94e", extras: ["grid"], eyes: { style: "square", size: 0.8 }, joke: dj("Why do waffles love tic-tac-toe?", "They already have the board!") },
+    { n: 7, name: "Oranj", kind: "Breakfast", shape: "blob", color: "fox", extras: ["leafTop"], eyes: { style: "almond", tilt: 15, mirror: true }, joke: { lines: ["Knock knock!", "Who's there?", "Banana.", "Banana who?", "Knock knock!", "Who's there?", "Banana.", "Banana who?", "Knock knock!", "Who's there?", "Orange.", "Orange who?", "Orange you glad I didn't say banana?"] } },
+    { n: 8, name: "Muffy", kind: "Breakfast", shape: "cloud", color: "toast", extras: ["wrapper", "chips"], color2: "sky", feet: false, eyes: { style: "tall" }, joke: kk("Muffin", "Muffin to worry about, it's just me!") },
+    { n: 9, name: "Cheddy", kind: "Snack", shape: "tri", color: "yolk", extras: ["holes"], eyes: { style: "almond", size: 0.75, tilt: -10, dy: -10 }, feet: false, joke: dj("What do you call cheese that isn't yours?", "Nacho cheese!") },
+    { n: 10, name: "Dill", kind: "Snack", shape: "tall", color: "leaf", extras: ["tufts"], eyes: { style: "tall", size: 0.9, gap: 1.2 }, joke: dj("Why did the pickle go to the doctor?", "It felt a little dill!") },
+    { n: 11, name: "Popsy", kind: "Snack", shape: "cloud", color: "#f7e08a", eyes: { style: "square", size: 0.85 }, nose: "dot", joke: dj("What kind of music does popcorn like?", "Pop music!") },
+    { n: 12, name: "Dippy", kind: "Snack", shape: "tri", color: "#e8a93a", eyes: { style: "almond", size: 0.75, dy: -10 }, feet: false, mouth: "o", joke: dj("Why did the chip start dancing?", "Somebody put on the salsa!") },
+    { n: 13, name: "Pizzo", kind: "Snack", shape: "tri", color: "fox", color2: "yolk", extras: ["pepperoni"], eyes: { style: "tall", dy: -12 }, feet: false, joke: dj("Want to hear a pizza joke?", "Never mind, it's way too cheesy!") },
+    { n: 14, name: "Sprinkles", kind: "Sweets", shape: "blob", color: "gum", extras: ["sprinkles"], eyes: { style: "almond", tilt: -15 }, joke: dj("Why did the doughnut go to the dentist?", "It needed a filling!") },
+    { n: 15, name: "Cuppy", kind: "Sweets", shape: "cloud", color: "gum", color2: "yolk", extras: ["wrapper", "sprinkles"], feet: false, eyes: { style: "square", size: 0.8 }, joke: dj("What did the cupcake say to the frosting?", "I'd be muffin without you!") },
+    { n: 16, name: "Gummo", kind: "Sweets", shape: "bean", color: "bacon", extras: ["roundEars", "belly"], eyes: { style: "tall" }, nose: "dot", joke: dj("What do you call a bear with no teeth?", "A gummy bear!") },
+    { n: 17, name: "Lolly", kind: "Sweets", shape: "blob", color: "grape", extras: ["stick", "swirl"], feet: false, eyes: { style: "almond", size: 0.9 }, joke: kk("Candy", "Candy you open the door already?") },
+    { n: 18, name: "Scoop", kind: "Sweets", shape: "cloud", color: "gum", extras: ["cone"], feet: false, eyes: { style: "tall" }, blush: true, joke: kk("Ice cream", "Ice cream if you don't let me in!") },
+    { n: 19, name: "Wobbles", kind: "Sweets", shape: "square", color: "leaf", extras: ["sweat"], eyes: { style: "almond", tilt: 10, mirror: true }, nose: "dot", joke: dj("Why did the jelly wobble?", "Because it saw the milkshake!") },
+    { n: 20, name: "Chip", kind: "Sweets", shape: "blob", color: "toast", extras: ["chips"], eyes: { style: "square", size: 0.85 }, joke: dj("Why did the cookie go to the doctor?", "It was feeling crummy!") },
+    { n: 21, name: "Sprout", kind: "Garden", shape: "drop", color: "leaf", extras: ["sprout"], eyes: { style: "almond", size: 0.9, tilt: -18 }, joke: kk("Lettuce", "Lettuce in, it's cold out here!") },
+    { n: 22, name: "Broc", kind: "Garden", shape: "cloud", color: "leaf", extras: ["stem"], feet: false, eyes: { style: "tall" }, nose: "dot", joke: kk("Broccoli", "Broccoli doesn't have a last name, silly!") },
+    { n: 23, name: "Shroom", kind: "Garden", shape: "wide", color: "bacon", extras: ["stem", "spots"], spot: "#fffdf8", feet: false, eyes: { style: "almond", size: 0.75 }, joke: dj("Why does the mushroom get invited to every party?", "It's a fun-gi!") },
+    { n: 24, name: "Peasy", kind: "Garden", shape: "pill", color: "leaf", eyes: { style: "tall", size: 0.9, gap: 1.3 }, joke: kk("Peas", "Peas let me in, I'm cold!") },
+    { n: 25, name: "Berry", kind: "Garden", shape: "berry", color: "bacon", extras: ["leafTop", "seeds"], feet: false, eyes: { style: "almond", size: 0.85, tilt: 12, mirror: true }, joke: dj("What did the strawberry say when it got stuck?", "Help, I'm in a jam!") },
+    { n: 26, name: "Corny", kind: "Garden", shape: "tall", color: "yolk", extras: ["kernels", "leafTop"], eyes: { style: "tall", size: 0.85, gap: 1.2 }, joke: dj("Why did the corn get so grumpy?", "Everyone kept pulling its ears!") },
+    { n: 27, name: "Tater", kind: "Garden", shape: "bean", color: "#a87a4a", extras: ["craters"], eyes: { style: "almond", tilt: -10 }, mouth: "tiny", joke: dj("What do you call a lazy kangaroo?", "A pouch potato!") },
+    { n: 28, name: "Snoot", kind: "Critter", shape: "blob", color: "toast", extras: ["roundEars"], color2: "#7a4a22", eyes: { style: "square", size: 0.9 }, nose: "dot", mouth: "w", joke: dj("What do you call a dog that does magic tricks?", "A labracadabrador!") },
+    { n: 29, name: "Moo-ble", kind: "Critter", shape: "blob", color: "#ffffff", extras: ["horns", "spots"], spot: PEN, eyes: { style: "tall" }, nose: "snout", joke: { lines: ["Knock knock!", "Who's there?", "Interrupting cow.", "Interrupting cow wh-", "MOOOOOO!"] } },
+    { n: 30, name: "Hopper", kind: "Critter", shape: "wide", color: "leaf", extras: ["belly"], eyes: { style: "square", size: 0.9, dy: -14, gap: 1.3 }, nose: "none", mouth: "w", joke: dj("Why are frogs always so happy?", "They eat whatever bugs them!") },
+    { n: 31, name: "Oinky", kind: "Critter", shape: "blob", color: "#ff9cc0", extras: ["catEars"], eyes: { style: "tall", dy: -6 }, nose: "snout", joke: dj("What do you call a pig that does karate?", "A pork chop!") },
+    { n: 32, name: "Hopsy", kind: "Critter", shape: "bean", color: "#ffffff", extras: ["bunnyEars"], eyes: { style: "almond", tilt: -15 }, nose: "dot", mouth: "tiny", blush: true, joke: dj("What do you call a bunny who tells jokes?", "A funny bunny!") },
+    { n: 33, name: "Kitto", kind: "Critter", shape: "blob", color: "grape", extras: ["catEars"], eyes: { style: "almond", tilt: 20, mirror: true }, nose: "dot", mouth: "w", joke: dj("Why don't cats play cards?", "There's always a cheetah!") },
+    { n: 34, name: "Owly", kind: "Critter", shape: "bean", color: "toast", extras: ["owlTufts", "belly"], eyes: { style: "square", size: 1.05 }, nose: "pencil", joke: { lines: ["Knock knock!", "Who's there?", "Who.", "Who who?", "Is there an owl in here?"] } },
+    { n: 35, name: "Inky", kind: "Critter", shape: "drop", color: "grape", extras: ["legs4"], feet: false, eyes: { style: "tall", size: 1.1 }, joke: dj("How do you make an octopus laugh?", "With ten-tickles!") },
+    { n: 36, name: "Bubbles", kind: "Sea", shape: "pill", color: "sky", extras: ["fin"], color2: "fox", feet: false, eyes: { style: "almond", size: 0.8, noseDx: 0 }, joke: dj("What do you call a fish with no eyes?", "A fsh!") },
+    { n: 37, name: "Stompy", kind: "Critter", shape: "blob", color: "leaf", extras: ["spikes", "belly"], color2: "yolk", eyes: { style: "almond", tilt: -10 }, mouth: "o", joke: dj("What do you call a sleeping dinosaur?", "A dino-snore!") },
+    { n: 38, name: "Wordasaur", kind: "Critter", shape: "bean", color: "grape", extras: ["spikes"], color2: "gum", eyes: { style: "tall" }, nose: "dot", joke: dj("What do you call a dinosaur that knows lots of words?", "A thesaurus!") },
+    { n: 39, name: "Cloudy", kind: "Sky", shape: "cloud", color: "sky", extras: ["zzz"], eyes: { style: "almond", size: 0.9 }, blush: true, joke: dj("What does a cloud wear under its raincoat?", "Thunderwear!") },
+    { n: 40, name: "Twinkle", kind: "Sky", shape: "star", color: "yolk", extras: ["sparkles"], feet: false, eyes: { style: "tall", size: 0.85 }, joke: dj("Why did the star get good grades?", "Because it was super bright!") },
+    { n: 41, name: "Moonie", kind: "Sky", shape: "blob", color: "#d7d7d7", extras: ["craters"], feet: false, eyes: { style: "almond", tilt: 12, mirror: true, size: 0.9 }, joke: dj("How does the moon get a haircut?", "Eclipse it!") },
+    { n: 42, name: "Drizzle", kind: "Sky", shape: "drop", color: "sky", eyes: { style: "square", size: 0.85 }, nose: "dot", joke: dj("What did one raindrop say to the other?", "Two's company, three's a cloud!") },
+    { n: 43, name: "Wavey", kind: "Sea", shape: "wide", color: "#3e8fd0", extras: ["tufts"], feet: false, eyes: { style: "tall", gap: 1.2 }, joke: dj("What did the ocean say to the beach?", "Nothing. It just waved!") },
+    { n: 44, name: "Crabby", kind: "Sea", shape: "wide", color: "bacon", extras: ["claws", "legs4"], feet: false, eyes: { style: "tall", dy: -6 }, mouth: "w", joke: dj("Why don't crabs share their snacks?", "Because they're shellfish!") },
+    { n: 45, name: "Jelly", kind: "Sea", shape: "drop", color: "gum", extras: ["tendrils"], feet: false, eyes: { style: "almond", size: 0.85 }, blush: true, joke: kk("Water", "Water you doing in my house?") },
+    { n: 46, name: "Socky", kind: "Silly", shape: "tall", color: "sky", extras: ["stripes"], color2: "#fffdf8", eyes: { style: "almond", size: 0.75, tilt: -10, dy: -14 }, joke: dj("Why was the sock so sad?", "Its twin got lost in the dryer!") },
+    { n: 47, name: "Blocky", kind: "Silly", shape: "square", color: "bacon", eyes: { style: "square", size: 0.95 }, nose: "pencil", joke: dj("Why are building blocks such good friends?", "They always stick together!") },
+    { n: 48, name: "Scribbles", kind: "Silly", shape: "tall", color: "yolk", extras: ["eraser"], feet: false, eyes: { style: "tall", size: 0.85, gap: 1.1 }, joke: dj("What do you call a pencil with no point?", "Pointless!") },
+    { n: 49, name: "Stuffy", kind: "Silly", shape: "blob", color: "#c99a6b", extras: ["roundEars", "belly"], color2: "#c99a6b", eyes: { style: "almond", odd: true }, nose: "dot", mouth: "tiny", joke: dj("Why did the teddy bear say no to dessert?", "It was already stuffed!") },
+    { n: 50, name: "Boo", kind: "Silly", shape: "drop", color: "#ffffff", extras: ["wings"], feet: false, eyes: { style: "tall", size: 1.1 }, mouth: "o", joke: kk("Boo", "Don't cry, it's only a joke!") },
+    { n: 51, name: "Achoo", kind: "Silly", shape: "blob", color: "#bfe3a0", extras: ["antennae", "sweat"], eyes: { style: "almond", tilt: -25 }, nose: "dot", joke: kk("Atch", "Bless you!") },
+    { n: 52, name: "Libby", kind: "Silly", shape: "square", color: "grape", extras: ["wings"], color2: "gum", eyes: { style: "square", size: 0.85 }, joke: dj("What building has the most stories?", "The library!") }
+  ];
+
+  var ASKS = ["I don't know, what?", "Tell me!", "I give up!", "Hmm... what?"];
+  DECK.forEach(function (c, i) {
+    if (Array.isArray(c.joke)) {
+      var L = c.joke.slice();
+      if (L[1] === null) L[1] = ASKS[i % ASKS.length];
+      c.lines = L;
+      c.knock = L[0] === "Knock knock!";
+    } else { c.lines = c.joke.lines; c.knock = true; }
+    var R = rng(c.n * 31 + 7);
+    c.stats = [1 + Math.floor(R() * 5), 1 + Math.floor(R() * 5), 1 + Math.floor(R() * 5)];
+  });
+
+  var colors = {};
+  DECK.forEach(function (c) { if (c.color) colors[c.n] = C[c.color] || c.color; });
+  colors[1] = C.bacon; colors[2] = C.yolk; colors[3] = C.fox;
+
+  return { deck: DECK, draw: draw, colors: colors, palette: C, eye: eye, PEN: PEN };
+})();
+
+/* Doodle Deck card markup, shared by the app and the brand guide. Needs KEITH and window.ASSET_BASE. */
+var DD = (function () {
+  "use strict";
+  var A = function () { return window.ASSET_BASE || "assets/"; };
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function color(c) { return KEITH.colors[c.n] || "#f2cc1d"; }
+  function art(c, size) {
+    if (c.keith) return '<img src="' + A() + c.keith + '" alt="My drawing of ' + esc(c.name) + '">';
+    return KEITH.draw(c, size || 0);
+  }
+  function dots(n) { var s = ""; for (var i = 0; i < 5; i++) s += i < n ? "<b>&#9679;</b>" : "<i>&#9679;</i>"; return s; }
+  function stats(c) {
+    var names = ["Groan", "Giggle", "Squish"];
+    return '<div class="dd-stats">' + c.stats.map(function (v, i) { return '<span aria-label="' + names[i] + ' ' + v + ' out of 5">' + names[i] + ' ' + dots(v) + '</span>'; }).join("") + '</div>';
+  }
+  function front(c, size) {
+    return '<div class="dd-top"><span>No. ' + pad(c.n) + '</span><span>' + esc(c.kind) + '</span></div>' +
+      '<div class="dd-name"><span class="swash">' + esc(c.name) + '</span></div>' +
+      '<div class="dd-art" data-art>' + art(c, size) +
+      (c.keith ? '<span class="dd-badge">My real drawing</span>' : '') +
+      '<span class="dd-new">New!</span><span class="dd-stamp">ba-dum-tss!</span></div>' +
+      '<div class="dd-joke"><p class="dd-you"></p><p class="dd-line"></p></div>' +
+      '<button class="dd-say" type="button"></button>' + stats(c);
+  }
+  function back() {
+    return '<img class="dd-back-logo" src="' + A() + 'brand/doodle-deck-logo.svg" alt="Doodle Deck">' +
+      '<p class="dd-hello">Hi, I\'m Keith! These are 52 creatures, drawn the way I draw. Every one tells a joke.</p>' +
+      '<p class="dd-hello2">Deal a card to catch one.</p>';
+  }
+  function card(c, size, showBack) {
+    return '<div class="dd-card"' + (c ? ' style="--c:' + color(c) + '"' : '') + '><div class="dd-flip' + (showBack ? ' back' : '') + '">' +
+      '<div class="dd-face dd-front">' + (c ? front(c, size) : '') + '</div><div class="dd-face dd-back">' + back() + '</div></div></div>';
+  }
+  // fill the joke area for a given step (them-lines sit at even indexes)
+  function joke(root, c, step) {
+    var L = c.lines, end = step >= L.length - 1;
+    var you = root.querySelector(".dd-you"), line = root.querySelector(".dd-line"), say = root.querySelector(".dd-say");
+    you.textContent = step > 0 ? "You: " + L[step - 1] : "";
+    line.textContent = L[step];
+    line.className = "dd-line" + (L[step].length > 40 ? " long" : "") + (end && step > 0 ? " punch" : "");
+    say.textContent = end ? "Tell it again" : L[step + 1];
+    say.classList.toggle("again", end);
+    return end;
+  }
+  function slot(c, got, size) {
+    return got
+      ? '<button type="button" class="dd-slot" data-n="' + c.n + '" style="--c:' + color(c) + '" aria-label="Show ' + esc(c.name) + '"><span class="pic">' + art(c, size) + '</span><span class="nm">' + esc(c.name) + '</span></button>'
+      : '<span class="dd-slot missing" aria-label="Card ' + c.n + ', not caught yet"><span class="pic">' + art(c, size) + '</span><span class="nm">No. ' + pad(c.n) + '</span></span>';
+  }
+  function ring(n) {
+    var r = 9, C = 2 * Math.PI * r, p = n / 52;
+    return '<svg class="dd-ring" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="' + r + '" fill="none" stroke="#d9d3c6" stroke-width="4"/>' +
+      '<circle cx="12" cy="12" r="' + r + '" fill="none" stroke="#ee6a1f" stroke-width="4" stroke-linecap="round" stroke-dasharray="' + (C * p).toFixed(1) + ' ' + C.toFixed(1) + '" transform="rotate(-90 12 12)"/></svg>';
+  }
+  return { esc: esc, pad: pad, color: color, art: art, front: front, back: back, card: card, joke: joke, slot: slot, ring: ring };
+})();
+
+(function () {
+  "use strict";
+  var DECK = KEITH.deck, KEY = "doodle-deck-v1";
+  var $ = function (id) { return document.getElementById(id); };
+  var app = $("app"), stage = $("stage"), sheet = $("sheet"), toastEl = $("toast");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function load() {
+    var a = [];
+    try { a = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) {}
+    if (!Array.isArray(a)) { // carry over cards found on the earlier version
+      try { a = JSON.parse(localStorage.getItem("giggle-deck-v2") || "[]"); } catch (e) { a = []; }
+      if (!Array.isArray(a)) a = [];
+    }
+    return a.filter(function (n) { return typeof n === "number" && n >= 1 && n <= 52; });
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(caught)); } catch (e) {} }
+  var caught = load(), cur = null, step = 0, last = -1, busy = false;
+
+  stage.innerHTML = DD.card(null, 1, true);
+  var card = stage.querySelector(".dd-card"), flip = card.querySelector(".dd-flip"), front = card.querySelector(".dd-front");
+
+  function byN(n) { return DECK[n - 1].n === n ? DECK[n - 1] : DECK.filter(function (c) { return c.n === n; })[0]; }
+
+  function show(c, isNew) {
+    cur = c; step = 0; last = c.n;
+    front.innerHTML = DD.front(c, 1);
+    card.style.setProperty("--c", DD.color(c));
+    app.style.setProperty("--c", DD.color(c));
+    card.classList.toggle("is-new", !!isNew);
+    card.classList.remove("punch");
+    DD.joke(front, c, 0);
+  }
+  function advance() {
+    if (!cur) return;
+    var L = cur.lines;
+    if (step >= L.length - 1) { step = 0; card.classList.remove("punch"); }
+    else step += 2;
+    var end = DD.joke(front, cur, step);
+    if (end && step > 0 && !cur.knock) card.classList.add("punch");
+  }
+  front.addEventListener("click", function (e) {
+    if (e.target.closest(".dd-say")) { advance(); return; }
+    var art = e.target.closest("[data-art]");
+    if (art) { art.classList.remove("boing"); void art.offsetWidth; art.classList.add("boing"); }
+  });
+
+  function flipTo(c, isNew) {
+    if (reduce) { show(c, isNew); flip.classList.remove("back"); return; }
+    busy = true;
+    var wasBack = flip.classList.contains("back");
+    if (!wasBack) flip.classList.add("back");
+    setTimeout(function () {
+      show(c, isNew);
+      requestAnimationFrame(function () { flip.classList.remove("back"); setTimeout(function () { busy = false; }, 420); });
+    }, wasBack ? 30 : 420);
+  }
+
+  function pick() {
+    var missing = DECK.filter(function (c) { return caught.indexOf(c.n) < 0 && c.n !== last; });
+    if (missing.length && (Math.random() < 0.7 || caught.length < 3)) return missing[Math.floor(Math.random() * missing.length)];
+    var c; do { c = DECK[Math.floor(Math.random() * DECK.length)]; } while (c.n === last);
+    return c;
+  }
+  var toastTimer;
+  function toast(msg, ms) {
+    toastEl.textContent = msg; toastEl.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { toastEl.classList.remove("show"); }, ms || 1900);
+  }
+  function deal() {
+    if (busy) return;
+    var c = pick(), isNew = caught.indexOf(c.n) < 0;
+    if (isNew) { caught.push(c.n); save(); }
+    flipTo(c, isNew);
+    counts();
+    setTimeout(function () {
+      if (isNew && caught.length === 52) toast("You caught all 52! You're officially in my club.", 3200);
+      else if (isNew && caught.length === 2) toast("Tip: swipe the card to flip through your deck", 3000);
+      else if (isNew) toast("You caught " + c.name + "! " + caught.length + " of 52");
+      else toast(c.name + " is already in your deck");
+    }, reduce ? 0 : 500);
+    $("deal").textContent = "Deal a card";
+  }
+  $("deal").addEventListener("click", deal);
+
+  // swipe left and right through the cards you've caught
+  function browse(dir) {
+    if (busy || caught.length < 1) return;
+    var list = caught.slice().sort(function (a, b) { return a - b; });
+    var i = cur ? list.indexOf(cur.n) : -1;
+    var n = list[(i + dir + list.length) % list.length];
+    if (i < 0) n = list[dir > 0 ? 0 : list.length - 1];
+    var c = byN(n);
+    if (reduce || !card.animate) { show(c, false); flip.classList.remove("back"); return; }
+    busy = true;
+    card.animate([{ transform: "none", opacity: 1 }, { transform: "translateX(" + (-dir * 60) + "px) rotate(" + (-dir * 4) + "deg)", opacity: 0 }], { duration: 150, easing: "ease-in" }).onfinish = function () {
+      show(c, false); flip.classList.remove("back");
+      card.animate([{ transform: "translateX(" + (dir * 60) + "px) rotate(" + (dir * 4) + "deg)", opacity: 0 }, { transform: "none", opacity: 1 }], { duration: 180, easing: "ease-out" }).onfinish = function () { busy = false; };
+    };
+  }
+  var sx = null, sy = 0;
+  stage.addEventListener("pointerdown", function (e) { sx = e.clientX; sy = e.clientY; });
+  stage.addEventListener("pointerup", function (e) {
+    if (sx === null) return;
+    var dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.3) browse(dx < 0 ? 1 : -1);
+  });
+  stage.addEventListener("pointercancel", function () { sx = null; });
+  document.addEventListener("keydown", function (e) {
+    if (sheet.classList.contains("open")) { if (e.key === "Escape") closeDeck(); return; }
+    if (e.key === "ArrowRight") browse(1);
+    else if (e.key === "ArrowLeft") browse(-1);
+  });
+
+  // the deck sheet
+  function counts() {
+    $("deckbtn").innerHTML = DD.ring(caught.length) + '<span>' + caught.length + '/52</span>';
+    $("count").textContent = caught.length + " of 52 caught";
+    $("bar").style.width = (caught.length / 52 * 100) + "%";
+  }
+  function openDeck() {
+    $("grid").innerHTML = DECK.map(function (c) { return DD.slot(c, caught.indexOf(c.n) >= 0, 2); }).join("");
+    sheet.classList.add("open"); sheet.setAttribute("aria-hidden", "false");
+    $("close").focus({ preventScroll: true });
+  }
+  function closeDeck() { sheet.classList.remove("open"); sheet.setAttribute("aria-hidden", "true"); $("deckbtn").focus({ preventScroll: true }); }
+  $("deckbtn").addEventListener("click", openDeck);
+  $("close").addEventListener("click", closeDeck);
+  $("grid").addEventListener("click", function (e) {
+    var b = e.target.closest("button.dd-slot");
+    if (!b) return;
+    var c = byN(+b.dataset.n);
+    closeDeck();
+    if (c) { show(c, false); flip.classList.remove("back"); }
+  });
+
+  counts();
+  if (caught.length) $("deal").textContent = "Deal a card";
+  else $("deal").textContent = "Deal my first card";
+})();
+
+</script>
+</body>
+</html>
