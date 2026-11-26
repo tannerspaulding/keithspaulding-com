@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffd23f">
 <title>Keith's Apps</title>
-<meta name="description" content="Keith's apps: Doodle Deck joke cards and Pixelry pixel art.">
+<meta name="description" content="Keith's apps: Doodle Deck joke cards, Pixelry pixel art and Bloop beats.">
 <link rel="icon" type="image/svg+xml" href="assets/brand/doodle-deck-icon.svg">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
@@ -49,6 +49,7 @@ body:not(.px-on) { background: #ffd23f url("data:image/svg+xml,%3Csvg xmlns='htt
 .hm-app:focus-visible { outline: 4px solid var(--ink); outline-offset: 4px; border-radius: 10px; }
 .hm-icon { width: 74px; height: 74px; border-radius: 18px; overflow: hidden; display: block; border: 3.5px solid var(--ink); transform: rotate(-4deg); background: var(--ink); }
 .hm-app + .hm-app .hm-icon { transform: rotate(4deg); }
+.hm-app + .hm-app + .hm-app .hm-icon { transform: rotate(-2deg); }
 .hm-icon img, .hm-icon svg { width: 100%; height: 100%; display: block; }
 .hm-name { display: block; font-family: var(--hand); text-transform: uppercase; font-size: 1.55rem; line-height: 1; letter-spacing: .02em; }
 .hm-desc { display: block; margin-top: 5px; font-family: var(--hand); font-size: 1.02rem; line-height: 1.2; }
@@ -203,6 +204,12 @@ body:not(.px-on) { background: #ffd23f url("data:image/svg+xml,%3Csvg xmlns='htt
       <svg class="hm-frame" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="sh" d="M5 11Q52 8 99 10Q100 55 99 99Q52 98 5 99Q4 55 5 11Z"/><path class="fr" d="M1.5 2Q48 0 94.5 1.5Q96 46 94 91Q48 92.5 1.5 91Q0.5 46 1.5 2Z"/></svg>
       <span class="hm-icon" id="pxIcon"></span>
       <span class="hm-txt"><span class="hm-name">Pixelry</span><span class="hm-desc">Color tiny squares one at a time and make pixel art.</span></span>
+      <span class="hm-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5h12M12 6.5l6 6-6 6"/></svg></span>
+    </a>
+    <a class="hm-app" href="bloop.html" style="--c:#14a84b">
+      <svg class="hm-frame" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="sh" d="M5 11Q52 8 99 10Q100 55 99 99Q52 98 5 99Q4 55 5 11Z"/><path class="fr" d="M1.5 2Q48 0 94.5 1.5Q96 46 94 91Q48 92.5 1.5 91Q0.5 46 1.5 2Z"/></svg>
+      <span class="hm-icon"><img src="assets/brand/bloop-icon.svg" alt=""></span>
+      <span class="hm-txt"><span class="hm-name">Bloop</span><span class="hm-desc">Tap the pads, make a beat, play it on repeat.</span></span>
       <span class="hm-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5h12M12 6.5l6 6-6 6"/></svg></span>
     </a>
   </nav>

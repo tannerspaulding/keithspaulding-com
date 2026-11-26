@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#17141d">
+<title>Bloop by Keith</title>
+<meta name="description" content="Tap the pads, make a beat, play it on repeat.">
+<link rel="icon" type="image/svg+xml" href="assets/brand/bloop-icon.svg">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta name="color-scheme" content="dark">
+<style>
+@font-face { font-family: "Keith Hand"; src: url(data:font/woff2;base64,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) format("woff2"); font-display: swap; }
+/* Layout: Bloop is a dark little stage, like a real pad machine at night. The pads are the only loud thing,
+   chunky rubber squares with thick ink outlines and Keith's hand lettering. One committed dark look. */
+:root {
+  --bg: #17141d; --panel: #221e2a; --raise: #2e2938; --line: #3a3445; --fg: #f4f0e8; --mute: #a59fae;
+  --ink: #0b0a0e; --yellow: #ffd23f; --red: #e8322b; --hot: #ff5a4f;
+  --hand: "Keith Hand", "Chalkboard SE", "Comic Neue", system-ui, sans-serif;
+  --ui: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body { margin: 0; color: var(--fg); font: 16px/1.4 var(--ui); -webkit-text-size-adjust: 100%; overflow: hidden; overscroll-behavior: none;
+  background: var(--bg) radial-gradient(circle at 1px 1px, rgba(255,255,255,.05) 1.2px, transparent 1.6px) 0 0 / 14px 14px; }
+button { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; cursor: pointer; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; display: block; flex: none; }
+
+.bl { height: 100%; max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px;
+  padding-block: 8px 12px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* top bar */
+.bl-bar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 44px; flex: none; }
+.bl-ibtn { display: inline-flex; align-items: center; gap: 4px; height: 40px; padding: 0 10px 0 6px; border: 0; border-radius: 12px; background: transparent;
+  color: var(--mute); font-size: .92rem; font-weight: 600; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+.bl-ibtn:active { background: var(--raise); }
+.bl-home { justify-self: start; }
+.bl-beatsbtn { justify-self: end; padding: 0 10px; gap: 6px; color: var(--fg); background: var(--panel); }
+.bl-beatsbtn svg.i { width: 19px; height: 19px; }
+.bl-brand { display: flex; align-items: center; gap: 8px; font-family: var(--hand); font-size: 1.55rem; line-height: 1; letter-spacing: .02em; }
+.bl-mark { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; width: 24px; height: 24px; padding: 2px; background: var(--ink); border-radius: 7px; transform: rotate(-6deg); }
+.bl-mark i { border-radius: 3px; display: block; }
+.bl-mark i:nth-child(1) { background: var(--yellow); } .bl-mark i:nth-child(2) { background: #ff4fa0; }
+.bl-mark i:nth-child(3) { background: #2f7bff; } .bl-mark i:nth-child(4) { background: var(--red); }
+
+/* sound sets */
+.bl-kits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 4px; background: var(--panel); border-radius: 14px; flex: none; }
+.bl-kit { height: 36px; border: 0; border-radius: 10px; background: transparent; color: var(--mute); font-family: var(--hand); font-size: 1.05rem; line-height: 1; padding: 0 4px; white-space: nowrap; }
+.bl-kit[aria-selected="true"] { background: var(--kc, var(--yellow)); color: var(--ink); box-shadow: inset 0 -3px 0 rgba(0,0,0,.25); }
+
+/* voice row */
+.bl-mic { display: flex; align-items: center; gap: 10px; flex: none; }
+.bl-micbtn { display: inline-flex; align-items: center; gap: 6px; height: 38px; padding: 0 14px 0 10px; border-radius: 19px; border: 2px solid var(--line); background: var(--panel); font-weight: 700; font-size: .92rem; flex: none; }
+.bl-micbtn[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: #fff; }
+.bl-mic p { margin: 0; font-size: .85rem; line-height: 1.25; color: var(--mute); min-width: 0; }
+
+/* loop strip: one cell per sixteenth note, four to a beat */
+.bl-strip { display: grid; grid-template-columns: repeat(16, 1fr); gap: 3px; flex: none; }
+.bl-cell { position: relative; height: 24px; border: 0; padding: 0; border-radius: 6px; background: var(--panel); display: flex; align-items: center; justify-content: center; gap: 2px; overflow: hidden; }
+.bl-cell.beat { background: var(--raise); }
+.bl-cell.bar2 { height: 20px; }
+.bl-cell i { width: 5px; height: 5px; border-radius: 50%; background: var(--dc); display: block; flex: none; }
+.bl-cell.now { box-shadow: inset 0 0 0 2px var(--fg); }
+.bl-strip.steps .bl-cell { height: 34px; }
+.bl-strip.steps .bl-cell.bar2 { height: 30px; }
+.bl-cell.lit { background: var(--sc); box-shadow: inset 0 -3px 0 rgba(0,0,0,.25); }
+.bl-cell.lit.now { box-shadow: inset 0 0 0 2px var(--fg); }
+
+/* pads: the grid fills whatever height is left, as a square */
+.bl-padwrap { flex: 1; min-height: 0; display: grid; place-items: center; container-type: size; }
+.bl-pads { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); gap: clamp(7px, 2.4vw, 12px);
+  width: 100%; aspect-ratio: 1; max-width: 100%; max-height: 100%; }
+@supports (width: 1cqmin) { .bl-pads { width: 100cqmin; height: 100cqmin; aspect-ratio: auto; } }
+.bl-pad { position: relative; min-width: 0; min-height: 0; border: 3px solid var(--ink); border-radius: 18% 16% 19% 15% / 16% 19% 15% 18%; padding: 0;
+  background: var(--pc); color: var(--pf); touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+  box-shadow: inset 0 -7px 0 rgba(0,0,0,.26), 0 4px 0 var(--ink); transition: transform .07s ease, filter .07s ease, box-shadow .07s ease; overflow: hidden; }
+.bl-pad::before { content: ""; position: absolute; left: 12%; top: 10%; width: 30%; height: 14%; border-top: 3px solid rgba(255,255,255,.55); border-radius: 50% 50% 0 0 / 100% 100% 0 0; transform: rotate(-12deg); pointer-events: none; }
+.bl-pad .nm { position: absolute; left: 9%; right: 6%; bottom: 9%; font-family: var(--hand); font-size: clamp(.78rem, 3.5vw, 1.12rem); line-height: 1; text-align: left; pointer-events: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bl-pad.on { transform: translateY(3px) scale(.97); filter: brightness(1.2) saturate(1.1); box-shadow: inset 0 -3px 0 rgba(0,0,0,.22), 0 1px 0 var(--ink), 0 0 26px 2px var(--pc); }
+.bl-pad.sel { outline: 3px dashed var(--fg); outline-offset: 3px; }
+.bl-pad.empty { background: var(--panel); color: var(--mute); border-color: var(--line); border-style: dashed; box-shadow: none; }
+.bl-pad.empty::before { display: none; }
+.bl-pad .wave { position: absolute; left: 8%; right: 8%; top: 22%; height: 38%; width: 84%; pointer-events: none; overflow: visible; }
+.bl-pad .wave path { fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; opacity: .75; vector-effect: non-scaling-stroke; }
+.bl-pad.recording { background: var(--red); border-style: solid; border-color: var(--ink); color: #fff; animation: bl-pulse .7s ease-in-out infinite alternate; }
+@keyframes bl-pulse { to { box-shadow: 0 0 0 6px rgba(232,50,43,.35), 0 0 30px rgba(232,50,43,.6); } }
+.bl.micon .bl-pad { border-style: dashed; }
+
+/* transport */
+.bl-trans { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 10px; align-items: center; flex: none; }
+.bl-play, .bl-rec { width: 56px; height: 56px; border-radius: 50%; border: 3px solid var(--ink); display: grid; place-items: center; padding: 0; box-shadow: 0 4px 0 var(--ink); }
+.bl-play:active, .bl-rec:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+.bl-play { background: var(--yellow); color: var(--ink); }
+.bl-play svg { width: 26px; height: 26px; fill: currentColor; }
+.bl-play .st, .bl-play.going .pl { display: none; } .bl-play.going .st { display: block; }
+.bl-rec { background: var(--raise); }
+.bl-rec i { width: 20px; height: 20px; border-radius: 50%; background: var(--red); display: block; }
+.bl-rec[aria-pressed="true"] { background: var(--red); animation: bl-recglow .5s ease-in-out infinite alternate; }
+.bl-rec[aria-pressed="true"] i { background: #fff; }
+@keyframes bl-recglow { to { box-shadow: 0 4px 0 var(--ink), 0 0 22px rgba(232,50,43,.7); } }
+.bl-tempo { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; height: 56px; background: var(--panel); border-radius: 16px; padding: 0 4px; }
+.bl-tempo button { width: 44px; height: 44px; border: 0; border-radius: 12px; background: transparent; display: grid; place-items: center; }
+.bl-tempo button:active { background: var(--raise); }
+.bl-bpm { text-align: center; line-height: 1; min-width: 0; }
+.bl-bpm b { display: block; font-family: var(--hand); font-size: 1.6rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+.bl-bpm span { display: block; font-size: .7rem; color: var(--mute); margin-top: 3px; white-space: nowrap; }
+
+.bl-tools { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; flex: none; }
+.bl-tool { height: 52px; border: 0; border-radius: 14px; background: var(--panel); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: .74rem; font-weight: 600; color: var(--mute); padding: 0; }
+.bl-tool svg.i { color: var(--fg); }
+.bl-tool:active { background: var(--raise); }
+.bl-tool[aria-pressed="true"] { background: var(--fg); color: var(--ink); }
+.bl-tool[aria-pressed="true"] svg.i { color: var(--ink); }
+.bl-tool:disabled { opacity: .4; }
+.bl-save { background: var(--raise); }
+
+/* sheets */
+.bl-scrim { position: fixed; inset: 0; background: rgba(5,4,8,.6); opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 20; }
+.bl-scrim.open { opacity: 1; pointer-events: auto; }
+.bl-sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 21; max-width: 560px; margin: 0 auto; max-height: 86%; overflow-y: auto; overscroll-behavior: contain;
+  background: var(--panel); border-radius: 22px 22px 0 0; padding: 14px max(18px, env(safe-area-inset-right, 0px)) calc(20px + env(safe-area-inset-bottom, 0px)) max(18px, env(safe-area-inset-left, 0px));
+  transform: translateY(105%); transition: transform .25s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; gap: 12px; }
+.bl-sheet.open { transform: none; }
+.bl-sheethead { display: flex; align-items: center; justify-content: space-between; }
+.bl-sheethead h2 { margin: 0; font-family: var(--hand); font-weight: 400; font-size: 1.6rem; }
+.bl-text { border: 0; background: transparent; color: var(--yellow); font-weight: 700; height: 40px; padding: 0 6px; }
+.bl-field { display: flex; flex-direction: column; gap: 6px; font-size: .82rem; color: var(--mute); font-weight: 600; }
+.bl-field input { height: 48px; border-radius: 12px; border: 2px solid var(--line); background: var(--bg); color: var(--fg); font: 600 1.05rem var(--ui); padding: 0 12px; }
+.bl-primary { height: 52px; border: 3px solid var(--ink); border-radius: 16px; background: var(--yellow); color: var(--ink); font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 0 var(--ink); }
+.bl-primary:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+.bl-cap { margin: 6px 0 -4px; font-size: .8rem; font-weight: 700; color: var(--mute); text-transform: uppercase; letter-spacing: .06em; }
+.bl-acts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.bl-act { height: 48px; border: 0; border-radius: 14px; background: var(--raise); display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; }
+.bl-act:disabled { opacity: .5; }
+.bl-note { margin: 0; font-size: .82rem; color: var(--mute); line-height: 1.35; }
+.bl-list { display: flex; flex-direction: column; gap: 8px; }
+.bl-row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 6px; align-items: center; background: var(--bg); border-radius: 14px; padding: 8px 8px 8px 14px; }
+.bl-row.cur { box-shadow: inset 0 0 0 2px var(--yellow); }
+.bl-row b { display: block; font-family: var(--hand); font-weight: 400; font-size: 1.15rem; line-height: 1.1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bl-row span { display: block; font-size: .78rem; color: var(--mute); margin-top: 2px; }
+.bl-row button { height: 40px; border: 0; border-radius: 11px; background: var(--raise); padding: 0 12px; font-weight: 700; font-size: .88rem; }
+.bl-row button.open { background: var(--yellow); color: var(--ink); }
+.bl-row button.del.sure { background: var(--red); color: #fff; }
+.bl-empty { margin: 0; color: var(--mute); font-size: .9rem; text-align: center; padding: 10px 0; }
+
+.bl-toast { position: fixed; left: 50%; bottom: calc(150px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 10px); z-index: 30; max-width: min(92vw, 420px);
+  background: var(--fg); color: var(--ink); font-weight: 700; font-size: .9rem; padding: 10px 16px; border-radius: 14px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; text-align: center; }
+.bl-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-height: 640px) {
+  .bl { gap: 8px; }
+  .bl-tool { height: 46px; }
+  .bl-play, .bl-rec, .bl-tempo { height: 50px; } .bl-play, .bl-rec { width: 50px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bl-pad, .bl-sheet, .bl-scrim, .bl-toast { transition: none; }
+  .bl-pad.recording, .bl-rec[aria-pressed="true"] { animation: none; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="bl" id="bl">
+  <header class="bl-bar">
+    <a class="bl-ibtn bl-home" href="./" aria-label="Back to my apps"><svg class="i" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Home</a>
+    <div class="bl-brand"><span class="bl-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Bloop</div>
+    <button class="bl-ibtn bl-beatsbtn" id="beatsBtn" type="button"><svg class="i" viewBox="0 0 24 24"><path d="M9 18V6l11-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg>My beats</button>
+  </header>
+
+  <div class="bl-kits" id="kits" role="tablist" aria-label="Sound sets"></div>
+
+  <div class="bl-mic" id="micRow" hidden>
+    <button class="bl-micbtn" id="micBtn" type="button" aria-pressed="false"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21"/></svg><span id="micLbl">Record</span></button>
+    <p id="micHint">Tap Record, then hold a pad and say something silly.</p>
+  </div>
+
+  <div class="bl-strip" id="strip" aria-label="Your loop"></div>
+
+  <main class="bl-padwrap" id="padwrap">
+    <div class="bl-pads" id="pads" aria-label="Pads"></div>
+  </main>
+
+  <div class="bl-trans">
+    <button class="bl-play" id="playBtn" type="button" aria-label="Play"><svg viewBox="0 0 24 24" class="pl"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg viewBox="0 0 24 24" class="st"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/></svg></button>
+    <button class="bl-rec" id="recBtn" type="button" aria-label="Record a loop" aria-pressed="false"><i></i></button>
+    <div class="bl-tempo" aria-label="Speed">
+      <button type="button" id="slower" aria-label="Slower"><svg class="i" viewBox="0 0 24 24"><path d="M6 12h12"/></svg></button>
+      <div class="bl-bpm"><b id="bpm">100</b><span>beats a minute</span></div>
+      <button type="button" id="faster" aria-label="Faster"><svg class="i" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></button>
+    </div>
+  </div>
+
+  <nav class="bl-tools" aria-label="Loop tools">
+    <button class="bl-tool" id="stepsBtn" type="button" aria-pressed="false"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="8" width="4" height="8" rx="1.2"/><rect x="10" y="8" width="4" height="8" rx="1.2"/><rect x="17" y="8" width="4" height="8" rx="1.2"/></svg><span>Steps</span></button>
+    <button class="bl-tool" id="barsBtn" type="button"><svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0113.7-5.6L20 9M20 4v5h-5M20 12a8 8 0 01-13.7 5.6L4 15M4 20v-5h5"/></svg><span id="barsLbl">1 bar</span></button>
+    <button class="bl-tool" id="undoBtn" type="button"><svg class="i" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 010 11H11"/></svg><span>Undo</span></button>
+    <button class="bl-tool" id="clearBtn" type="button"><svg class="i" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg><span>Clear</span></button>
+    <button class="bl-tool bl-save" id="saveBtn" type="button"><svg class="i" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M5 19h14"/></svg><span>Save</span></button>
+  </nav>
+</div>
+
+<div class="bl-scrim" id="scrim"></div>
+
+<section class="bl-sheet" id="saveSheet" aria-label="Save this beat" aria-hidden="true">
+  <div class="bl-sheethead"><h2>Save this beat</h2><button class="bl-text" id="saveClose" type="button">Close</button></div>
+  <label class="bl-field" for="nameIn"><span>Name</span><input id="nameIn" type="text" maxlength="40" autocomplete="off" spellcheck="false"></label>
+  <button class="bl-primary" id="saveGo" type="button">Save to My beats</button>
+  <p class="bl-cap">Turn it into a sound file</p>
+  <div class="bl-acts">
+    <button class="bl-act" id="shareGo" type="button"><svg class="i" viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M5 13v5.5A2.5 2.5 0 007.5 21h9a2.5 2.5 0 002.5-2.5V13"/></svg>Share</button>
+    <button class="bl-act" id="dlGo" type="button"><svg class="i" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 19h14"/></svg>Download</button>
+  </div>
+  <p class="bl-note" id="fileNote">The sound file plays the loop a few times over.</p>
+</section>
+
+<section class="bl-sheet" id="beatsSheet" aria-label="My beats" aria-hidden="true">
+  <div class="bl-sheethead"><h2>My beats</h2><button class="bl-text" id="beatsClose" type="button">Close</button></div>
+  <div class="bl-list" id="beatList"></div>
+  <button class="bl-primary" id="newBeat" type="button"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Start a new beat</button>
+  <p class="bl-note">Beats and voice recordings stay on this device.</p>
+</section>
+
+<div class="bl-toast" id="toast" role="status"></div>
+
+<script>
+/* Bloop sound engine. Every sound is made in the browser with Web Audio (no recorded samples), so the same
+   code plays live on an AudioContext and renders a beat to a file on an OfflineAudioContext.
+   SND.play(ctx, out, kitId, padIndex, time, clip) schedules one hit. */
+var SND = (function () {
+  var noiseBufs = typeof WeakMap === "function" ? new WeakMap() : null;
+  function noiseBuf(ctx) {
+    var b = noiseBufs && noiseBufs.get(ctx);
+    if (!b) {
+      var n = Math.floor(ctx.sampleRate * 2); b = ctx.createBuffer(1, n, ctx.sampleRate);
+      var d = b.getChannelData(0); for (var i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+      if (noiseBufs) noiseBufs.set(ctx, b);
+    }
+    return b;
+  }
+  function G(ctx, out, v) { var g = ctx.createGain(); g.gain.value = v == null ? 1 : v; g.connect(out); return g; }
+  // percussive envelope: quick rise to peak, exponential fall
+  function env(ctx, out, t, peak, dec, att) {
+    var g = ctx.createGain(); att = att || 0.002;
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + att);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + att + dec); g.connect(out); return g;
+  }
+  // held envelope: rise, hold, release
+  function hold(ctx, out, t, peak, len, rel) {
+    var g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + 0.01);
+    g.gain.setValueAtTime(peak, t + len); g.gain.exponentialRampToValueAtTime(0.0001, t + len + rel); g.connect(out); return g;
+  }
+  function O(ctx, out, type, f, t, dur) {
+    var o = ctx.createOscillator(); o.type = type; o.frequency.setValueAtTime(f, t); o.connect(out); o.start(t); o.stop(t + dur + 0.05); return o;
+  }
+  function N(ctx, out, t, dur) {
+    var s = ctx.createBufferSource(); s.buffer = noiseBuf(ctx); s.connect(out); s.start(t, Math.random()); s.stop(t + dur + 0.05); return s;
+  }
+  function F(ctx, out, type, f, q) { var b = ctx.createBiquadFilter(); b.type = type; b.frequency.value = f; if (q != null) b.Q.value = q; b.connect(out); return b; }
+  function lfo(ctx, param, rate, depth, t, dur, type) {
+    var o = ctx.createOscillator(), g = ctx.createGain(); o.type = type || "sine"; o.frequency.value = rate; g.gain.value = depth;
+    o.connect(g); g.connect(param); o.start(t); o.stop(t + dur + 0.05);
+  }
+  function sweep(p, a, b, t, d, lin) { p.setValueAtTime(a, t); if (lin) p.linearRampToValueAtTime(b, t + d); else p.exponentialRampToValueAtTime(b, t + d); }
+  // six detuned squares through filters: the classic metallic cymbal recipe
+  function metal(ctx, out, t, dur) {
+    var hp = F(ctx, out, "highpass", 7000), bp = F(ctx, hp, "bandpass", 10000, 0.8);
+    [263, 400, 421, 474, 587, 845].forEach(function (f) { O(ctx, bp, "square", f * 1.4, t, dur); });
+  }
+
+  var D = {
+    kick: function (c, o, t) { var g = env(c, o, t, 1, 0.42); var s = O(c, g, "sine", 150, t, 0.45); sweep(s.frequency, 150, 44, t, 0.12);
+      var k = env(c, o, t, 0.35, 0.015); O(c, k, "triangle", 900, t, 0.02); },
+    boom: function (c, o, t) { var g = env(c, o, t, 0.95, 1.1, 0.004); var s = O(c, g, "sine", 70, t, 1.2); sweep(s.frequency, 70, 41, t, 0.14);
+      var g2 = env(c, o, t, 0.18, 0.6); var s2 = O(c, g2, "triangle", 140, t, 0.6); sweep(s2.frequency, 140, 82, t, 0.14); },
+    snare: function (c, o, t) { var n = env(c, F(c, o, "highpass", 1300), t, 0.55, 0.19); N(c, n, t, 0.22);
+      var g = env(c, o, t, 0.45, 0.1); var s = O(c, g, "triangle", 210, t, 0.12); sweep(s.frequency, 210, 160, t, 0.08); },
+    clap: function (c, o, t) { var bp = F(c, o, "bandpass", 1500, 1.2);
+      [0, 0.011, 0.022].forEach(function (d) { N(c, env(c, bp, t + d, 0.7, 0.012), t + d, 0.02); });
+      N(c, env(c, bp, t + 0.03, 0.6, 0.16), t + 0.03, 0.2); },
+    hat: function (c, o, t) { metal(c, env(c, o, t, 0.32, 0.05), t, 0.07); },
+    ohat: function (c, o, t) { metal(c, env(c, o, t, 0.3, 0.34), t, 0.4); },
+    shaker: function (c, o, t) { N(c, env(c, F(c, o, "bandpass", 6500, 1.4), t, 0.5, 0.07, 0.018), t, 0.12); },
+    tamb: function (c, o, t) { var g = env(c, o, t, 0.25, 0.2); metal(c, g, t, 0.22); N(c, env(c, F(c, o, "highpass", 9000), t, 0.3, 0.16), t, 0.2); },
+    tom: function (f) { return function (c, o, t) { var g = env(c, o, t, 0.8, 0.32); var s = O(c, g, "sine", f, t, 0.36); sweep(s.frequency, f, f * 0.62, t, 0.3);
+      N(c, env(c, F(c, o, "lowpass", 2500), t, 0.08, 0.04), t, 0.05); }; },
+    rim: function (c, o, t) { O(c, env(c, o, t, 0.45, 0.03), "triangle", 1750, t, 0.04); N(c, env(c, F(c, o, "highpass", 4000), t, 0.25, 0.015), t, 0.03); },
+    cowbell: function (c, o, t) { var bp = F(c, env(c, o, t, 0.3, 0.3), "bandpass", 800, 1.5); O(c, bp, "square", 540, t, 0.32); O(c, bp, "square", 800, t, 0.32); },
+    snap: function (c, o, t) { N(c, env(c, F(c, o, "bandpass", 2300, 2.2), t, 0.9, 0.06), t, 0.08); O(c, env(c, o, t, 0.15, 0.02), "sine", 1300, t, 0.03); },
+    crash: function (c, o, t) { metal(c, env(c, o, t, 0.24, 1.4), t, 1.5); N(c, env(c, F(c, o, "highpass", 5000), t, 0.22, 1.2), t, 1.4); },
+    zap: function (c, o, t) { var s = O(c, env(c, o, t, 0.5, 0.2), "sine", 1500, t, 0.22); sweep(s.frequency, 1500, 70, t, 0.16); }
+  };
+
+  // notes: everything is on one happy five-note scale, so any pads sound good together
+  function bloop(f) { return function (c, o, t) {
+    var g = env(c, o, t, 0.42, 0.5, 0.004), lp = F(c, g, "lowpass", 4200, 6); sweep(lp.frequency, 4200, Math.max(f * 2, 300), t, 0.22);
+    var a = O(c, lp, "square", f * 1.03, t, 0.55); sweep(a.frequency, f * 1.03, f, t, 0.04);
+    O(c, G(c, lp, 0.7), "sine", f / 2, t, 0.55); }; }
+  function bass(f) { return function (c, o, t) {
+    var g = env(c, o, t, 0.6, 0.45, 0.004), lp = F(c, g, "lowpass", 1400, 5); sweep(lp.frequency, 1400, 180, t, 0.3);
+    O(c, lp, "sawtooth", f, t, 0.5); O(c, G(c, g, 0.6), "sine", f, t, 0.5); }; }
+
+  var S = {
+    boing: function (c, o, t) { var s = O(c, env(c, o, t, 0.45, 0.55), "sine", 160, t, 0.6); sweep(s.frequency, 160, 420, t, 0.07); lfo(c, s.frequency, 13, 60, t, 0.6); },
+    whee: function (c, o, t) { var s = O(c, hold(c, o, t, 0.3, 0.38, 0.08), "sine", 320, t, 0.5); sweep(s.frequency, 320, 1500, t, 0.4, true); lfo(c, s.frequency, 6, 25, t, 0.5); },
+    whoops: function (c, o, t) { var s = O(c, hold(c, o, t, 0.3, 0.4, 0.08), "sine", 1400, t, 0.5); sweep(s.frequency, 1400, 240, t, 0.45, true); lfo(c, s.frequency, 6, 25, t, 0.5); },
+    laser: function (c, o, t) { var s = O(c, env(c, F(c, o, "lowpass", 3000), t, 0.32, 0.22), "square", 2200, t, 0.25); sweep(s.frequency, 2200, 180, t, 0.2); },
+    pop: function (c, o, t) { var s = O(c, env(c, o, t, 0.7, 0.06), "sine", 700, t, 0.08); sweep(s.frequency, 700, 120, t, 0.05); },
+    spring: function (c, o, t) { var s = O(c, env(c, o, t, 0.5, 0.65), "triangle", 130, t, 0.7); lfo(c, s.frequency, 28, 90, t, 0.7); },
+    honk: function (c, o, t) { var bp = F(c, hold(c, o, t, 0.35, 0.22, 0.06), "bandpass", 900, 2.5); O(c, bp, "sawtooth", 233, t, 0.3); O(c, bp, "sawtooth", 349, t, 0.3); },
+    burp: function (c, o, t) { var g = hold(c, o, t, 0.6, 0.38, 0.1), lp = F(c, g, "lowpass", 420, 4);
+      var s = O(c, lp, "sawtooth", 92, t, 0.5); sweep(s.frequency, 92, 64, t, 0.45); lfo(c, g.gain, 24, 0.35, t, 0.5, "square"); },
+    squeak: function (c, o, t) { var s = O(c, env(c, o, t, 0.25, 0.13), "sine", 1800, t, 0.15); s.frequency.linearRampToValueAtTime(2700, t + 0.05); s.frequency.linearRampToValueAtTime(2000, t + 0.12); },
+    wobble: function (c, o, t) { var lp = F(c, hold(c, o, t, 0.4, 0.55, 0.1), "lowpass", 600, 9); O(c, lp, "sawtooth", 110, t, 0.7); lfo(c, lp.frequency, 7, 450, t, 0.7); },
+    drip: function (c, o, t) { var s = O(c, env(c, o, t, 0.6, 0.12), "sine", 480, t, 0.14); sweep(s.frequency, 480, 1700, t, 0.06); },
+    tweet: function (c, o, t) { [0, 0.11].forEach(function (d) { var s = O(c, env(c, o, t + d, 0.22, 0.07), "sine", 3000, t + d, 0.09); sweep(s.frequency, 3000, 4300, t + d, 0.06); }); },
+    bubbles: function (c, o, t) { [[0, 520], [0.07, 760], [0.15, 620], [0.21, 980]].forEach(function (x) {
+      var s = O(c, env(c, o, t + x[0], 0.35, 0.06), "sine", x[1], t + x[0], 0.08); sweep(s.frequency, x[1], x[1] * 2.6, t + x[0], 0.05); }); },
+    ding: function (c, o, t) { [[1320, 0.3, 1.2], [2640, 0.12, 0.7], [3960, 0.06, 0.4]].forEach(function (p) { O(c, env(c, o, t, p[1], p[2]), "sine", p[0], t, p[2] + 0.05); }); },
+    pbbt: function (c, o, t) { var g = hold(c, o, t, 0.45, 0.42, 0.08), lp = F(c, g, "lowpass", 1400, 2);
+      O(c, lp, "sawtooth", 118, t, 0.55); N(c, G(c, lp, 0.25), t, 0.55); lfo(c, g.gain, 42, 0.4, t, 0.55, "square"); },
+    robot: function (c, o, t) { O(c, env(c, F(c, o, "lowpass", 2500), t, 0.3, 0.08, 0.004), "square", 660, t, 0.1);
+      O(c, env(c, F(c, o, "lowpass", 2500), t + 0.12, 0.3, 0.1, 0.004), "square", 440, t + 0.12, 0.12); }
+  };
+
+  var hz = function (m) { return 440 * Math.pow(2, (m - 69) / 12); };
+  // pads are listed in screen order, top-left first. Like a real pad machine, the big sounds sit on the bottom row.
+  var KITS = [
+    { id: "drums", name: "Drums", pads: [
+      ["Crash", D.crash, "#ffd23f"], ["Cowbell", D.cowbell, "#ffd23f"], ["Zap", D.zap, "#ffd23f"], ["Snap", D.snap, "#ffd23f"],
+      ["Low tom", D.tom(105), "#ff8a1f"], ["Mid tom", D.tom(150), "#ff8a1f"], ["High tom", D.tom(205), "#ff8a1f"], ["Rim", D.rim, "#ff8a1f"],
+      ["Hat", D.hat, "#2f7bff"], ["Open hat", D.ohat, "#2f7bff"], ["Shaker", D.shaker, "#2f7bff"], ["Tamb", D.tamb, "#2f7bff"],
+      ["Kick", D.kick, "#e8322b"], ["Boom", D.boom, "#e8322b"], ["Snare", D.snare, "#e8322b"], ["Clap", D.clap, "#e8322b"]] },
+    { id: "notes", name: "Bloops", pads: [
+      ["G", bloop(hz(79)), "#ff4fa0"], ["A", bloop(hz(81)), "#ff4fa0"], ["C", bloop(hz(84)), "#ff4fa0"], ["D", bloop(hz(86)), "#ff4fa0"],
+      ["A", bloop(hz(69)), "#a35cff"], ["C", bloop(hz(72)), "#a35cff"], ["D", bloop(hz(74)), "#a35cff"], ["E", bloop(hz(76)), "#a35cff"],
+      ["C", bloop(hz(60)), "#2fc4b2"], ["D", bloop(hz(62)), "#2fc4b2"], ["E", bloop(hz(64)), "#2fc4b2"], ["G", bloop(hz(67)), "#2fc4b2"],
+      ["Bass C", bass(hz(36)), "#14a84b"], ["Bass D", bass(hz(38)), "#14a84b"], ["Bass E", bass(hz(40)), "#14a84b"], ["Bass G", bass(hz(43)), "#14a84b"]] },
+    { id: "silly", name: "Silly", pads: [
+      ["Tweet", S.tweet, "#ffd23f"], ["Ding", S.ding, "#ffd23f"], ["Squeak", S.squeak, "#ffd23f"], ["Bubbles", S.bubbles, "#ffd23f"],
+      ["Whee", S.whee, "#2fc4b2"], ["Whoops", S.whoops, "#2fc4b2"], ["Laser", S.laser, "#2fc4b2"], ["Robot", S.robot, "#2fc4b2"],
+      ["Boing", S.boing, "#ff4fa0"], ["Spring", S.spring, "#ff4fa0"], ["Wobble", S.wobble, "#ff4fa0"], ["Drip", S.drip, "#ff4fa0"],
+      ["Honk", S.honk, "#ff8a1f"], ["Burp", S.burp, "#ff8a1f"], ["Pbbbt", S.pbbt, "#ff8a1f"], ["Pop", S.pop, "#ff8a1f"]] },
+    { id: "mine", name: "My voice", pads: [] }
+  ];
+  for (var i = 0; i < 16; i++) KITS[3].pads.push(["", null, ["#a35cff", "#ff4fa0", "#2fc4b2", "#2f7bff"][i >> 2]]);
+  var KIT = {}; KITS.forEach(function (k) { KIT[k.id] = k; });
+
+  function master(ctx) {
+    var comp = ctx.createDynamicsCompressor();
+    comp.threshold.value = -12; comp.knee.value = 8; comp.ratio.value = 6; comp.attack.value = 0.003; comp.release.value = 0.15;
+    var g = ctx.createGain(); g.gain.value = 0.85; comp.connect(g); g.connect(ctx.destination); return comp;
+  }
+  // clip = {sr, data: Float32Array} for "My voice" pads
+  function play(ctx, out, kitId, pad, t, clip) {
+    var k = KIT[kitId]; if (!k) return;
+    if (kitId === "mine") {
+      if (!clip || !clip.data || !clip.data.length) return;
+      var b = ctx.createBuffer(1, clip.data.length, clip.sr);
+      if (b.copyToChannel) b.copyToChannel(clip.data, 0); else b.getChannelData(0).set(clip.data);
+      var s = ctx.createBufferSource(); s.buffer = b; s.connect(G(ctx, out, 0.9)); s.start(t); return;
+    }
+    var p = k.pads[pad]; if (p && p[1]) p[1](ctx, out, t);
+  }
+  function click(ctx, out, t, accent) { O(ctx, env(ctx, out, t, accent ? 0.35 : 0.2, 0.03), "sine", accent ? 1800 : 1200, t, 0.04); }
+
+  function wav(buf) {
+    var ch = buf.numberOfChannels, n = buf.length, sr = buf.sampleRate, bytes = 44 + n * ch * 2;
+    var ab = new ArrayBuffer(bytes), v = new DataView(ab), p = 0;
+    function str(s) { for (var i = 0; i < s.length; i++) v.setUint8(p++, s.charCodeAt(i)); }
+    function u32(x) { v.setUint32(p, x, true); p += 4; } function u16(x) { v.setUint16(p, x, true); p += 2; }
+    str("RIFF"); u32(bytes - 8); str("WAVE"); str("fmt "); u32(16); u16(1); u16(ch); u32(sr); u32(sr * ch * 2); u16(ch * 2); u16(16);
+    str("data"); u32(n * ch * 2);
+    var data = []; for (var c = 0; c < ch; c++) data.push(buf.getChannelData(c));
+    for (var i = 0; i < n; i++) for (c = 0; c < ch; c++) { var x = Math.max(-1, Math.min(1, data[c][i])); v.setInt16(p, x < 0 ? x * 0x8000 : x * 0x7fff, true); p += 2; }
+    return new Blob([ab], { type: "audio/wav" });
+  }
+
+  return { KITS: KITS, KIT: KIT, play: play, click: click, master: master, wav: wav };
+})();
+
+/* Bloop: tap pads, record a loop, save beats, share them as a sound file. */
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var KEY_STATE = "bloop-state-v1", KEY_BEATS = "bloop-beats-v1", KEY_MINE = "bloop-mine-v1", KEY_SEEDED = "bloop-seeded-v1";
+  var KIT_COLORS = { drums: "#ffd23f", notes: "#2fc4b2", silly: "#ff4fa0", mine: "#a35cff" };
+  function inViewer() { return !!(window.claude && window.claude.use); } // inside a claude.ai preview (no mic, no file saves)
+
+  function load(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
+  function store(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+
+  /* ---------- voice clips live in IndexedDB (too big for localStorage) ---------- */
+  var dbp = null;
+  function idb() {
+    if (!dbp) dbp = new Promise(function (res, rej) {
+      try { var r = indexedDB.open("bloop", 1); r.onupgradeneeded = function () { r.result.createObjectStore("clips", { keyPath: "id" }); };
+        r.onsuccess = function () { res(r.result); }; r.onerror = function () { rej(r.error); }; } catch (e) { rej(e); }
+    });
+    return dbp;
+  }
+  function idbDo(mode, fn) { return idb().then(function (db) { return new Promise(function (res, rej) {
+    var tx = db.transaction("clips", mode), out = fn(tx.objectStore("clips")); tx.oncomplete = function () { res(out && out.result); }; tx.onerror = function () { rej(tx.error); }; }); }); }
+  var clips = {}; // id -> {sr, data}
+
+  /* ---------- state ---------- */
+  var st = load(KEY_STATE, null);
+  var beats = load(KEY_BEATS, []);
+  var mine = load(KEY_MINE, null) || []; for (var mi = 0; mi < 16; mi++) if (mine[mi] === undefined) mine[mi] = null;
+  function blank() { return { bpm: 100, bars: 1, events: [], kit: "drums", id: null, name: "" }; }
+  function example() {
+    var e = [], add = function (k, p, steps) { steps.forEach(function (s) { e.push({ s: s, k: k, p: p }); }); };
+    add("drums", 12, [0, 6, 8]); add("drums", 14, [4, 12]); add("drums", 8, [0, 2, 4, 6, 8, 10, 12]); add("drums", 9, [14]); add("drums", 15, [12]);
+    add("notes", 12, [0, 3]); add("notes", 15, [8]); add("notes", 14, [11]); add("notes", 5, [4]); add("notes", 7, [7]); add("notes", 6, [10]);
+    add("silly", 8, [15]);
+    return { id: "example", name: "Bloop Bop (example)", bpm: 96, bars: 1, events: e, created: Date.now() };
+  }
+  if (!load(KEY_SEEDED, false)) {
+    store(KEY_SEEDED, true);
+    if (!beats.length) { beats = [example()]; store(KEY_BEATS, beats); }
+    if (!st) { var ex = beats[0]; st = { bpm: ex.bpm, bars: ex.bars, events: ex.events.slice(), kit: "drums", id: ex.id, name: ex.name }; }
+  }
+  if (!st || !Array.isArray(st.events)) st = blank();
+  if (!SND.KIT[st.kit]) st.kit = "drums";
+  var undo = [];
+  var stepsMode = false, sel = -1, micOn = false, recording = false;
+  var saveT = 0;
+  function persist() { clearTimeout(saveT); saveT = setTimeout(function () { store(KEY_STATE, st); }, 250); }
+  function nsteps() { return st.bars * 16; }
+  var byStep = [];
+  function reindex() { byStep = []; for (var i = 0; i < 32; i++) byStep.push([]); st.events.forEach(function (ev) { if (ev.s < nsteps()) byStep[ev.s].push(ev); }); }
+  function changed() { reindex(); persist(); renderStrip(); $("undoBtn").disabled = !undo.length; }
+  function pushUndo() { undo.push(JSON.stringify({ events: st.events, bars: st.bars })); if (undo.length > 60) undo.shift(); }
+  function padColor(k, p) { var kit = SND.KIT[k]; return (kit && kit.pads[p] && kit.pads[p][2]) || "#888"; }
+  function fgFor(hex) { var n = parseInt(hex.slice(1), 16), r = n >> 16 & 255, g = n >> 8 & 255, b = n & 255; return (0.299 * r + 0.587 * g + 0.114 * b) > 150 ? "#0b0a0e" : "#ffffff"; }
+
+  /* ---------- audio ---------- */
+  var ctx = null, out = null;
+  function ensure() {
+    if (!ctx) {
+      var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return false;
+      try { ctx = new AC({ latencyHint: "interactive" }); } catch (e) { ctx = new AC(); }
+      out = SND.master(ctx);
+      try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) {}
+    }
+    if (ctx.state !== "running" && ctx.resume) ctx.resume();
+    return true;
+  }
+  function clipFor(ev) { return ev.k === "mine" ? clips[ev.c] : null; }
+
+  /* ---------- loop player: a look-ahead scheduler, so timing stays tight ---------- */
+  var playing = false, timer = 0, nextStep = 0, nextT = 0, queue = [], nowStep = -1, skip = [];
+  function sd() { return 60 / st.bpm / 4; }
+  function start() {
+    if (!ensure()) return;
+    playing = true; nextStep = 0; nextT = ctx.currentTime + 0.06; queue = []; skip = [];
+    clearInterval(timer); timer = setInterval(tick, 25); tick(); requestAnimationFrame(frame); renderTransport();
+  }
+  function stop() {
+    playing = false; recording = false; clearInterval(timer); queue = []; nowStep = -1; renderTransport(); renderStrip();
+  }
+  function tick() {
+    if (!playing) return;
+    while (nextT < ctx.currentTime + 0.12) {
+      var step = nextStep, t = nextT, evs = byStep[step] || [];
+      for (var i = 0; i < evs.length; i++) {
+        var ev = evs[i], si = skip.indexOf(ev);
+        if (si >= 0) { skip.splice(si, 1); continue; }
+        SND.play(ctx, out, ev.k, ev.p, t, clipFor(ev));
+      }
+      if (recording && step % 4 === 0) SND.click(ctx, out, t, step === 0);
+      queue.push({ step: step, t: t });
+      nextT += sd(); nextStep = (nextStep + 1) % nsteps();
+    }
+  }
+  function frame() {
+    if (!playing) return;
+    var moved = false;
+    while (queue.length && queue[0].t <= ctx.currentTime) {
+      nowStep = queue.shift().step; moved = true;
+      (byStep[nowStep] || []).forEach(function (ev) { if (ev.k === st.kit) flash(ev.p); });
+    }
+    if (moved) renderNow();
+    requestAnimationFrame(frame);
+  }
+  // a pad hit while recording lands on the nearest sixteenth note
+  function addHit(p, t) {
+    var r = Math.round((t - nextT) / sd()), n = nsteps(), step = ((nextStep + r) % n + n) % n;
+    var c = st.kit === "mine" ? mine[p] : undefined;
+    if (st.events.some(function (ev) { return ev.s === step && ev.k === st.kit && ev.p === p && ev.c === c; })) return;
+    pushUndo();
+    var ev = { s: step, k: st.kit, p: p }; if (c) ev.c = c;
+    st.events.push(ev); if (r >= 0) skip.push(ev); // it just played live, so don't play it again a moment later
+    changed();
+  }
+
+  /* ---------- pads ---------- */
+  var padEls = [];
+  function buildPads() {
+    var wrap = $("pads"); wrap.innerHTML = "";
+    for (var i = 0; i < 16; i++) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "bl-pad"; b.dataset.i = i;
+      b.innerHTML = '<svg class="wave" viewBox="0 0 24 1" preserveAspectRatio="none" aria-hidden="true"><path d=""/></svg><span class="nm"></span>';
+      b.addEventListener("pointerdown", onPadDown);
+      b.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+      b.addEventListener("click", function (e) { if (e.detail === 0) press(+this.dataset.i, null); }); // keyboard Enter/Space
+      wrap.appendChild(b); padEls.push(b);
+    }
+  }
+  function wavePath(clip) {
+    if (!clip) return "";
+    var d = clip.data, n = 24, step = Math.max(1, Math.floor(d.length / n)), out2 = "";
+    for (var i = 0; i < n; i++) { var m = 0; for (var j = i * step; j < (i + 1) * step && j < d.length; j += 8) m = Math.max(m, Math.abs(d[j]));
+      var h = Math.max(0.06, Math.min(1, m)); out2 += "M" + (i + 0.5) + " " + (0.5 - h / 2).toFixed(3) + "V" + (0.5 + h / 2).toFixed(3); }
+    return out2;
+  }
+  function renderPads() {
+    var kit = SND.KIT[st.kit];
+    padEls.forEach(function (b, i) {
+      var p = kit.pads[i], col = p[2], name = p[0], empty = false, wave = "";
+      if (st.kit === "mine") {
+        var clip = mine[i] && clips[mine[i]];
+        empty = !clip; wave = wavePath(clip);
+        name = empty ? (micOn ? "Hold me" : "Empty") : "Voice " + (i + 1);
+      }
+      b.style.setProperty("--pc", col); b.style.setProperty("--pf", fgFor(col));
+      b.classList.toggle("empty", empty); b.classList.toggle("sel", stepsMode && i === sel);
+      b.querySelector(".nm").textContent = name;
+      b.querySelector(".wave path").setAttribute("d", wave);
+      b.setAttribute("aria-label", (name || "Pad") + (empty ? "" : " pad"));
+    });
+    $("bl").classList.toggle("micon", micOn && st.kit === "mine");
+  }
+  var flashT = [];
+  function flash(i) { var b = padEls[i]; if (!b) return; b.classList.add("on"); clearTimeout(flashT[i]); flashT[i] = setTimeout(function () { b.classList.remove("on"); }, 110); }
+  function onPadDown(e) {
+    e.preventDefault();
+    var i = +this.dataset.i;
+    if (micOn && st.kit === "mine") { startRec(i, this, e); return; }
+    press(i, e);
+  }
+  function press(i) {
+    ensure();
+    if (st.kit === "mine" && !(mine[i] && clips[mine[i]])) { toast(micOn ? "Hold the pad and talk." : "This pad is empty. Tap Record to put your voice on it."); return; }
+    var ev = { k: st.kit, p: i, c: mine[i] };
+    SND.play(ctx, out, st.kit, i, ctx.currentTime, clipFor(ev)); flash(i);
+    if (stepsMode) { sel = i; renderPads(); renderStrip(); return; }
+    if (recording && playing) addHit(i, ctx.currentTime);
+  }
+
+  /* ---------- the loop strip ---------- */
+  var cellEls = [];
+  function renderStrip() {
+    var strip = $("strip"), n = nsteps();
+    strip.classList.toggle("steps", stepsMode);
+    if (cellEls.length !== n) {
+      strip.innerHTML = ""; cellEls = [];
+      for (var j = 0; j < n; j++) {
+        var c = document.createElement("button"); c.type = "button"; c.className = "bl-cell"; c.dataset.s = j;
+        if (j % 4 === 0) c.classList.add("beat"); if (j >= 16) c.classList.add("bar2");
+        c.addEventListener("click", onCell); strip.appendChild(c); cellEls.push(c);
+      }
+    }
+    cellEls.forEach(function (c, j) {
+      var evs = byStep[j] || [];
+      if (stepsMode) {
+        var on = sel >= 0 && evs.some(function (ev) { return ev.k === st.kit && ev.p === sel; });
+        c.classList.toggle("lit", on); c.innerHTML = ""; if (on) c.style.setProperty("--sc", padColor(st.kit, sel));
+        c.setAttribute("aria-label", "Step " + (j + 1) + (on ? ", on" : ", off")); c.tabIndex = 0;
+      } else {
+        c.classList.remove("lit");
+        var html = ""; evs.slice(0, 3).forEach(function (ev) { html += '<i style="--dc:' + padColor(ev.k, ev.p) + '"></i>'; });
+        c.innerHTML = html; c.setAttribute("aria-label", "Step " + (j + 1) + ", " + evs.length + " sounds"); c.tabIndex = -1;
+      }
+    });
+    renderNow();
+  }
+  function renderNow() { cellEls.forEach(function (c, j) { c.classList.toggle("now", j === nowStep); }); }
+  function onCell() {
+    if (!stepsMode) { toast("Tap Steps to put sounds on the line yourself."); return; }
+    if (sel < 0) { toast("Tap a pad first, then tap the steps."); return; }
+    if (st.kit === "mine" && !mine[sel]) { toast("That pad is empty."); return; }
+    var s = +this.dataset.s, c = st.kit === "mine" ? mine[sel] : undefined;
+    var idx = -1; st.events.forEach(function (ev, k) { if (ev.s === s && ev.k === st.kit && ev.p === sel) idx = k; });
+    pushUndo();
+    if (idx >= 0) st.events.splice(idx, 1);
+    else { var ev = { s: s, k: st.kit, p: sel }; if (c) ev.c = c; st.events.push(ev); if (ensure()) SND.play(ctx, out, ev.k, ev.p, ctx.currentTime, clipFor(ev)); }
+    changed();
+  }
+
+  /* ---------- kits ---------- */
+  function renderKits() {
+    var k = $("kits"); k.innerHTML = "";
+    SND.KITS.forEach(function (kit) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "bl-kit"; b.textContent = kit.name; b.setAttribute("role", "tab");
+      b.setAttribute("aria-selected", kit.id === st.kit ? "true" : "false"); b.style.setProperty("--kc", KIT_COLORS[kit.id]);
+      b.addEventListener("click", function () { setKit(kit.id); }); k.appendChild(b);
+    });
+  }
+  function setKit(id) {
+    if (id !== "mine" && micOn) setMic(false);
+    st.kit = id; sel = -1; persist(); renderKits(); renderPads(); renderStrip();
+    $("micRow").hidden = id !== "mine";
+  }
+
+  /* ---------- transport ---------- */
+  function renderTransport() {
+    $("playBtn").classList.toggle("going", playing); $("playBtn").setAttribute("aria-label", playing ? "Stop" : "Play");
+    $("recBtn").setAttribute("aria-pressed", recording ? "true" : "false");
+    $("bpm").textContent = st.bpm; $("barsLbl").textContent = st.bars === 1 ? "1 bar" : "2 bars";
+    $("stepsBtn").setAttribute("aria-pressed", stepsMode ? "true" : "false");
+    $("undoBtn").disabled = !undo.length;
+  }
+  $("playBtn").addEventListener("click", function () { if (playing) stop(); else start(); });
+  $("recBtn").addEventListener("click", function () {
+    if (micOn) setMic(false);
+    recording = !recording;
+    if (recording) { if (stepsMode) { stepsMode = false; sel = -1; renderPads(); renderStrip(); } if (!playing) start(); toast("Recording! Tap pads to add them to the loop."); }
+    renderTransport();
+  });
+  function tempo(d) { st.bpm = Math.max(60, Math.min(180, st.bpm + d)); persist(); renderTransport(); }
+  [["slower", -5], ["faster", 5]].forEach(function (x) {
+    var b = $(x[0]), rep = 0, wait = 0;
+    var end = function () { clearTimeout(wait); clearInterval(rep); };
+    b.addEventListener("pointerdown", function (e) { e.preventDefault(); tempo(x[1]); wait = setTimeout(function () { rep = setInterval(function () { tempo(x[1]); }, 90); }, 400); });
+    ["pointerup", "pointercancel", "pointerleave"].forEach(function (n) { b.addEventListener(n, end); });
+    b.addEventListener("click", function (e) { if (e.detail === 0) tempo(x[1]); });
+  });
+  $("stepsBtn").addEventListener("click", function () {
+    stepsMode = !stepsMode; if (stepsMode) { recording = false; if (micOn) setMic(false); }
+    sel = -1; renderTransport(); renderPads(); renderStrip();
+    if (stepsMode) toast("Tap a pad, then tap the steps to switch it on or off.");
+  });
+  $("barsBtn").addEventListener("click", function () {
+    pushUndo();
+    if (st.bars === 1) { st.bars = 2; st.events = st.events.concat(st.events.map(function (ev) { var c = {}; for (var k in ev) c[k] = ev[k]; c.s += 16; return c; })); toast("2 bars. I copied your loop into the second bar."); }
+    else { st.bars = 1; st.events = st.events.filter(function (ev) { return ev.s < 16; }); toast("Back to 1 bar."); }
+    nextStep %= nsteps(); renderTransport(); changed();
+  });
+  $("undoBtn").addEventListener("click", function () {
+    if (!undo.length) return; var u = JSON.parse(undo.pop()); st.events = u.events; st.bars = u.bars; nextStep %= nsteps(); renderTransport(); changed();
+  });
+  $("clearBtn").addEventListener("click", function () {
+    if (!st.events.length) { toast("Nothing to clear yet."); return; }
+    pushUndo(); st.events = []; changed(); toast("Cleared. Undo brings it back.");
+  });
+
+  /* ---------- my voice ---------- */
+  var micStream = null, rec = null;
+  function setMic(on) {
+    if (!on) { micOn = false; if (micStream) micStream.getTracks().forEach(function (t) { t.stop(); }); micStream = null; renderMic(); renderPads(); return; }
+    if (inViewer()) { toast("Recording your voice works on keith-spaulding.com."); return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { toast("This browser can't record sound."); return; }
+    ensure();
+    navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: true } }).then(function (s) {
+      micStream = s; micOn = true; if (recording) { recording = false; renderTransport(); } if (stepsMode) { stepsMode = false; renderTransport(); renderStrip(); }
+      renderMic(); renderPads();
+    }, function () { toast("I need the microphone. Allow it for this site, then try again."); });
+  }
+  function renderMic() {
+    $("micBtn").setAttribute("aria-pressed", micOn ? "true" : "false"); $("micLbl").textContent = micOn ? "Done" : "Record";
+    $("micHint").textContent = micOn ? "Hold a pad and talk. Let go to stop (3 seconds max)." : "Tap Record, then hold a pad and say something silly.";
+  }
+  $("micBtn").addEventListener("click", function () { setMic(!micOn); });
+  function startRec(i, el, e) {
+    if (rec || !micStream || !ensure()) return;
+    try { el.setPointerCapture(e.pointerId); } catch (er) {}
+    var src = ctx.createMediaStreamSource(micStream), sp = ctx.createScriptProcessor(4096, 1, 1), z = ctx.createGain(), chunks = [];
+    z.gain.value = 0; sp.onaudioprocess = function (ev) { chunks.push(new Float32Array(ev.inputBuffer.getChannelData(0))); };
+    src.connect(sp); sp.connect(z); z.connect(ctx.destination);
+    rec = { i: i, el: el, src: src, sp: sp, z: z, chunks: chunks, timer: setTimeout(endRec, 3000) };
+    el.classList.add("recording"); el.querySelector(".nm").textContent = "Talk!";
+    var end = function () { el.removeEventListener("pointerup", end); el.removeEventListener("pointercancel", end); endRec(); };
+    el.addEventListener("pointerup", end); el.addEventListener("pointercancel", end);
+  }
+  function endRec() {
+    if (!rec) return; var r = rec; rec = null; clearTimeout(r.timer);
+    try { r.src.disconnect(); r.sp.disconnect(); r.z.disconnect(); } catch (e) {}
+    r.el.classList.remove("recording");
+    var len = 0; r.chunks.forEach(function (c) { len += c.length; });
+    var d = new Float32Array(len), o = 0; r.chunks.forEach(function (c) { d.set(c, o); o += c.length; });
+    var sr = ctx.sampleRate, a = 0, b = d.length - 1, th = 0.02;
+    while (a < d.length && Math.abs(d[a]) < th) a++;
+    while (b > a && Math.abs(d[b]) < th) b--;
+    a = Math.max(0, a - Math.floor(sr * 0.01)); b = Math.min(d.length, b + Math.floor(sr * 0.06));
+    if (b - a < sr * 0.08) { renderPads(); toast("I didn't hear anything. Hold the pad and talk."); return; }
+    d = d.slice(a, b);
+    var peak = 0; for (var i = 0; i < d.length; i++) peak = Math.max(peak, Math.abs(d[i]));
+    var g = Math.min(8, 0.9 / (peak || 1)), f = Math.floor(sr * 0.004);
+    for (i = 0; i < d.length; i++) { var w = Math.min(1, i / f, (d.length - 1 - i) / f); d[i] *= g * w; }
+    var id = uid(); clips[id] = { sr: sr, data: d }; mine[r.i] = id; store(KEY_MINE, mine);
+    idbDo("readwrite", function (s) { s.put({ id: id, sr: sr, data: d }); }).catch(function () {});
+    SND.play(ctx, out, "mine", r.i, ctx.currentTime + 0.05, clips[id]); flash(r.i);
+    renderPads(); gc();
+  }
+  // forget recordings that no pad, loop or saved beat uses anymore
+  function gc() {
+    var keep = {}; mine.forEach(function (id) { if (id) keep[id] = 1; });
+    st.events.concat.apply(st.events, beats.map(function (bt) { return bt.events; })).forEach(function (ev) { if (ev.c) keep[ev.c] = 1; });
+    Object.keys(clips).forEach(function (id) { if (!keep[id]) { delete clips[id]; idbDo("readwrite", function (s) { s.delete(id); }).catch(function () {}); } });
+  }
+  function loadClips() {
+    return idbDo("readonly", function (s) { return s.getAll(); }).then(function (all) {
+      (all || []).forEach(function (c) { if (c && c.data) clips[c.id] = { sr: c.sr, data: c.data }; });
+    }).catch(function () {});
+  }
+
+  /* ---------- sheets ---------- */
+  var openSheet = null;
+  function sheet(id) {
+    if (openSheet) { $(openSheet).classList.remove("open"); $(openSheet).setAttribute("aria-hidden", "true"); }
+    openSheet = id; $("scrim").classList.toggle("open", !!id);
+    if (id) { $(id).classList.add("open"); $(id).setAttribute("aria-hidden", "false"); }
+  }
+  $("scrim").addEventListener("click", function () { sheet(null); });
+  $("saveClose").addEventListener("click", function () { sheet(null); });
+  $("beatsClose").addEventListener("click", function () { sheet(null); });
+
+  function nextName() { var n = beats.length + 1, names = beats.map(function (b) { return b.name; }); while (names.indexOf("Beat " + n) >= 0) n++; return "Beat " + n; }
+  var file = null, fileFor = "";
+  $("saveBtn").addEventListener("click", function () {
+    $("nameIn").value = st.name || nextName(); sheet("saveSheet"); prepFile();
+  });
+  $("saveGo").addEventListener("click", function () {
+    var name = $("nameIn").value.trim() || nextName();
+    var existing = st.id && beats.filter(function (b) { return b.id === st.id; })[0];
+    var data = { name: name, bpm: st.bpm, bars: st.bars, events: JSON.parse(JSON.stringify(st.events)) };
+    if (existing) { for (var k in data) existing[k] = data[k]; existing.updated = Date.now(); }
+    else { data.id = uid(); data.created = Date.now(); beats.unshift(data); st.id = data.id; }
+    st.name = name; store(KEY_BEATS, beats); persist(); sheet(null); toast("Saved " + name + " to My beats.");
+  });
+  function sig() { return JSON.stringify([st.bpm, st.bars, st.events]); }
+  function prepFile() {
+    var share = $("shareGo"), dl = $("dlGo");
+    if (inViewer()) { share.disabled = dl.disabled = true; $("fileNote").textContent = "Sound files save on keith-spaulding.com. This preview can't save files."; return; }
+    if (!st.events.length) { share.disabled = dl.disabled = true; $("fileNote").textContent = "Make a loop first, then you can turn it into a sound file."; return; }
+    var canShare = !!(navigator.share && navigator.canShare); share.hidden = !canShare;
+    $("fileNote").textContent = "The sound file plays your loop a few times over.";
+    if (file && fileFor === sig()) { share.disabled = dl.disabled = false; return; }
+    share.disabled = dl.disabled = true; $("fileNote").textContent = "Getting the sound file ready...";
+    var want = sig();
+    render().then(function (blob) {
+      var nm = (($("nameIn").value.trim() || "my beat").replace(/[^\w\- ]+/g, "").trim() || "my beat") + ".wav";
+      try { file = new File([blob], nm, { type: "audio/wav" }); } catch (e) { file = blob; file.name = nm; }
+      fileFor = want; share.disabled = dl.disabled = false; $("fileNote").textContent = "The sound file plays your loop a few times over.";
+    }, function () { $("fileNote").textContent = "I couldn't make the sound file on this device."; });
+  }
+  function render() {
+    var spb = sd(), steps = nsteps(), loop = steps * spb, reps = Math.max(2, Math.min(4, Math.ceil(8 / loop))), sr = 44100;
+    var OAC = window.OfflineAudioContext || window.webkitOfflineAudioContext; if (!OAC) return Promise.reject();
+    var oc = new OAC(2, Math.ceil((loop * reps + 1.6) * sr), sr), m = SND.master(oc), evs = st.events.slice();
+    for (var r = 0; r < reps; r++) evs.forEach(function (ev) { if (ev.s < steps) SND.play(oc, m, ev.k, ev.p, 0.02 + r * loop + ev.s * spb, clipFor(ev)); });
+    var p = oc.startRendering();
+    return (p && p.then ? p : new Promise(function (res) { oc.oncomplete = function (e) { res(e.renderedBuffer); }; })).then(SND.wav);
+  }
+  $("shareGo").addEventListener("click", function () {
+    if (!file) return;
+    if (navigator.canShare && navigator.canShare({ files: [file] })) navigator.share({ files: [file], title: $("nameIn").value.trim() || "My beat" }).catch(function () {});
+    else download();
+  });
+  $("dlGo").addEventListener("click", download);
+  function download() {
+    if (!file) return;
+    var u = URL.createObjectURL(file), a = document.createElement("a"); a.href = u; a.download = file.name; document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(u); a.remove(); }, 5000); toast("Downloading " + file.name);
+  }
+
+  $("beatsBtn").addEventListener("click", function () { renderBeats(); sheet("beatsSheet"); });
+  function renderBeats() {
+    var list = $("beatList"); list.innerHTML = "";
+    if (!beats.length) { var p = document.createElement("p"); p.className = "bl-empty"; p.textContent = "No saved beats yet. Make a loop and tap Save."; list.appendChild(p); return; }
+    beats.forEach(function (bt) {
+      var row = document.createElement("div"); row.className = "bl-row" + (bt.id === st.id ? " cur" : "");
+      var info = document.createElement("div"), b = document.createElement("b"), s = document.createElement("span");
+      b.textContent = bt.name; s.textContent = (bt.bars === 1 ? "1 bar" : "2 bars") + " · " + bt.bpm + " beats a minute"; info.appendChild(b); info.appendChild(s);
+      var open = document.createElement("button"); open.type = "button"; open.className = "open"; open.textContent = "Open";
+      open.addEventListener("click", function () {
+        stop(); pushUndo(); st.bpm = bt.bpm; st.bars = bt.bars; st.events = JSON.parse(JSON.stringify(bt.events)); st.id = bt.id; st.name = bt.name;
+        sheet(null); renderTransport(); changed(); toast("Opened " + bt.name + ". Tap play!");
+      });
+      var del = document.createElement("button"); del.type = "button"; del.className = "del"; del.textContent = "Delete"; del.setAttribute("aria-label", "Delete " + bt.name);
+      del.addEventListener("click", function () {
+        if (!del.classList.contains("sure")) { del.classList.add("sure"); del.textContent = "Sure?"; setTimeout(function () { del.classList.remove("sure"); del.textContent = "Delete"; }, 2500); return; }
+        beats = beats.filter(function (x) { return x !== bt; }); if (st.id === bt.id) st.id = null; store(KEY_BEATS, beats); persist(); gc(); renderBeats();
+      });
+      row.appendChild(info); row.appendChild(open); row.appendChild(del); list.appendChild(row);
+    });
+  }
+  $("newBeat").addEventListener("click", function () {
+    stop(); pushUndo(); st.events = []; st.bars = 1; st.bpm = 100; st.id = null; st.name = "";
+    sheet(null); renderTransport(); changed(); toast("New beat. Tap the pads!");
+  });
+
+  /* ---------- toast, keys, lifecycle ---------- */
+  var toastT = 0;
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("show"); }, 2400); }
+  var KEYS = "1234qwerasdfzxcv";
+  document.addEventListener("keydown", function (e) {
+    if (e.repeat || openSheet || e.metaKey || e.ctrlKey || e.altKey || /INPUT|TEXTAREA/.test(document.activeElement && document.activeElement.tagName)) return;
+    var i = KEYS.indexOf(e.key.toLowerCase());
+    if (i >= 0) { e.preventDefault(); press(i); }
+    else if (e.key === " " && document.activeElement === document.body) { e.preventDefault(); if (playing) stop(); else start(); }
+  });
+  document.addEventListener("pointerdown", function () { ensure(); }, { capture: true, passive: true });
+  document.addEventListener("visibilitychange", function () { if (document.hidden) { if (playing) stop(); if (micOn) setMic(false); } });
+
+  buildPads(); reindex(); renderKits(); renderPads(); renderStrip(); renderTransport(); renderMic();
+  $("micRow").hidden = st.kit !== "mine";
+  loadClips().then(function () { renderPads(); });
+  window.__bloop = { st: function () { return st; }, beats: function () { return beats; }, render: render };
+})();
+
+</script>
+</body>
+</html>
