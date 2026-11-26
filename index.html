@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f6f3ec">
+<meta name="theme-color" content="#ffd23f">
 <title>Keith's Apps</title>
 <meta name="description" content="Keith's apps: Doodle Deck joke cards and Pixelry pixel art.">
 <link rel="icon" type="image/svg+xml" href="assets/brand/doodle-deck-icon.svg">
@@ -29,21 +29,33 @@ body.px-on { background: var(--px-bg); color: var(--px-text); overflow: hidden; 
 button { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; }
 svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; display: block; }
 
-/* ---------- home ---------- */
-.hm { min-height: 100%; max-width: 560px; margin: 0 auto; padding-block: 44px 40px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 28px; }
-.hm-hi { margin: 0; font-family: var(--hand); font-weight: 400; text-transform: uppercase; letter-spacing: .02em; font-size: clamp(2.6rem, 11vw, 3.4rem); line-height: .95; text-wrap: balance; }
-.hm-sub { margin: 10px 0 0; font-size: 1.05rem; color: var(--hm-mute); max-width: 34ch; }
-.hm-shelf { display: flex; flex-direction: column; gap: 14px; }
-.hm-label { margin: 0 0 -2px; font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--hm-mute); }
-.hm-app { display: grid; grid-template-columns: 78px minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 14px 16px 14px 14px; background: var(--hm-card); border: 1px solid var(--hm-line); border-radius: 24px; color: inherit; text-decoration: none; box-shadow: 0 1px 0 rgba(31, 29, 26, .04), 0 14px 30px -22px rgba(31, 29, 26, .4); transition: transform .12s ease, box-shadow .12s ease; }
-.hm-app:active { transform: scale(.985); }
-.hm-app:focus-visible { outline: 3px solid var(--hm-ink); outline-offset: 3px; }
-.hm-icon { width: 78px; height: 78px; border-radius: 20px; overflow: hidden; display: block; box-shadow: 0 6px 14px -8px rgba(31, 29, 26, .5); }
+/* ---------- home: a loud street-art poster. Thick black marker lines, flat bold colors, wobbly hand-drawn edges ---------- */
+body:not(.px-on) { background: #ffd23f url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' fill='none' stroke='%23000' stroke-opacity='.13' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 16l12 12M26 16L14 28'/%3E%3Cpath d='M58 30q6-10 12 0t12 0t12 0'/%3E%3Cpath d='M118 14l6-7M124 22l9-2M122 31l8 5'/%3E%3Ccircle cx='32' cy='92' r='7'/%3E%3Cpath d='M76 112l8-10 8 10 8-10 8 10'/%3E%3Cpath d='M128 100v14M121 107h14'/%3E%3Cpath d='M12 140q10-8 20 0'/%3E%3C/svg%3E") 0 0 / 150px 150px; }
+.hm { --ink: #141414; min-height: 100%; max-width: 520px; margin: 0 auto; padding-block: 18px 28px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 20px; color: var(--ink); }
+.hm-top { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.hm-hi { margin: 0; width: min(100%, 330px); }
+.hm-hello { display: block; width: 100%; height: auto; overflow: visible; }
+.hm-sub { margin: 0; font-family: var(--hand); font-size: 1.22rem; line-height: 1.2; text-align: center; background: #fff; border: 3.5px solid var(--ink); border-radius: 18px 22px 16px 24px; padding: 8px 14px; transform: rotate(-1.5deg); box-shadow: 4px 5px 0 var(--ink); max-width: 30ch; }
+.hm-shelf { display: flex; flex-direction: column; gap: 18px; }
+.hm-label { margin: 2px 0 -6px 2px; line-height: 0; }
+.hm-myapps { height: 40px; width: auto; overflow: visible; }
+.hm-app { position: relative; display: grid; grid-template-columns: 74px minmax(0, 1fr) 42px; align-items: center; gap: 14px; padding: 16px 22px 22px 16px; color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; transition: transform .1s ease; }
+.hm-app > :not(.hm-frame) { position: relative; }
+.hm-frame { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.hm-frame path { stroke: var(--ink); stroke-width: 4px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.hm-frame .sh { fill: var(--c); }
+.hm-frame .fr { fill: #fff; }
+.hm-app:active { transform: translate(3px, 4px); }
+.hm-app:focus-visible { outline: 4px solid var(--ink); outline-offset: 4px; border-radius: 10px; }
+.hm-icon { width: 74px; height: 74px; border-radius: 18px; overflow: hidden; display: block; border: 3.5px solid var(--ink); transform: rotate(-4deg); background: var(--ink); }
+.hm-app + .hm-app .hm-icon { transform: rotate(4deg); }
 .hm-icon img, .hm-icon svg { width: 100%; height: 100%; display: block; }
-.hm-name { display: block; margin: 0; font-size: 1.2rem; font-weight: 700; letter-spacing: -.01em; }
-.hm-desc { display: block; margin: 2px 0 0; font-size: .95rem; color: var(--hm-mute); line-height: 1.35; }
-.hm-go { width: 34px; height: 34px; border-radius: 50%; background: var(--hm-bg); display: grid; place-items: center; color: var(--hm-ink); }
-.hm-go svg.i { width: 18px; height: 18px; }
+.hm-name { display: block; font-family: var(--hand); text-transform: uppercase; font-size: 1.55rem; line-height: 1; letter-spacing: .02em; }
+.hm-desc { display: block; margin-top: 5px; font-family: var(--hand); font-size: 1.02rem; line-height: 1.2; }
+.hm-go { width: 42px; height: 42px; border-radius: 50%; background: var(--c); border: 3.5px solid var(--ink); display: grid; place-items: center; transform: rotate(-6deg); }
+.hm-go svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+.hm-art { margin-top: 2px; }
+.hm-hero { display: block; width: 100%; height: auto; max-height: 220px; overflow: visible; }
 
 /* ---------- pixelry shell ---------- */
 .px { position: fixed; inset: 0; background: var(--px-bg); color: var(--px-text); font-family: var(--ui);
@@ -172,23 +184,29 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 <body>
 
 <div class="hm" id="home">
-  <header>
-    <h1 class="hm-hi">Hi, I'm Keith.</h1>
-    <p class="hm-sub">I draw all the time. Pick something to play with.</p>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <filter id="hmWob" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="3"><animate attributeName="seed" values="3;7;11" dur=".75s" calcMode="discrete" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="3.5"/></filter>
+  </defs></svg>
+  <header class="hm-top">
+    <h1 class="hm-hi"><svg class="hm-hello" viewBox="0 0 386 298" role="img" aria-label="Hi, I'm Keith!"><g filter="url(#hmWob)" fill="none" stroke-linecap="round" stroke-linejoin="round"><g stroke="#141414" stroke-width="22"><path transform="translate(47 19) rotate(-3.6 25 50)" d="M0 0V100 M50 0V100 M0 50H50"/><path transform="translate(127 27) rotate(4.8 0 50)" d="M0 0V100"/><path transform="translate(143 22) rotate(-6 3 50)" d="M6 86L0 114"/><path transform="translate(223 29) rotate(3.6 0 50)" d="M0 0V100"/><path transform="translate(239 24) rotate(-4.8 3 50)" d="M6 0L0 26"/><path transform="translate(275 19) rotate(6 32 50)" d="M0 100V0L32 56L64 0V100"/><path transform="translate(24 161) rotate(-3.6 25 50)" d="M0 0V100 M50 0L4 54 M18 40L52 100"/><path transform="translate(104 156) rotate(4.8 22 50)" d="M44 0H0V100H44 M0 50H34"/><path transform="translate(178 163) rotate(-6 0 50)" d="M0 0V100"/><path transform="translate(208 158) rotate(3.6 29 50)" d="M0 0H58 M29 0V100"/><path transform="translate(296 153) rotate(-4.8 25 50)" d="M0 0V100 M50 0V100 M0 50H50"/><path transform="translate(362 161) rotate(6 0 50)" d="M0 0V64 M0 97V98"/></g><g stroke-width="10"><path transform="translate(47 19) rotate(-3.6 25 50)" d="M0 0V100 M50 0V100 M0 50H50" stroke="#e8322b"/><path transform="translate(127 27) rotate(4.8 0 50)" d="M0 0V100" stroke="#1f5fd6"/><path transform="translate(143 22) rotate(-6 3 50)" d="M6 86L0 114" stroke="#14a84b"/><path transform="translate(223 29) rotate(3.6 0 50)" d="M0 0V100" stroke="#ff4fa0"/><path transform="translate(239 24) rotate(-4.8 3 50)" d="M6 0L0 26" stroke="#ff8a1f"/><path transform="translate(275 19) rotate(6 32 50)" d="M0 100V0L32 56L64 0V100" stroke="#7b3fd0"/><path transform="translate(24 161) rotate(-3.6 25 50)" d="M0 0V100 M50 0L4 54 M18 40L52 100" stroke="#e8322b"/><path transform="translate(104 156) rotate(4.8 22 50)" d="M44 0H0V100H44 M0 50H34" stroke="#1f5fd6"/><path transform="translate(178 163) rotate(-6 0 50)" d="M0 0V100" stroke="#14a84b"/><path transform="translate(208 158) rotate(3.6 29 50)" d="M0 0H58 M29 0V100" stroke="#ff4fa0"/><path transform="translate(296 153) rotate(-4.8 25 50)" d="M0 0V100 M50 0V100 M0 50H50" stroke="#ff8a1f"/><path transform="translate(362 161) rotate(6 0 50)" d="M0 0V64 M0 97V98" stroke="#7b3fd0"/></g></g></svg></h1>
+    <p class="hm-sub">I draw all the time. Pick something to play with!</p>
   </header>
   <nav class="hm-shelf" aria-label="My apps">
-    <p class="hm-label">My apps</p>
-    <a class="hm-app" href="doodle-deck.html">
+    <h2 class="hm-label"><svg class="hm-myapps" viewBox="0 0 550 164" role="img" aria-label="My apps"><g filter="url(#hmWob)" fill="none" stroke-linecap="round" stroke-linejoin="round"><g stroke="#141414" stroke-width="22"><path transform="translate(24 19) rotate(-3 32 50)" d="M0 100V0L32 56L64 0V100"/><path transform="translate(118 27) rotate(4 27 50)" d="M0 0L27 48L54 0 M27 48V100"/><path transform="translate(246 22) rotate(-5 27 50)" d="M0 100L27 0L54 100 M11 64H43"/><path transform="translate(330 29) rotate(3 22 50)" d="M0 100V0H20C50 0 50 54 20 54H0"/><path transform="translate(404 24) rotate(-4 22 50)" d="M0 100V0H20C50 0 50 54 20 54H0"/><path transform="translate(478 19) rotate(5 24 50)" d="M46 14C38 -4 4 -2 4 24C4 50 46 44 46 74C46 104 6 104 0 86"/></g><g stroke-width="10"><path transform="translate(24 19) rotate(-3 32 50)" d="M0 100V0L32 56L64 0V100" stroke="#1f5fd6"/><path transform="translate(118 27) rotate(4 27 50)" d="M0 0L27 48L54 0 M27 48V100" stroke="#ff4fa0"/><path transform="translate(246 22) rotate(-5 27 50)" d="M0 100L27 0L54 100 M11 64H43" stroke="#ff8a1f"/><path transform="translate(330 29) rotate(3 22 50)" d="M0 100V0H20C50 0 50 54 20 54H0" stroke="#14a84b"/><path transform="translate(404 24) rotate(-4 22 50)" d="M0 100V0H20C50 0 50 54 20 54H0" stroke="#e8322b"/><path transform="translate(478 19) rotate(5 24 50)" d="M46 14C38 -4 4 -2 4 24C4 50 46 44 46 74C46 104 6 104 0 86" stroke="#7b3fd0"/></g></g></svg></h2>
+    <a class="hm-app" href="doodle-deck.html" style="--c:#e8322b">
+      <svg class="hm-frame" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="sh" d="M5 11Q52 8 99 10Q100 55 99 99Q52 98 5 99Q4 55 5 11Z"/><path class="fr" d="M1.5 2Q48 0 94.5 1.5Q96 46 94 91Q48 92.5 1.5 91Q0.5 46 1.5 2Z"/></svg>
       <span class="hm-icon"><img src="assets/brand/doodle-deck-icon.svg" alt=""></span>
-      <span><span class="hm-name">Doodle Deck</span><span class="hm-desc">52 creatures drawn the way I draw. Every one tells a joke.</span></span>
-      <span class="hm-go" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+      <span class="hm-txt"><span class="hm-name">Doodle Deck</span><span class="hm-desc">52 creatures drawn the way I draw. Every one tells a joke.</span></span>
+      <span class="hm-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5h12M12 6.5l6 6-6 6"/></svg></span>
     </a>
-    <a class="hm-app" href="#pixelry">
+    <a class="hm-app" href="#pixelry" style="--c:#1f5fd6">
+      <svg class="hm-frame" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="sh" d="M5 11Q52 8 99 10Q100 55 99 99Q52 98 5 99Q4 55 5 11Z"/><path class="fr" d="M1.5 2Q48 0 94.5 1.5Q96 46 94 91Q48 92.5 1.5 91Q0.5 46 1.5 2Z"/></svg>
       <span class="hm-icon" id="pxIcon"></span>
-      <span><span class="hm-name">Pixelry</span><span class="hm-desc">Color tiny squares one at a time and make pixel art.</span></span>
-      <span class="hm-go" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+      <span class="hm-txt"><span class="hm-name">Pixelry</span><span class="hm-desc">Color tiny squares one at a time and make pixel art.</span></span>
+      <span class="hm-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5h12M12 6.5l6 6-6 6"/></svg></span>
     </a>
   </nav>
+  <div class="hm-art"><svg class="hm-hero" viewBox="0 0 360 200" aria-hidden="true"><g filter="url(#hmWob)"><path d="M147.1 87.0L136.7 81.0 M161.0 73.1L155.0 62.7 M180.0 68.0L180.0 56.0 M199.0 73.1L205.0 62.7 M212.9 87.0L223.3 81.0 M218.0 106.0L230.0 106.0 M212.9 125.0L223.3 131.0" stroke="#141414" stroke-width="4.5" stroke-linecap="round" fill="none"/><path d="M171.8 5.1L178.2 -2.6 M174.9 10.4L184.7 8.7 M173.8 16.5L182.5 21.5" stroke="#141414" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M244.7 33.0L238.3 25.4 M261.4 26.1L260.5 16.2 M279.0 30.0L284.0 21.4" stroke="#141414" stroke-width="4.5" stroke-linecap="round" fill="none"/><path d="M146 168q6 -8 4 -18M156 172q8 -10 6 -24M48 112q-8 6 -10 16M40 100q-10 8 -12 22M318 160q8 -6 8 -16M326 172q10 -8 10 -22M228 128q-6 6 -6 14" stroke="#141414" stroke-width="4" stroke-linecap="round" fill="none"/><g transform="rotate(-5 98 18)" stroke="#141414" stroke-width="4.5" stroke-linejoin="round"><rect x="50" y="9" width="92" height="18" fill="#ffd23f"/><path d="M78 9V27M110 9V27" fill="none" stroke-width="3"/><rect x="34" y="9" width="16" height="18" rx="3" fill="#ff4fa0"/><path d="M142 9L164 18L142 27Z" fill="#f5c9a6"/><path d="M156 15L164 18L156 21Z" fill="#141414"/></g><path d="M180 96C180 80 158 76 154 93C150 110 176 122 180 134C184 122 210 110 206 93C202 76 180 80 180 96Z" fill="#ff4fa0" stroke="#141414" stroke-width="5" stroke-linejoin="round"/><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M94 84L72 60L62 24 M96 84L118 60L128 22 M97 118L78 144L68 172 M98 118L120 138L138 156" stroke="#141414" stroke-width="19"/><path d="M95 74L98 118" stroke="#141414" stroke-width="32"/><path d="M94 84L72 60L62 24 M96 84L118 60L128 22 M97 118L78 144L68 172 M98 118L120 138L138 156" stroke="#e8322b" stroke-width="9"/><path d="M95 74L98 118" stroke="#e8322b" stroke-width="22"/></g><circle cx="95" cy="50" r="19" fill="#e8322b" stroke="#141414" stroke-width="5"/><ellipse cx="88" cy="49" rx="5.6" ry="7" fill="#fff" stroke="#141414" stroke-width="2.6"/><circle cx="89.4" cy="51.6" r="2.8" fill="#141414"/><circle cx="88.4" cy="50.4" r="1" fill="#fff"/><ellipse cx="102" cy="49" rx="5.6" ry="7" fill="#fff" stroke="#141414" stroke-width="2.6"/><circle cx="103.4" cy="51.6" r="2.8" fill="#141414"/><circle cx="102.4" cy="50.4" r="1" fill="#fff"/><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M266 90L242 102L220 92 M266 90L292 70L302 42 M272 124L252 150L256 180 M272 124L294 146L308 172" stroke="#141414" stroke-width="19"/><path d="M264 80L272 124" stroke="#141414" stroke-width="32"/><path d="M266 90L242 102L220 92 M266 90L292 70L302 42 M272 124L252 150L256 180 M272 124L294 146L308 172" stroke="#1f5fd6" stroke-width="9"/><path d="M264 80L272 124" stroke="#1f5fd6" stroke-width="22"/></g><circle cx="264" cy="56" r="19" fill="#1f5fd6" stroke="#141414" stroke-width="5"/><ellipse cx="257" cy="55" rx="5.6" ry="7" fill="#fff" stroke="#141414" stroke-width="2.6"/><circle cx="255" cy="56.6" r="2.8" fill="#141414"/><circle cx="254" cy="55.4" r="1" fill="#fff"/><ellipse cx="271" cy="55" rx="5.6" ry="7" fill="#fff" stroke="#141414" stroke-width="2.6"/><circle cx="269" cy="56.6" r="2.8" fill="#141414"/><circle cx="268" cy="55.4" r="1" fill="#fff"/><rect x="314" y="30" width="13" height="13" fill="#ffd23f" stroke="#141414" stroke-width="4" transform="rotate(12 320 36)"/><rect x="330" y="54" width="13" height="13" fill="#14a84b" stroke="#141414" stroke-width="4" transform="rotate(-10 336 60)"/><rect x="308" y="6" width="13" height="13" fill="#ff4fa0" stroke="#141414" stroke-width="4" transform="rotate(-6 314 12)"/></g></svg></div>
 </div>
 
 <div class="px" id="px" hidden>
@@ -771,6 +789,7 @@ if (typeof module !== "undefined") module.exports = PXC;
   document.addEventListener("visibilitychange", function () { if (document.hidden && ed) commit(); });
 
   /* ---------- home ---------- */
+  try { if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { var an = document.querySelectorAll("#hmWob animate"); for (var q = 0; q < an.length; q++) an[q].remove(); } } catch (e) {}
   var ic = $("pxIcon"); if (ic) ic.innerHTML = iconSvg(P.EGG, P.EGGMAP, "#1b1c20");
   route();
 })();
