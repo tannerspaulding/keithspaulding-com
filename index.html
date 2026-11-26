@@ -22,6 +22,7 @@
   color-scheme: light;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html, body { height: 100%; }
 body { margin: 0; background: var(--hm-bg); color: var(--hm-ink); font: 16px/1.45 var(--ui); -webkit-text-size-adjust: 100%; }
 body.px-on { background: var(--px-bg); color: var(--px-text); overflow: hidden; overscroll-behavior: none; }
@@ -124,7 +125,7 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 
 .px-sizes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .px-size { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 14px 8px 12px; border: 0; border-radius: 18px; background: var(--px-raise); cursor: pointer; }
-.px-size[aria-checked="true"] { box-shadow: 0 0 0 2px var(--px-text); }
+.px-size:active { transform: scale(.97); box-shadow: 0 0 0 2px var(--px-text); }
 .px-size i { width: 56px; height: 56px; border-radius: 6px; background-color: #fff;
   background-image: linear-gradient(rgba(20, 22, 26, .2) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 22, 26, .2) 1px, transparent 1px); }
 .px-size[data-n="16"] i { background-size: 7px 7px; } .px-size[data-n="32"] i { background-size: 3.5px 3.5px; } .px-size[data-n="64"] i { background-size: 1.75px 1.75px; }
@@ -238,13 +239,12 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 
   <section class="px-sheet" id="sizeSheet" aria-label="New drawing" aria-hidden="true">
     <div class="px-sheethead"><h2>New drawing</h2></div>
-    <p class="px-cap">Canvas size</p>
-    <div class="px-sizes" id="sizeOpts" role="radiogroup">
-      <button class="px-size" type="button" role="radio" data-n="16" aria-checked="false"><i></i><b>16 × 16</b><span>Quick</span></button>
-      <button class="px-size" type="button" role="radio" data-n="32" aria-checked="true"><i></i><b>32 × 32</b><span>Classic</span></button>
-      <button class="px-size" type="button" role="radio" data-n="64" aria-checked="false"><i></i><b>64 × 64</b><span>Detailed</span></button>
+    <p class="px-cap">Tap a size to start</p>
+    <div class="px-sizes" id="sizeOpts" aria-label="Canvas size">
+      <button class="px-size" type="button" data-n="16"><i></i><b>16 × 16</b><span>Quick</span></button>
+      <button class="px-size" type="button" data-n="32"><i></i><b>32 × 32</b><span>Classic</span></button>
+      <button class="px-size" type="button" data-n="64"><i></i><b>64 × 64</b><span>Detailed</span></button>
     </div>
-    <button class="px-primary" id="sizeGo" type="button">Start drawing</button>
     <button class="px-ghost" id="sizeCancel" type="button">Cancel</button>
   </section>
 
@@ -472,14 +472,11 @@ if (typeof module !== "undefined") module.exports = PXC;
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && openSheet) { var id = openSheet; sheet(id, false); if (id === "colorSheet") colorClosed(); } });
 
   // new drawing
-  var newSize = 32;
   $("newBtn").addEventListener("click", function () { sheet("sizeSheet", true); });
   $("sizeOpts").addEventListener("click", function (e) {
-    var b = e.target.closest("[data-n]"); if (!b) return; newSize = +b.getAttribute("data-n");
-    Array.prototype.forEach.call($("sizeOpts").children, function (c) { c.setAttribute("aria-checked", c === b ? "true" : "false"); });
-  });
-  $("sizeGo").addEventListener("click", function () {
-    var it = { id: uid(), n: newSize, p: [], d: "0*" + (newSize * newSize).toString(36), t: Date.now() };
+    var b = e.target.closest("[data-n]"); if (!b) return;
+    var n = +b.getAttribute("data-n");
+    var it = { id: uid(), n: n, p: [], d: "0*" + (n * n).toString(36), t: Date.now() };
     list.unshift(it); saveList(); sheet("sizeSheet", false); openEditor(it.id);
   });
   $("sizeCancel").addEventListener("click", function () { sheet("sizeSheet", false); });
