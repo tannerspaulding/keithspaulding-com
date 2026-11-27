@@ -307,6 +307,103 @@ html, body { height: 100%; margin: 0; overflow: hidden; overscroll-behavior: non
 </div>
 
 <script>
+/* Keith's site stats: counts only, for the family's private stats page.
+   Sends: a random id made on this device, which app is open, how many times things were tapped
+   (cards dealt, squares colored, pads hit, files saved), how many cards, drawings and beats are kept
+   on this device (numbers only), phone/tablet/computer, home-screen app or browser, the kind of
+   website that sent someone here (search, social, typed) on the first visit only, and how long this
+   visit lasted under its own random id.
+   Never sends drawings, beats, voice recordings, names or anything typed.
+   Only runs on keith-spaulding.com, never in a preview. Honors Do Not Track and Global Privacy Control.
+   Fails quietly: the apps never wait on it. Every call gives up after 6 seconds, and after a failure it
+   waits 1, 2, 4... up to 60 minutes before trying again, keeping its counts meanwhile.
+
+   In the apps:  KS.open("dd")  KS.ev("dd", "deal")  KS.card(12, 0|1|2)  (dealt, punch line, caught) */
+(function () {
+  var API = "https://keith-stats.tannerspaulding81.workers.dev";
+  var IDK = "ks-id", QK = "ks-q", BK = "ks-wait", SK = "ks-visit", FK = "ks-first";
+  var noop = function () {};
+  var host = location.hostname.replace(/^www\./, "");
+  var off = host !== "keith-spaulding.com" || navigator.doNotTrack === "1" || window.doNotTrack === "1" || navigator.globalPrivacyControl === true;
+  if (off) { window.KS = { on: false, open: noop, ev: noop, card: noop, send: noop }; return; }
+
+  var get = function (k, s) { try { return (s || localStorage).getItem(k); } catch (e) { return null; } };
+  var set = function (k, v, s) { try { if (v == null) (s || localStorage).removeItem(k); else (s || localStorage).setItem(k, v); } catch (e) {} };
+  var json = function (k, d, s) { try { return JSON.parse(get(k, s) || "null") || d; } catch (e) { return d; } };
+  var rid = function (n) { var a = new Uint8Array(n); crypto.getRandomValues(a); return Array.prototype.map.call(a, function (b) { return (b % 36).toString(36); }).join(""); };
+
+  function id() { var v = get(IDK); if (!v || !/^[a-z0-9]{16,40}$/.test(v)) { v = rid(24); set(IDK, v); if (get(IDK) !== v) return null; } return v; }
+  // One visit lasts until the tab has been away for 30 minutes, across the home screen and every app.
+  var vis = json(SK, null, sessionStorage), t0 = Date.now();
+  if (!vis || !vis.id || t0 - (vis.last || 0) > 1800000) { var d = new Date(); vis = { id: rid(16), h: d.getHours(), d: d.getDay(), secs: 0, last: t0 }; }
+  var active = (vis.secs || 0) * 1000, lastTick = t0;
+  function tick() { var n = Date.now(); if (document.visibilityState === "visible") active += Math.min(n - lastTick, 5000); lastTick = n; vis.secs = Math.round(active / 1000); vis.last = n; set(SK, JSON.stringify(vis), sessionStorage); }
+
+  // counts wait here until the server says it has them
+  var Q = json(QK, { e: {}, c: {} }); if (!Q.e) Q.e = {}; if (!Q.c) Q.c = {};
+  var dirty = false, keepT = 0;
+  function keep() { clearTimeout(keepT); keepT = setTimeout(function () { set(QK, JSON.stringify(Q)); }, 800); }
+  function device() { var w = Math.min(screen.width, screen.height); return /Mobi|Android|iPhone/i.test(navigator.userAgent) ? (w >= 600 ? "tablet" : "phone") : (navigator.maxTouchPoints > 1 && w >= 600 ? "tablet" : "computer"); }
+  function mode() { return (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone ? "app" : "browser"; }
+  // only the kind of place that sent someone, never the address
+  function source() {
+    var r = document.referrer, h = ""; if (!r) return "direct";
+    try { h = new URL(r).hostname.replace(/^www\./, ""); } catch (e) { return "other"; }
+    if (h === host) return "direct";
+    var m = [["search:google", /(^|\.)google\./], ["search:bing", /(^|\.)bing\.com$/], ["search:duckduckgo", /duckduckgo\.com$/], ["search:yahoo", /yahoo\./],
+      ["search:ecosia", /ecosia\.org$/], ["search:brave", /search\.brave\.com$/], ["social:facebook", /(^|\.)(facebook\.com|fb\.com|messenger\.com)$/],
+      ["social:instagram", /instagram\.com$/], ["social:youtube", /youtube\.com$|youtu\.be$/], ["social:reddit", /reddit\.com$/], ["social:pinterest", /pinterest\./],
+      ["social:tiktok", /tiktok\.com$/], ["social:x", /(^|\.)(t\.co|x\.com|twitter\.com)$/], ["social:linkedin", /linkedin\.com$|lnkd\.in$/], ["social:discord", /discord(app)?\.com$/],
+      ["family:mitchell", /mitchellspaulding\.com$|quackersgame\.com$/], ["github", /github\.(com|io)$/]];
+    for (var i = 0; i < m.length; i++) if (m[i][1].test(h)) return m[i][0];
+    return "other";
+  }
+  function have() {
+    var dd = json("doodle-deck-v1", []), px = json("pixelry-v1", []), bl = json("bloop-beats-v1", []);
+    return { dd: Array.isArray(dd) ? dd.length : 0, px: Array.isArray(px) ? px.filter(function (x) { return x && !x.ex; }).length : 0, bl: Array.isArray(bl) ? bl.filter(function (x) { return x && x.id !== "example"; }).length : 0 };
+  }
+
+  // back-off after a failure
+  var wait = function () { return json(BK, { until: 0, n: 0 }); };
+  function failed() { var w = wait(), n = Math.min((w.n || 0) + 1, 7); set(BK, JSON.stringify({ until: Date.now() + Math.min(60000 * Math.pow(2, n - 1), 3600000), n: n })); }
+
+  var app = "home", busy = false, lastSent = 0, sentSecs = -1;
+  function send(leaving) {
+    var me = id(); if (!me || busy || Date.now() < (wait().until || 0)) return;
+    tick();
+    var keys = Object.keys(Q.e).length + Object.keys(Q.c).length;
+    if (!keys && vis.secs - sentSecs < 60 && lastSent) return;   // nothing new worth a request
+    var e = Q.e, c = Q.c; Q = { e: {}, c: {} }; set(QK, JSON.stringify(Q));
+    var data = { id: me, app: app, dev: device(), mode: mode(), wd: navigator.webdriver ? 1 : 0, s: { id: vis.id, h: vis.h, d: vis.d, secs: vis.secs }, e: e, c: c, have: have() };
+    if (!get(FK)) data.src = source();
+    var back = function () { for (var k in e) Q.e[k] = (Q.e[k] || 0) + e[k];
+      for (var n in c) { var a = Q.c[n] || [0, 0, 0]; Q.c[n] = [a[0] + c[n][0], a[1] + c[n][1], Math.max(a[2], c[n][2])]; } set(QK, JSON.stringify(Q)); };
+    busy = true;
+    var ctl = window.AbortController ? new AbortController() : null, tm = ctl ? setTimeout(function () { ctl.abort(); }, 6000) : 0;
+    // text/plain keeps this a simple request, so the browser doesn't spend an extra request asking first
+    fetch(API + "/v1/ping", { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(data), keepalive: !!leaving, credentials: "omit", signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function (j) { if (!j || !j.ok) throw new Error("not ok"); set(BK, null); set(FK, "1"); lastSent = Date.now(); sentSecs = vis.secs; if (j.slow) back(); })
+      .catch(function () { back(); failed(); })
+      .then(function () { busy = false; clearTimeout(tm); });
+  }
+  var soonT = 0;
+  function soon(ms) { clearTimeout(soonT); soonT = setTimeout(send, ms); }
+
+  var KS = {
+    on: true,
+    open: function (a) { app = a; KS.ev(a, "open"); soon(1500); },
+    ev: function (a, name, n) { var k = a + "." + name; Q.e[k] = (Q.e[k] || 0) + (n || 1); keep(); },
+    card: function (n, which) { var a = Q.c[n] || [0, 0, 0]; if (which === 2) a[2] = 1; else a[which]++; Q.c[n] = a; keep(); },
+    send: send,
+  };
+  window.KS = KS;
+  setInterval(tick, 1000);
+  setInterval(function () { if (document.visibilityState === "visible") send(); }, 120000);
+  document.addEventListener("visibilitychange", function () { tick(); if (document.visibilityState === "hidden") { set(QK, JSON.stringify(Q)); send(true); } });
+  window.addEventListener("pagehide", function () { tick(); set(QK, JSON.stringify(Q)); });
+})();
+
 window.ASSET_BASE = "assets/";
 /* Keith-style creature renderer + the 52-card deck.
    Style rules (from Keith's drawings): thin black pen outline, marker scribble fill
@@ -764,6 +861,7 @@ var DD = (function () {
 (function () {
   "use strict";
   var DECK = KEITH.deck, KEY = "doodle-deck-v1";
+  var KS = window.KS || { open: function () {}, ev: function () {}, card: function () {} };
   var $ = function (id) { return document.getElementById(id); };
   var app = $("app"), stage = $("stage"), sheet = $("sheet"), toastEl = $("toast");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -778,7 +876,7 @@ var DD = (function () {
     return a.filter(function (n) { return typeof n === "number" && n >= 1 && n <= 52; });
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(caught)); } catch (e) {} }
-  var caught = load(), cur = null, step = 0, last = -1, busy = false;
+  var caught = load(), cur = null, step = 0, last = -1, busy = false, punched = false;
 
   stage.innerHTML = DD.card(null, 1, true);
   var card = stage.querySelector(".dd-card"), flip = card.querySelector(".dd-flip"), front = card.querySelector(".dd-front");
@@ -786,7 +884,7 @@ var DD = (function () {
   function byN(n) { return DECK[n - 1].n === n ? DECK[n - 1] : DECK.filter(function (c) { return c.n === n; })[0]; }
 
   function show(c, isNew) {
-    cur = c; step = 0; last = c.n;
+    cur = c; step = 0; last = c.n; punched = false;
     front.innerHTML = DD.front(c, 1);
     card.style.setProperty("--c", DD.color(c));
     app.style.setProperty("--c", DD.color(c));
@@ -801,6 +899,7 @@ var DD = (function () {
     else step += 2;
     var end = DD.joke(front, cur, step);
     if (end && step > 0 && !cur.knock) card.classList.add("punch");
+    if (end && step > 0 && !punched) { punched = true; KS.ev("dd", "punch"); KS.card(cur.n, 1); }
   }
   front.addEventListener("click", function (e) {
     if (e.target.closest(".dd-say")) { advance(); return; }
@@ -834,6 +933,8 @@ var DD = (function () {
     if (busy) return;
     var c = pick(), isNew = caught.indexOf(c.n) < 0;
     if (isNew) { caught.push(c.n); save(); }
+    KS.ev("dd", "deal"); KS.card(c.n, 0);
+    if (isNew) { KS.ev("dd", "new"); KS.card(c.n, 2); if (caught.length === 52) KS.ev("dd", "done"); }
     flipTo(c, isNew);
     counts();
     setTimeout(function () {
@@ -853,7 +954,7 @@ var DD = (function () {
     var i = cur ? list.indexOf(cur.n) : -1;
     var n = list[(i + dir + list.length) % list.length];
     if (i < 0) n = list[dir > 0 ? 0 : list.length - 1];
-    var c = byN(n);
+    var c = byN(n); KS.ev("dd", "browse");
     if (reduce || !card.animate) { show(c, false); flip.classList.remove("back"); return; }
     busy = true;
     card.animate([{ transform: "none", opacity: 1 }, { transform: "translateX(" + (-dir * 60) + "px) rotate(" + (-dir * 4) + "deg)", opacity: 0 }], { duration: 150, easing: "ease-in" }).onfinish = function () {
@@ -883,7 +984,7 @@ var DD = (function () {
   }
   function openDeck() {
     $("grid").innerHTML = DECK.map(function (c) { return DD.slot(c, caught.indexOf(c.n) >= 0, 2); }).join("");
-    sheet.classList.add("open"); sheet.setAttribute("aria-hidden", "false");
+    sheet.classList.add("open"); sheet.setAttribute("aria-hidden", "false"); KS.ev("dd", "deck");
     $("close").focus({ preventScroll: true });
   }
   function closeDeck() { sheet.classList.remove("open"); sheet.setAttribute("aria-hidden", "true"); $("deckbtn").focus({ preventScroll: true }); }
@@ -897,7 +998,7 @@ var DD = (function () {
     if (c) { show(c, false); flip.classList.remove("back"); }
   });
 
-  counts();
+  counts(); KS.open("dd");
   if (caught.length) $("deal").textContent = "Deal a card";
   else $("deal").textContent = "Deal my first card";
 })();

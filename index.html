@@ -300,6 +300,103 @@ body:not(.px-on) { background: #ffd23f url("data:image/svg+xml,%3Csvg xmlns='htt
 </div>
 
 <script>
+/* Keith's site stats: counts only, for the family's private stats page.
+   Sends: a random id made on this device, which app is open, how many times things were tapped
+   (cards dealt, squares colored, pads hit, files saved), how many cards, drawings and beats are kept
+   on this device (numbers only), phone/tablet/computer, home-screen app or browser, the kind of
+   website that sent someone here (search, social, typed) on the first visit only, and how long this
+   visit lasted under its own random id.
+   Never sends drawings, beats, voice recordings, names or anything typed.
+   Only runs on keith-spaulding.com, never in a preview. Honors Do Not Track and Global Privacy Control.
+   Fails quietly: the apps never wait on it. Every call gives up after 6 seconds, and after a failure it
+   waits 1, 2, 4... up to 60 minutes before trying again, keeping its counts meanwhile.
+
+   In the apps:  KS.open("dd")  KS.ev("dd", "deal")  KS.card(12, 0|1|2)  (dealt, punch line, caught) */
+(function () {
+  var API = "https://keith-stats.tannerspaulding81.workers.dev";
+  var IDK = "ks-id", QK = "ks-q", BK = "ks-wait", SK = "ks-visit", FK = "ks-first";
+  var noop = function () {};
+  var host = location.hostname.replace(/^www\./, "");
+  var off = host !== "keith-spaulding.com" || navigator.doNotTrack === "1" || window.doNotTrack === "1" || navigator.globalPrivacyControl === true;
+  if (off) { window.KS = { on: false, open: noop, ev: noop, card: noop, send: noop }; return; }
+
+  var get = function (k, s) { try { return (s || localStorage).getItem(k); } catch (e) { return null; } };
+  var set = function (k, v, s) { try { if (v == null) (s || localStorage).removeItem(k); else (s || localStorage).setItem(k, v); } catch (e) {} };
+  var json = function (k, d, s) { try { return JSON.parse(get(k, s) || "null") || d; } catch (e) { return d; } };
+  var rid = function (n) { var a = new Uint8Array(n); crypto.getRandomValues(a); return Array.prototype.map.call(a, function (b) { return (b % 36).toString(36); }).join(""); };
+
+  function id() { var v = get(IDK); if (!v || !/^[a-z0-9]{16,40}$/.test(v)) { v = rid(24); set(IDK, v); if (get(IDK) !== v) return null; } return v; }
+  // One visit lasts until the tab has been away for 30 minutes, across the home screen and every app.
+  var vis = json(SK, null, sessionStorage), t0 = Date.now();
+  if (!vis || !vis.id || t0 - (vis.last || 0) > 1800000) { var d = new Date(); vis = { id: rid(16), h: d.getHours(), d: d.getDay(), secs: 0, last: t0 }; }
+  var active = (vis.secs || 0) * 1000, lastTick = t0;
+  function tick() { var n = Date.now(); if (document.visibilityState === "visible") active += Math.min(n - lastTick, 5000); lastTick = n; vis.secs = Math.round(active / 1000); vis.last = n; set(SK, JSON.stringify(vis), sessionStorage); }
+
+  // counts wait here until the server says it has them
+  var Q = json(QK, { e: {}, c: {} }); if (!Q.e) Q.e = {}; if (!Q.c) Q.c = {};
+  var dirty = false, keepT = 0;
+  function keep() { clearTimeout(keepT); keepT = setTimeout(function () { set(QK, JSON.stringify(Q)); }, 800); }
+  function device() { var w = Math.min(screen.width, screen.height); return /Mobi|Android|iPhone/i.test(navigator.userAgent) ? (w >= 600 ? "tablet" : "phone") : (navigator.maxTouchPoints > 1 && w >= 600 ? "tablet" : "computer"); }
+  function mode() { return (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone ? "app" : "browser"; }
+  // only the kind of place that sent someone, never the address
+  function source() {
+    var r = document.referrer, h = ""; if (!r) return "direct";
+    try { h = new URL(r).hostname.replace(/^www\./, ""); } catch (e) { return "other"; }
+    if (h === host) return "direct";
+    var m = [["search:google", /(^|\.)google\./], ["search:bing", /(^|\.)bing\.com$/], ["search:duckduckgo", /duckduckgo\.com$/], ["search:yahoo", /yahoo\./],
+      ["search:ecosia", /ecosia\.org$/], ["search:brave", /search\.brave\.com$/], ["social:facebook", /(^|\.)(facebook\.com|fb\.com|messenger\.com)$/],
+      ["social:instagram", /instagram\.com$/], ["social:youtube", /youtube\.com$|youtu\.be$/], ["social:reddit", /reddit\.com$/], ["social:pinterest", /pinterest\./],
+      ["social:tiktok", /tiktok\.com$/], ["social:x", /(^|\.)(t\.co|x\.com|twitter\.com)$/], ["social:linkedin", /linkedin\.com$|lnkd\.in$/], ["social:discord", /discord(app)?\.com$/],
+      ["family:mitchell", /mitchellspaulding\.com$|quackersgame\.com$/], ["github", /github\.(com|io)$/]];
+    for (var i = 0; i < m.length; i++) if (m[i][1].test(h)) return m[i][0];
+    return "other";
+  }
+  function have() {
+    var dd = json("doodle-deck-v1", []), px = json("pixelry-v1", []), bl = json("bloop-beats-v1", []);
+    return { dd: Array.isArray(dd) ? dd.length : 0, px: Array.isArray(px) ? px.filter(function (x) { return x && !x.ex; }).length : 0, bl: Array.isArray(bl) ? bl.filter(function (x) { return x && x.id !== "example"; }).length : 0 };
+  }
+
+  // back-off after a failure
+  var wait = function () { return json(BK, { until: 0, n: 0 }); };
+  function failed() { var w = wait(), n = Math.min((w.n || 0) + 1, 7); set(BK, JSON.stringify({ until: Date.now() + Math.min(60000 * Math.pow(2, n - 1), 3600000), n: n })); }
+
+  var app = "home", busy = false, lastSent = 0, sentSecs = -1;
+  function send(leaving) {
+    var me = id(); if (!me || busy || Date.now() < (wait().until || 0)) return;
+    tick();
+    var keys = Object.keys(Q.e).length + Object.keys(Q.c).length;
+    if (!keys && vis.secs - sentSecs < 60 && lastSent) return;   // nothing new worth a request
+    var e = Q.e, c = Q.c; Q = { e: {}, c: {} }; set(QK, JSON.stringify(Q));
+    var data = { id: me, app: app, dev: device(), mode: mode(), wd: navigator.webdriver ? 1 : 0, s: { id: vis.id, h: vis.h, d: vis.d, secs: vis.secs }, e: e, c: c, have: have() };
+    if (!get(FK)) data.src = source();
+    var back = function () { for (var k in e) Q.e[k] = (Q.e[k] || 0) + e[k];
+      for (var n in c) { var a = Q.c[n] || [0, 0, 0]; Q.c[n] = [a[0] + c[n][0], a[1] + c[n][1], Math.max(a[2], c[n][2])]; } set(QK, JSON.stringify(Q)); };
+    busy = true;
+    var ctl = window.AbortController ? new AbortController() : null, tm = ctl ? setTimeout(function () { ctl.abort(); }, 6000) : 0;
+    // text/plain keeps this a simple request, so the browser doesn't spend an extra request asking first
+    fetch(API + "/v1/ping", { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(data), keepalive: !!leaving, credentials: "omit", signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function (j) { if (!j || !j.ok) throw new Error("not ok"); set(BK, null); set(FK, "1"); lastSent = Date.now(); sentSecs = vis.secs; if (j.slow) back(); })
+      .catch(function () { back(); failed(); })
+      .then(function () { busy = false; clearTimeout(tm); });
+  }
+  var soonT = 0;
+  function soon(ms) { clearTimeout(soonT); soonT = setTimeout(send, ms); }
+
+  var KS = {
+    on: true,
+    open: function (a) { app = a; KS.ev(a, "open"); soon(1500); },
+    ev: function (a, name, n) { var k = a + "." + name; Q.e[k] = (Q.e[k] || 0) + (n || 1); keep(); },
+    card: function (n, which) { var a = Q.c[n] || [0, 0, 0]; if (which === 2) a[2] = 1; else a[which]++; Q.c[n] = a; keep(); },
+    send: send,
+  };
+  window.KS = KS;
+  setInterval(tick, 1000);
+  setInterval(function () { if (document.visibilityState === "visible") send(); }, 120000);
+  document.addEventListener("visibilitychange", function () { tick(); if (document.visibilityState === "hidden") { set(QK, JSON.stringify(Q)); send(true); } });
+  window.addEventListener("pagehide", function () { tick(); set(QK, JSON.stringify(Q)); });
+})();
+
 /* Pixelry core: pure helpers (no DOM), shared by the app and tests. */
 var PXC = (function () {
   "use strict";
@@ -409,6 +506,8 @@ if (typeof module !== "undefined") module.exports = PXC;
 /* Pixelry app + home routing. Needs PXC (pixelry-core.js). */
 (function () {
   "use strict";
+  var KS = window.KS || { open: function () {}, ev: function () {}, card: function () {} };
+  var fresh = {};
   var P = PXC, KEY = "pixelry-v1", KEYC = "pixelry-colors-v1", KEYS = "pixelry-state-v1";
   var $ = function (id) { return document.getElementById(id); };
   function lsGet(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
@@ -451,9 +550,11 @@ if (typeof module !== "undefined") module.exports = PXC;
 
   /* ---------- views + routing ---------- */
   var views = { home: $("home"), px: $("px"), gal: $("gal"), ed: $("ed") };
+  var wasPx = null;
   function route() {
     var h = (location.hash || "").replace("#", "");
     var inPx = h === "pixelry" || h === "pixelry-draw";
+    if (inPx !== wasPx) { wasPx = inPx; KS.open(inPx ? "px" : "home"); }
     views.home.hidden = inPx; views.px.hidden = !inPx;
     document.body.classList.toggle("px-on", inPx);
     if (!inPx) { closeEditor(true); return; }
@@ -502,7 +603,7 @@ if (typeof module !== "undefined") module.exports = PXC;
     var b = e.target.closest("[data-n]"); if (!b) return;
     var n = +b.getAttribute("data-n");
     var it = { id: uid(), n: n, p: [], d: "0*" + (n * n).toString(36), t: Date.now() };
-    list.unshift(it); saveList(); sheet("sizeSheet", false); openEditor(it.id);
+    list.unshift(it); saveList(); sheet("sizeSheet", false); fresh[it.id] = 1; KS.ev("px", "new" + n); openEditor(it.id);
   });
   $("sizeCancel").addEventListener("click", function () { sheet("sizeSheet", false); });
 
@@ -526,6 +627,8 @@ if (typeof module !== "undefined") module.exports = PXC;
     if (!ed) return;
     commit();
     if (P.isEmpty(ed.px) && !ed.it.ex) { list = list.filter(function (x) { return x !== ed.it; }); saveList(); }
+    else if (fresh[ed.it.id]) KS.ev("px", "kept");
+    delete fresh[ed.it.id];
     ed = null; state.open = null; saveState();
     if (!silent) location.hash = "pixelry";
   }
@@ -657,14 +760,14 @@ if (typeof module !== "undefined") module.exports = PXC;
     delete pts[e.pointerId]; count = Math.max(0, count - 1);
     if (count < 2) pinch = null;
     if (count > 0) return;
-    if (stroke) { if (stroke.changed) { pushUndo(stroke.before); persist(); } stroke = null; }
+    if (stroke) { if (stroke.changed) { pushUndo(stroke.before); persist(); KS.ev("px", tool === "erase" ? "erase" : "stroke"); } stroke = null; }
     if (tapCell && !gestureDone && e.type === "pointerup") {
       var i = tapCell[1] * ed.n + tapCell[0];
       if (tool === "fill") {
         var before = ed.px.slice();
-        if (P.fill(ed.px, ed.n, tapCell[0], tapCell[1], P.hexToInt(cur))) { pushUndo(before); persist(); }
+        if (P.fill(ed.px, ed.n, tapCell[0], tapCell[1], P.hexToInt(cur))) { pushUndo(before); persist(); KS.ev("px", "fill"); }
       } else if (tool === "pick") {
-        if (ed.px[i] >= 0) { setColor(hx(ed.px[i])); toast("Picked " + hx(ed.px[i])); } else toast("That square is empty");
+        if (ed.px[i] >= 0) { KS.ev("px", "pick"); setColor(hx(ed.px[i])); toast("Picked " + hx(ed.px[i])); } else toast("That square is empty");
         setTool("pen");
       }
     }
@@ -760,18 +863,19 @@ if (typeof module !== "undefined") module.exports = PXC;
     picBlob = null; if (c.toBlob) c.toBlob(function (b) { picBlob = b; });
     var canShare = !!(navigator.share && navigator.canShare);
     $("picShare").hidden = !canShare; $("picDl").classList.toggle("main", !canShare); $("picDl").classList.toggle("wide", !canShare);
-    disarm(); sheet("picSheet", true);
+    disarm(); sheet("picSheet", true); KS.ev("px", "pic");
   });
   function fname() { return "pixelry-" + ed.n + "x" + ed.n + "-" + new Date().toISOString().slice(0, 10) + ".png"; }
   $("picShare").addEventListener("click", function () {
     if (!picBlob) return toast("One sec, getting it ready");
     try {
       var f = new File([picBlob], fname(), { type: "image/png" });
-      if (navigator.canShare({ files: [f] })) navigator.share({ files: [f], title: "My pixel art" }).catch(function () {});
+      if (navigator.canShare({ files: [f] })) navigator.share({ files: [f], title: "My pixel art" }).then(function () { KS.ev("px", "share"); }, function () {});
       else toast("Sharing isn't available here. Try Download.");
     } catch (er) { toast("Sharing isn't available here. Try Download."); }
   });
   $("picDl").addEventListener("click", function () {
+    KS.ev("px", "dl");
     if (dlCap && picBlob) {
       dlCap.save({ filename: fname(), data: picBlob }).catch(function (er) { if (!er || er.code !== "declined") toast("Press and hold the picture to save it"); });
       return;
@@ -786,7 +890,7 @@ if (typeof module !== "undefined") module.exports = PXC;
   function disarm() { clearTimeout(delArm); delArm = null; $("picDel").classList.remove("armed"); $("picDel").lastChild.textContent = "Delete"; }
   $("picDel").addEventListener("click", function () {
     if (!delArm) { this.classList.add("armed"); this.lastChild.textContent = "Tap again to delete"; delArm = setTimeout(disarm, 3000); return; }
-    disarm(); var gone = ed.it; ed = null; state.open = null; saveState();
+    disarm(); KS.ev("px", "del"); var gone = ed.it; ed = null; state.open = null; saveState();
     list = list.filter(function (x) { return x !== gone; }); saveList();
     sheet("picSheet", false); location.hash = "pixelry"; showGallery(); toast("Drawing deleted");
   });
