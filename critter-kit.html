@@ -19,6 +19,7 @@
   color-scheme: light;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html, body { height: 100%; }
 body { margin: 0; overflow: hidden; overscroll-behavior: none; color: var(--ink); font: 16px/1.4 var(--ui); -webkit-text-size-adjust: 100%;
   background: var(--ground) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' fill='none' stroke='%23000' stroke-opacity='.11' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 16l12 12M26 16L14 28'/%3E%3Cpath d='M58 30q6-10 12 0t12 0t12 0'/%3E%3Cpath d='M118 14l6-7M124 22l9-2M122 31l8 5'/%3E%3Ccircle cx='32' cy='92' r='7'/%3E%3Cpath d='M76 112l8-10 8 10 8-10 8 10'/%3E%3Cpath d='M128 100v14M121 107h14'/%3E%3Cpath d='M12 140q10-8 20 0'/%3E%3C/svg%3E") 0 0 / 150px 150px; }
@@ -127,6 +128,25 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .toast { position: fixed; left: 50%; top: calc(env(safe-area-inset-top, 0px) + 70px); z-index: 50; transform: translate(-50%, -10px) rotate(-1deg); opacity: 0; pointer-events: none; background: var(--paper); border: 3px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); border-radius: 14px; padding: 8px 14px; font-family: var(--hand); font-size: 1.2rem; white-space: nowrap; transition: opacity .2s, transform .2s; }
 .toast.show { opacity: 1; transform: translate(-50%, 0) rotate(-1deg); }
 
+/* computers and tablets: pieces down the left, the paper as big as the window allows */
+@media (min-width: 860px) and (min-height: 540px) {
+  .app, .studio { max-width: 1320px; display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 10px 22px; }
+  .app { grid-template-rows: 50px 50px minmax(0, 1fr); }
+  .studio { grid-template-rows: 50px auto minmax(0, 1fr); }
+  .bar { grid-column: 1 / -1; }
+  .row2 { grid-column: 2; grid-row: 2; }
+  .stage { grid-column: 2; grid-row: 3; }
+  .app > .panel, .studio .panel { grid-column: 1; grid-row: 2 / 4; height: auto; min-height: 0; }
+  .studio .panel { align-self: start; }
+  .studio .say { grid-column: 2; grid-row: 2; }
+  .studio .padwrap { grid-column: 2; grid-row: 3; }
+  .tabs { flex-wrap: wrap; overflow: visible; padding: 10px 10px 4px; }
+  .tray { flex-wrap: wrap; align-items: flex-start; align-content: flex-start; overflow-x: hidden; overflow-y: auto; touch-action: pan-y; padding: 8px 10px 14px; }
+  .tile { width: 92px; height: 92px; touch-action: pan-y; }
+  .trayhint { flex: 1 1 100%; max-width: none; }
+  .tools { flex-wrap: wrap; }
+  .strip { flex-wrap: wrap; align-items: flex-start; align-content: flex-start; overflow: visible; padding: 10px 10px 14px; }
+}
 @media (max-width: 370px) { .brand { font-size: 1.4rem; } .brand svg { display: none; } .seg button { padding: 0 10px; } .chip span { display: none; } }
 @media (prefers-reduced-motion: reduce) { .sheet, .sheet.open, .scrim, .toast { transition: none; } }
 </style>
@@ -737,6 +757,7 @@ function addAt(it, x, y) {
 }
 
 /* drag a piece up out of the tray */
+const wideMQ = matchMedia('(min-width: 860px) and (min-height: 540px)');
 let tg = null; const ghost = document.createElement('canvas'); ghost.className = 'ghost'; ghost.hidden = true; document.body.append(ghost);
 tray.addEventListener('pointerdown', e => {
   const t = e.target.closest('.tile[data-i]'); if (!t || e.target.closest('.x')) return;
@@ -747,7 +768,7 @@ addEventListener('pointermove', e => {
   const dx = e.clientX - tg.x0, dy = e.clientY - tg.y0;
   if (!tg.drag) {
     if (Math.hypot(dx, dy) < 9) return;
-    if (!tg.mouse && -dy < Math.abs(dx) * .7) return;
+    if (!tg.mouse && (wideMQ.matches ? dx < Math.abs(dy) * .7 : -dy < Math.abs(dx) * .7)) return;
     tg.drag = true; try { tg.t.setPointerCapture(e.pointerId); } catch (er) {}
     const im = tg.it.img, k = Math.min(1, 120 / Math.max(im.width, im.height)); ghost.width = im.width * k; ghost.height = im.height * k;
     const gc = ghost.getContext('2d'); gc.clearRect(0, 0, ghost.width, ghost.height); gc.drawImage(im, 0, 0, ghost.width, ghost.height);
