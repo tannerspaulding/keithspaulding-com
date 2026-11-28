@@ -716,11 +716,21 @@ if (typeof module !== "undefined") module.exports = PXC;
   }
   function startPinch() {
     var a = [], k; for (k in pts) a.push(pts[k]);
+    if (a.length < 2) return;
     var d = Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y) || 1, m = { x: (a[0].x + a[1].x) / 2, y: (a[0].y + a[1].y) / 2 };
     pinch = { d: d, z: z, wx: (m.x - ox) / z, wy: (m.y - oy) / z };
   }
-  cv.addEventListener("pointerdown", function (e) {
+  // Finish whatever was going on and start clean. A mouse is only ever one pointer, so if a press arrives while
+  // we still think one is down, its "let go" was lost (a right-click menu, a switch to another window...).
+  // Without this the next click looked like a second finger, every click after it did nothing, and colored
+  // squares seemed stuck until the page was reloaded.
+  function resetGesture() {
+    if (stroke) { if (stroke.changed) { pushUndo(stroke.before); persist(); } stroke = null; }
+    pts = {}; count = 0; pinch = null; pan = null; tapCell = null;
+  }
+  function down(e) {
     if (!ed || (e.pointerType === "mouse" && e.button !== 0)) return;
+    if (count && (e.pointerType === "mouse" || e.pointerId in pts)) resetGesture();
     e.preventDefault(); try { cv.setPointerCapture(e.pointerId); } catch (er) {}
     pts[e.pointerId] = local(e); count++;
     if (count === 1) {
@@ -733,7 +743,16 @@ if (typeof module !== "undefined") module.exports = PXC;
       if (stroke) { if (stroke.changed) ed.px.set(stroke.before); stroke = null; }
       pan = null; tapCell = null; gestureDone = true; startPinch(); render();
     }
-  });
+  }
+  cv.addEventListener("pointerdown", down);
+  // Something laid over the canvas (a browser add-on's button, for one) can swallow clicks on some squares.
+  // Catch any press that lands inside the canvas but on something that isn't part of Pixelry, and paint anyway.
+  window.addEventListener("pointerdown", function (e) {
+    if (!ed || views.ed.hidden || e.target === cv || views.px.contains(e.target)) return;
+    var r = cv.getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX >= r.right || e.clientY < r.top || e.clientY >= r.bottom) return;
+    down(e);
+  }, true);
   cv.addEventListener("pointermove", function (e) {
     if (!ed) return;
     var p = local(e);
@@ -744,6 +763,7 @@ if (typeof module !== "undefined") module.exports = PXC;
     pts[e.pointerId] = p;
     if (pinch && count >= 2) {
       var a = [], k; for (k in pts) a.push(pts[k]);
+      if (a.length < 2) return;
       var d = Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y) || 1, m = { x: (a[0].x + a[1].x) / 2, y: (a[0].y + a[1].y) / 2 };
       var nz = Math.max(1, Math.min(zmax(), pinch.z * d / pinch.d));
       z = nz; ox = m.x - pinch.wx * z; oy = m.y - pinch.wy * z; clamp(); render();
@@ -776,7 +796,9 @@ if (typeof module !== "undefined") module.exports = PXC;
     }
     tapCell = null; pan = null; render();
   }
-  cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+  cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up); cv.addEventListener("lostpointercapture", up);
+  cv.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+  window.addEventListener("blur", function () { if (ed && count) { resetGesture(); render(); } });
   cv.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse" && hover && !(e.pointerId in pts)) { hover = null; render(); } });
   cv.addEventListener("wheel", function (e) {
     if (!ed) return; e.preventDefault(); var p = local(e);
