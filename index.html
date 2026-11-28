@@ -67,6 +67,7 @@ body:not(.px-on) { background: #ffd23f url("data:image/svg+xml,%3Csvg xmlns='htt
 .px-ibtn:hover { background: var(--px-panel); }
 .px-ibtn:disabled { opacity: .28; cursor: default; background: transparent; }
 .px-ibtn[aria-pressed="true"] { background: var(--px-raise); }
+#gridBtn[aria-pressed="true"] { background: var(--px-text); color: var(--px-bg); }
 .px :focus-visible { outline: 2px solid var(--px-text); outline-offset: 2px; }
 .px-brand { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; font-size: 1.02rem; letter-spacing: .01em; }
 .px-mark { width: 20px; height: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
@@ -231,7 +232,7 @@ body:not(.px-on) { background: #ffd23f url("data:image/svg+xml,%3Csvg xmlns='htt
   <section class="px-ed" id="ed" aria-label="Drawing" hidden>
     <div class="px-bar">
       <button class="px-ibtn" id="edBack" type="button" aria-label="Back to my pixel art"><svg class="i" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-      <button class="px-ibtn" id="gridBtn" type="button" aria-label="Show grid lines"><svg class="i" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9.33h16M4 14.67h16M9.33 4v16M14.67 4v16"/></svg></button>
+      <button class="px-ibtn" id="gridBtn" type="button" aria-label="Grid lines" title="Grid lines"><svg class="i" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9.33h16M4 14.67h16M9.33 4v16M14.67 4v16"/></svg></button>
       <div class="px-title" id="edTitle"></div>
       <button class="px-ibtn" id="undoBtn" type="button" aria-label="Undo"><svg class="i" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 010 11H11"/></svg></button>
       <button class="px-ibtn" id="redoBtn" type="button" aria-label="Redo"><svg class="i" viewBox="0 0 24 24"><path d="M15 14l5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 000 11H13"/></svg></button>
@@ -609,7 +610,7 @@ if (typeof module !== "undefined") module.exports = PXC;
 
   /* ---------- editor ---------- */
   var ed = null, cv = $("cv"), ctx = cv.getContext("2d"), stage = $("stage");
-  var S = 300, dpr = 1, z = 1, ox = 0, oy = 0, showGrid = state.grid !== false;
+  var S = 300, dpr = 1, z = 1, ox = 0, oy = 0, showGrid = state.gridV === 2 ? state.grid !== false : true; // lines were too faint before, so an old "off" is reset once
   var tool = "pen", cur = state.color && P.normHex(state.color) ? P.normHex(state.color) : "#14161a";
   var hexCache = {};
   function hx(v) { return hexCache[v] || (hexCache[v] = P.intToHex(v)); }
@@ -676,15 +677,17 @@ if (typeof module !== "undefined") module.exports = PXC;
       }
     }
     if (showGrid && c >= 4 * dpr) {
-      var major = n >= 32 ? 8 : 4, lw = Math.max(1, Math.round(dpr * 0.6));
+      // line weight follows the square size, so big squares on a laptop still get lines you can see
+      var major = n >= 32 ? 8 : 4, lw0 = Math.round(Math.max(dpr, Math.min(2 * dpr, c * 0.03)));
       for (var pass = 0; pass < 2; pass++) {
+        var lw = pass ? Math.round(lw0 * 1.7) : lw0, h = lw % 2 ? 0.5 : 0;
         ctx.beginPath();
         for (var i = 0; i <= n; i++) {
           if ((i % major === 0) !== (pass === 1)) continue;
-          var p = Math.round(X + i * c) + (lw % 2 ? 0.5 : 0), q = Math.round(Y + i * c) + (lw % 2 ? 0.5 : 0);
+          var p = Math.round(X + i * c) + h, q = Math.round(Y + i * c) + h;
           ctx.moveTo(p, Y); ctx.lineTo(p, Y + n * c); ctx.moveTo(X, q); ctx.lineTo(X + n * c, q);
         }
-        ctx.lineWidth = lw; ctx.strokeStyle = pass ? "rgba(20,22,26,.26)" : "rgba(20,22,26,.09)"; ctx.stroke();
+        ctx.lineWidth = lw; ctx.strokeStyle = pass ? "rgba(20,22,26,.34)" : "rgba(20,22,26,.17)"; ctx.stroke();
       }
     }
     if (hover) {
@@ -785,7 +788,7 @@ if (typeof module !== "undefined") module.exports = PXC;
   $("zoomOut").addEventListener("click", function () { zoomAt(z / 1.6, S / 2, S / 2); });
   $("zoomLbl").addEventListener("click", function () { z = 1; ox = oy = 0; render(); });
 
-  $("gridBtn").addEventListener("click", function () { showGrid = !showGrid; state.grid = showGrid; saveState(); this.setAttribute("aria-pressed", showGrid ? "true" : "false"); render(); });
+  $("gridBtn").addEventListener("click", function () { showGrid = !showGrid; state.grid = showGrid; state.gridV = 2; saveState(); this.setAttribute("aria-pressed", showGrid ? "true" : "false"); render(); });
   $("gridBtn").setAttribute("aria-pressed", showGrid ? "true" : "false");
 
   /* tools */
