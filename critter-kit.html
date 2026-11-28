@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffd23f">
+<title>Critter Kit by Keith</title>
+<meta name="description" content="Build silly critters out of pieces, draw your own pieces, then draw all over them.">
+<link rel="icon" type="image/svg+xml" href="assets/brand/critter-kit-icon.svg">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta name="color-scheme" content="light">
+<style>
+@font-face { font-family: "Keith Hand"; src: url(data:font/woff2;base64,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) format("woff2"); font-display: swap; }
+/* Layout: a one-screen studio on Keith's yellow poster ground. Marker-outlined top bar, one big sheet of white paper, the piece tray at the thumb. Single committed light look, like the home shelf. */
+:root {
+  --ground: #ffd23f; --ink: #141414; --paper: #ffffff; --card: #fffdf6; --mute: #5d574c; --accent: #7b4fe0; --accent-ink: #ffffff; --warn: #e8322b;
+  --hand: "Keith Hand", "Chalkboard SE", "Comic Neue", system-ui, sans-serif;
+  --ui: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; overflow: hidden; overscroll-behavior: none; color: var(--ink); font: 16px/1.4 var(--ui); -webkit-text-size-adjust: 100%;
+  background: var(--ground) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' fill='none' stroke='%23000' stroke-opacity='.11' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 16l12 12M26 16L14 28'/%3E%3Cpath d='M58 30q6-10 12 0t12 0t12 0'/%3E%3Cpath d='M118 14l6-7M124 22l9-2M122 31l8 5'/%3E%3Ccircle cx='32' cy='92' r='7'/%3E%3Cpath d='M76 112l8-10 8 10 8-10 8 10'/%3E%3Cpath d='M128 100v14M121 107h14'/%3E%3Cpath d='M12 140q10-8 20 0'/%3E%3C/svg%3E") 0 0 / 150px 150px; }
+button { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; }
+svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.app { height: 100%; max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px;
+  padding-block: 8px 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* chunky marker buttons */
+.ib { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border: 3px solid var(--ink); border-radius: 14px; background: var(--paper); box-shadow: 3px 3px 0 var(--ink); cursor: pointer; text-decoration: none; color: var(--ink); padding: 0; }
+.ib:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.ib:disabled { opacity: .35; cursor: default; transform: none; box-shadow: 3px 3px 0 var(--ink); }
+
+.bar { display: flex; align-items: center; gap: 8px; height: 50px; flex: none; }
+.brand { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 6px; font-family: var(--hand); font-size: 1.7rem; line-height: 1; text-transform: uppercase; letter-spacing: .02em; white-space: nowrap; }
+.brand svg { width: 34px; height: 34px; flex: none; transform: rotate(-8deg); }
+.done { height: 44px; padding: 0 14px; border: 3px solid var(--ink); border-radius: 14px; background: var(--accent); color: var(--accent-ink); font-family: var(--hand); font-size: 1.3rem; box-shadow: 3px 3px 0 var(--ink); cursor: pointer; flex: none; }
+.done:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+.row2 { height: 50px; flex: none; display: flex; align-items: center; gap: 8px; }
+.seg { display: flex; padding: 3px; gap: 3px; background: var(--paper); border: 3px solid var(--ink); border-radius: 16px; box-shadow: 3px 3px 0 var(--ink); }
+.seg button { height: 38px; padding: 0 14px; border: 0; border-radius: 11px; background: transparent; font-family: var(--hand); font-size: 1.25rem; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+.seg button svg.i { width: 19px; height: 19px; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.chip { margin-left: auto; height: 44px; padding: 0 12px; display: flex; align-items: center; gap: 6px; border: 3px solid var(--ink); border-radius: 14px; background: var(--paper); box-shadow: 3px 3px 0 var(--ink); font-family: var(--hand); font-size: 1.2rem; cursor: pointer; white-space: nowrap; }
+.chip:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.chip svg.i { width: 20px; height: 20px; }
+.selrow { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 4px; min-width: 0; }
+.selrow .ib { width: 42px; height: 42px; }
+.selrow .ib[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.selrow .ok { background: var(--accent); color: #fff; }
+
+.stage { position: relative; flex: 1; min-height: 0; display: grid; place-items: center; }
+#cv { display: block; background: var(--paper); border: 3.5px solid var(--ink); border-radius: 10px; box-shadow: 5px 6px 0 var(--ink); touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.recolor { position: absolute; top: 0; left: 0; right: 0; z-index: 5; display: flex; gap: 8px; padding: 8px; overflow-x: auto; background: var(--paper); border: 3px solid var(--ink); border-radius: 16px; box-shadow: 3px 4px 0 var(--ink); scrollbar-width: none; }
+.recolor::-webkit-scrollbar { display: none; }
+
+.panel { flex: none; height: 142px; display: flex; flex-direction: column; background: var(--card); border: 3px solid var(--ink); border-radius: 18px; box-shadow: 4px 5px 0 var(--ink); overflow: hidden; }
+.tabs { flex: none; display: flex; gap: 6px; overflow-x: auto; padding: 8px 8px 0; scrollbar-width: none; }
+.tabs::-webkit-scrollbar, .tray::-webkit-scrollbar, .strip::-webkit-scrollbar { display: none; }
+.tab { flex: none; height: 34px; padding: 0 12px; border: 2.5px solid var(--ink); border-radius: 99px; background: var(--paper); font-family: var(--hand); font-size: 1.1rem; line-height: 1; cursor: pointer; white-space: nowrap; }
+.tab[aria-selected="true"] { background: var(--ink); color: #fff; }
+.tray { flex: 1; min-height: 0; display: flex; align-items: center; gap: 10px; overflow-x: auto; padding: 6px 10px; touch-action: pan-x; scrollbar-width: none; }
+.tile { flex: none; width: 80px; height: 80px; display: grid; place-items: center; padding: 6px; border: 2.5px solid var(--ink); border-radius: 16px; background: var(--paper); cursor: grab; touch-action: pan-x; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; position: relative; }
+.tile canvas { max-width: 100%; max-height: 100%; display: block; pointer-events: none; }
+.tile.make { background: var(--accent); color: #fff; cursor: pointer; font-family: var(--hand); font-size: 1rem; line-height: 1.05; text-align: center; gap: 2px; align-content: center; }
+.tile.make svg.i { width: 26px; height: 26px; margin: 0 auto; }
+.tile .x { position: absolute; top: -8px; right: -8px; width: 28px; height: 28px; border-radius: 50%; border: 2.5px solid var(--ink); background: var(--warn); color: #fff; display: grid; place-items: center; padding: 0; cursor: pointer; }
+.tile .x svg.i { width: 14px; height: 14px; stroke-width: 3; }
+.trayhint { flex: none; max-width: 170px; font-family: var(--hand); font-size: 1.05rem; line-height: 1.15; color: var(--mute); }
+.tidy { flex: none; height: 34px; padding: 0 10px; border: 2.5px dashed var(--ink); border-radius: 12px; background: transparent; font-family: var(--hand); font-size: 1rem; cursor: pointer; }
+
+.tools { flex: none; display: flex; align-items: center; gap: 6px; padding: 10px 10px 0; }
+.tools .ib { width: 46px; height: 46px; box-shadow: none; border-width: 2.5px; }
+.tools .ib[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.tools .sep { width: 2px; height: 30px; background: var(--ink); opacity: .2; margin: 0 2px; }
+.dotsz { display: block; border-radius: 50%; background: currentColor; }
+.strip { flex: 1; min-height: 0; display: flex; align-items: center; gap: 8px; overflow-x: auto; padding: 6px 10px; scrollbar-width: none; }
+.sw { flex: none; width: 38px; height: 38px; border-radius: 50%; border: 2.5px solid var(--ink); background: var(--sw); padding: 0; cursor: pointer; }
+.sw[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--ink); }
+
+.ghost { position: fixed; z-index: 40; pointer-events: none; transform: translate(-50%, -75%) rotate(-4deg); filter: drop-shadow(3px 4px 0 rgba(0,0,0,.25)); }
+
+/* sheets */
+.scrim { position: fixed; inset: 0; z-index: 20; background: rgba(20, 20, 20, .45); opacity: 0; pointer-events: none; transition: opacity .2s; }
+.scrim.open { opacity: 1; pointer-events: auto; }
+.sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 21; max-width: 520px; margin: 0 auto; max-height: 92%; overflow-y: auto; background: var(--card); border: 3.5px solid var(--ink); border-bottom: 0; border-radius: 26px 26px 0 0;
+  padding: 16px max(18px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 18px) max(18px, env(safe-area-inset-left, 0px));
+  display: flex; flex-direction: column; gap: 14px; transform: translateY(105%); visibility: hidden; transition: transform .26s cubic-bezier(.3,.8,.3,1), visibility 0s .26s; }
+.sheet.open { transform: none; visibility: visible; transition: transform .26s cubic-bezier(.3,.8,.3,1); }
+.sheethead { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.sheethead h2 { margin: 0; font-family: var(--hand); font-weight: 400; font-size: 2rem; line-height: 1; text-transform: uppercase; }
+.pic { align-self: center; width: min(100%, 320px); aspect-ratio: 1; border: 3.5px solid var(--ink); border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 5px 6px 0 var(--ink); transform: rotate(-1.5deg); }
+.pic img { width: 100%; height: 100%; display: block; -webkit-touch-callout: default; }
+.note { margin: 0; text-align: center; font-family: var(--hand); font-size: 1.15rem; color: var(--mute); }
+.acts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.act { height: 52px; border: 3px solid var(--ink); border-radius: 16px; background: var(--paper); box-shadow: 3px 3px 0 var(--ink); font-family: var(--hand); font-size: 1.3rem; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; }
+.act.main { background: var(--accent); color: #fff; }
+.act.wide { grid-column: 1 / -1; }
+.act.armed { background: var(--warn); color: #fff; }
+.act:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+/* draw-a-piece studio */
+.studio { position: fixed; inset: 0; z-index: 30; background: inherit; background-color: var(--ground); display: flex; flex-direction: column; gap: 10px; max-width: 560px; margin: 0 auto;
+  padding: calc(env(safe-area-inset-top, 0px) + 8px) max(16px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 10px) max(16px, env(safe-area-inset-left, 0px)); }
+.studio .say { margin: 0; text-align: center; font-family: var(--hand); font-size: 1.2rem; line-height: 1.15; }
+.padwrap { flex: 1; min-height: 0; display: grid; place-items: center; }
+#pad { display: block; border: 3.5px solid var(--ink); border-radius: 10px; box-shadow: 5px 6px 0 var(--ink); touch-action: none; user-select: none; -webkit-user-select: none;
+  background-color: #fff; background-image: radial-gradient(rgba(20,20,20,.13) 1.3px, transparent 1.4px); background-size: 22px 22px; }
+.studio .panel { height: 128px; }
+
+.toast { position: fixed; left: 50%; top: calc(env(safe-area-inset-top, 0px) + 70px); z-index: 50; transform: translate(-50%, -10px) rotate(-1deg); opacity: 0; pointer-events: none; background: var(--paper); border: 3px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); border-radius: 14px; padding: 8px 14px; font-family: var(--hand); font-size: 1.2rem; white-space: nowrap; transition: opacity .2s, transform .2s; }
+.toast.show { opacity: 1; transform: translate(-50%, 0) rotate(-1deg); }
+
+@media (max-width: 370px) { .brand { font-size: 1.4rem; } .brand svg { display: none; } .seg button { padding: 0 10px; } .chip span { display: none; } }
+@media (prefers-reduced-motion: reduce) { .sheet, .sheet.open, .scrim, .toast { transition: none; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 010 11H11"/></symbol>
+  <symbol id="i-redo" viewBox="0 0 24 24"><path d="M15 14l5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 000 11H13"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 13V5.5a1.5 1.5 0 013 0V11"/><path d="M11 10.5V4a1.5 1.5 0 013 0v6.5"/><path d="M14 10.5V5.5a1.5 1.5 0 013 0V13"/><path d="M17 11a1.5 1.5 0 013 0v3a7 7 0 01-7 7h-1a7 7 0 01-5.6-2.8L4 15.5a1.5 1.5 0 012.4-1.8L8 15.5"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1.2-4.8L15.6 4.8a2 2 0 012.8 0l.8.8a2 2 0 010 2.8L8.8 18.8z"/><path d="M13.5 7l3.5 3.5"/></symbol>
+  <symbol id="i-erase" viewBox="0 0 24 24"><path d="M9 20h11"/><path d="M4.4 14.6l8.9-8.9a2 2 0 012.8 0l2.2 2.2a2 2 0 010 2.8L11 18H7.8z"/><path d="M9 10l5 5"/></symbol>
+  <symbol id="i-fill" viewBox="0 0 24 24"><path d="M3.5 11.5L11 4l7.5 7.5L11 19z"/><path d="M3.5 11.5h15"/><path d="M20.5 15.5s1.5 1.9 1.5 3a1.5 1.5 0 01-3 0c0-1.1 1.5-3 1.5-3z"/></symbol>
+  <symbol id="i-dice" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3.5"/><circle cx="8.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="15.5" r=".9" fill="currentColor"/><circle cx="12" cy="12" r=".9" fill="currentColor"/><circle cx="15.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="8.5" cy="15.5" r=".9" fill="currentColor"/></symbol>
+  <symbol id="i-paint" viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18c1.3 0 1.8-1.1 1.2-2.1-.6-1 .1-2.2 1.3-2.2H17a4 4 0 004-4c0-5.2-4-9.7-9-9.7z"/><circle cx="7.5" cy="11" r="1.1" fill="currentColor"/><circle cx="10.5" cy="7" r="1.1" fill="currentColor"/><circle cx="15.5" cy="8" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="i-flip" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M9 7L4 17h5z"/><path d="M15 7l5 10h-5z"/></symbol>
+  <symbol id="i-front" viewBox="0 0 24 24"><rect x="3.5" y="9.5" width="11" height="11" rx="2" stroke-dasharray="2 2.6"/><rect x="9.5" y="3.5" width="11" height="11" rx="2" fill="currentColor"/></symbol>
+  <symbol id="i-backz" viewBox="0 0 24 24"><rect x="9.5" y="3.5" width="11" height="11" rx="2" fill="currentColor"/><rect x="3.5" y="9.5" width="11" height="11" rx="2" fill="#fff"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5.5 15H5a1.5 1.5 0 01-1.5-1.5V5A1.5 1.5 0 015 3.5h8.5A1.5 1.5 0 0115 5v.5"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M5 13v5.5A2.5 2.5 0 007.5 21h9a2.5 2.5 0 002.5-2.5V13"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 19h14"/></symbol>
+</svg>
+
+<div class="app" id="app">
+  <header class="bar">
+    <a class="ib" id="homeBtn" href="./" aria-label="Back to my apps"><svg class="i"><use href="#i-back"/></svg></a>
+    <div class="brand" aria-label="Critter Kit">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4c9 0 15 6.5 15 15.5S29 36 20 36 5 28.5 5 19.5 11 4 20 4z" fill="#7b4fe0" stroke="#141414" stroke-width="3"/><ellipse cx="14.5" cy="18" rx="4.6" ry="6" fill="#fff" stroke="#141414" stroke-width="2"/><ellipse cx="25.5" cy="18" rx="4.6" ry="6" fill="#fff" stroke="#141414" stroke-width="2"/><circle cx="15" cy="19.5" r="2.2" fill="#141414"/><circle cx="26" cy="19.5" r="2.2" fill="#141414"/><path d="M15 28q5 4 10 0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/></svg>
+      Critter Kit
+    </div>
+    <button class="ib" id="undoBtn" type="button" aria-label="Undo"><svg class="i"><use href="#i-undo"/></svg></button>
+    <button class="ib" id="redoBtn" type="button" aria-label="Redo"><svg class="i"><use href="#i-redo"/></svg></button>
+    <button class="done" id="doneBtn" type="button">Done!</button>
+  </header>
+
+  <div class="row2">
+    <div class="seg" id="modeSeg" role="group" aria-label="Mode">
+      <button type="button" data-mode="build" aria-pressed="true"><svg class="i"><use href="#i-hand"/></svg>Build</button>
+      <button type="button" data-mode="draw" aria-pressed="false"><svg class="i"><use href="#i-pen"/></svg>Draw</button>
+    </div>
+    <button class="chip" id="mixBtn" type="button"><svg class="i"><use href="#i-dice"/></svg><span>Mix one up</span></button>
+    <button class="chip" id="wipeBtn" type="button" hidden><svg class="i"><use href="#i-trash"/></svg><span>Wipe drawing</span></button>
+    <div class="selrow" id="selRow" hidden role="toolbar" aria-label="Change this piece">
+      <button class="ib" type="button" data-act="color" aria-label="Change color" aria-pressed="false"><svg class="i"><use href="#i-paint"/></svg></button>
+      <button class="ib" type="button" data-act="flip" aria-label="Flip"><svg class="i"><use href="#i-flip"/></svg></button>
+      <button class="ib" type="button" data-act="front" aria-label="Bring to front"><svg class="i"><use href="#i-front"/></svg></button>
+      <button class="ib" type="button" data-act="back" aria-label="Send to back"><svg class="i"><use href="#i-backz"/></svg></button>
+      <button class="ib" type="button" data-act="copy" aria-label="Copy"><svg class="i"><use href="#i-copy"/></svg></button>
+      <button class="ib" type="button" data-act="del" aria-label="Delete"><svg class="i"><use href="#i-trash"/></svg></button>
+      <button class="ib ok" type="button" data-act="ok" aria-label="Done with this piece"><svg class="i"><use href="#i-check"/></svg></button>
+    </div>
+  </div>
+
+  <main class="stage" id="stage">
+    <canvas id="cv" aria-label="My paper. Drag pieces here, then move, stretch and spin them."></canvas>
+    <div class="recolor" id="recolor" hidden aria-label="Colors for this piece"></div>
+  </main>
+
+  <section class="panel" id="buildPanel" aria-label="Pieces">
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="tray" id="tray"></div>
+  </section>
+
+  <section class="panel" id="drawPanel" aria-label="Drawing tools" hidden>
+    <div class="tools" id="drawTools"></div>
+    <div class="strip" id="drawStrip" aria-label="Colors"></div>
+  </section>
+</div>
+
+<div class="studio" id="studio" hidden>
+  <header class="bar">
+    <button class="ib" id="padCancel" type="button" aria-label="Cancel"><svg class="i"><use href="#i-x"/></svg></button>
+    <div class="brand">Draw a piece</div>
+    <button class="ib" id="padUndo" type="button" aria-label="Undo"><svg class="i"><use href="#i-undo"/></svg></button>
+    <button class="done" id="padAdd" type="button">Add it</button>
+  </header>
+  <p class="say">Draw anything. It turns into a piece you can use again and again.</p>
+  <div class="padwrap" id="padWrap"><canvas id="pad" aria-label="Drawing pad for a new piece"></canvas></div>
+  <section class="panel" aria-label="Drawing tools">
+    <div class="tools" id="padTools"></div>
+    <div class="strip" id="padStrip" aria-label="Colors"></div>
+  </section>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<section class="sheet" id="picSheet" aria-label="My critter" aria-hidden="true">
+  <div class="sheethead"><h2>My critter!</h2><button class="ib" id="picClose" type="button" aria-label="Close"><svg class="i"><use href="#i-x"/></svg></button></div>
+  <div class="pic"><img id="picImg" alt="My critter as a picture"></div>
+  <p class="note">Press and hold the picture to save it.</p>
+  <div class="acts">
+    <button class="act main" id="picShare" type="button" hidden><svg class="i"><use href="#i-share"/></svg>Share</button>
+    <button class="act" id="picDl" type="button" hidden><svg class="i"><use href="#i-down"/></svg>Download</button>
+    <button class="act wide" id="newBtn" type="button"><svg class="i"><use href="#i-plus"/></svg><span>Start a new critter</span></button>
+  </div>
+</section>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(() => {
+"use strict";
+const $ = s => document.querySelector(s);
+const L = 1000, PS = 360, PADN = 600;
+const PAL = ['#141414', '#ffffff', '#e8322b', '#ff8a1f', '#ffd23f', '#9bd93b', '#14a84b', '#19b6b0', '#3fa9f5', '#1f5fd6', '#7b4fe0', '#ff6fb5', '#9a5b2e', '#8b8f96'];
+const BODY_COLS = ['#e8322b', '#ff8a1f', '#ffd23f', '#9bd93b', '#14a84b', '#19b6b0', '#3fa9f5', '#1f5fd6', '#7b4fe0', '#ff6fb5', '#9a5b2e'];
+const onSite = !/claude|anthropic|usercontent|localhost|^$/.test(location.hostname);
+
+/* ---------- tiny helpers ---------- */
+function rng(seed) { let a = seed >>> 0; return () => { a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const rnd = (r, a, b) => a + r() * (b - a);
+const pick = (r, a) => a[Math.floor(r() * a.length)];
+const newSeed = () => (Math.random() * 4294967295) >>> 0;
+function hexRgb(h) { h = h.replace('#', ''); const n = parseInt(h, 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; }
+function rgbHex(r, g, b) { return '#' + [r, g, b].map(v => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, '0')).join(''); }
+function mix(a, b, t) { const A = hexRgb(a), B = hexRgb(b); return rgbHex(A[0] + (B[0] - A[0]) * t, A[1] + (B[1] - A[1]) * t, A[2] + (B[2] - A[2]) * t); }
+const dark = (c, t = .45) => mix(c, '#141414', t);
+const light = (c, t = .45) => mix(c, '#ffffff', t);
+function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k) || 'null'); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
+const toastEl = $('#toast'); let toastT;
+function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove('show'), 2200); }
+
+/* ---------- crayon drawing kit ---------- */
+function smoothPath(c, pts, closed = true) {
+  const n = pts.length; c.beginPath();
+  if (!closed) {
+    c.moveTo(pts[0][0], pts[0][1]);
+    for (let i = 1; i < n - 1; i++) { const mx = (pts[i][0] + pts[i + 1][0]) / 2, my = (pts[i][1] + pts[i + 1][1]) / 2; c.quadraticCurveTo(pts[i][0], pts[i][1], mx, my); }
+    c.lineTo(pts[n - 1][0], pts[n - 1][1]); return;
+  }
+  const m = i => { const a = pts[(i + n) % n], b = pts[(i + 1) % n]; return [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2]; };
+  const s = m(0); c.moveTo(s[0], s[1]);
+  for (let i = 1; i <= n; i++) { const p = pts[i % n], q = m(i); c.quadraticCurveTo(p[0], p[1], q[0], q[1]); }
+  c.closePath();
+}
+function polyPath(c, pts) { c.beginPath(); c.moveTo(pts[0][0], pts[0][1]); for (let i = 1; i < pts.length; i++) c.lineTo(pts[i][0], pts[i][1]); c.closePath(); }
+function blob(cx, cy, rx, ry, r, o = {}) {
+  const n = o.n || 44, h = o.h || [], rot = o.rot || 0, out = [], cs = Math.cos(rot), sn = Math.sin(rot);
+  for (let i = 0; i < n; i++) {
+    const t = i / n * Math.PI * 2; let k = 1;
+    for (const [f, a, ph] of h) k += a * Math.sin(f * t + ph);
+    if (o.bump) k += o.bump * Math.abs(Math.sin(o.bumpN * t / 2));
+    k += (r() - .5) * (o.jit ?? .022);
+    let x = Math.cos(t) * rx * k; const y = Math.sin(t) * ry * k;
+    if (o.egg) x *= 1 + o.egg * Math.sin(t);
+    out.push([cx + x * cs - y * sn, cy + x * sn + y * cs]);
+  }
+  return out;
+}
+const ell = (cx, cy, rx, ry, r, rot = 0, j = .025) => blob(cx, cy, rx, ry, r, { rot, jit: j, n: 36 });
+function superE(cx, cy, rx, ry, n, r) { const o = []; for (let i = 0; i < 56; i++) { const t = i / 56 * Math.PI * 2, c = Math.cos(t), s = Math.sin(t), k = 1 + (r() - .5) * .03; o.push([cx + Math.sign(c) * Math.pow(Math.abs(c), 2 / n) * rx * k, cy + Math.sign(s) * Math.pow(Math.abs(s), 2 / n) * ry * k]); } return o; }
+function starPts(cx, cy, R, ri, n, rot, r) { const o = []; for (let i = 0; i < n * 2; i++) { const a = rot + i * Math.PI / n, rr = (i % 2 ? ri : R) * (1 + (r() - .5) * .08); o.push([cx + Math.cos(a) * rr, cy + Math.sin(a) * rr]); } return o; }
+function dens(pts, r, k = 6, closed = true) { const o = [], n = pts.length; for (let i = 0; i < (closed ? n : n - 1); i++) { const a = pts[i], b = pts[(i + 1) % n]; for (let j = 0; j < k; j++) { const t = j / k, jj = j ? 1.6 : 0; o.push([a[0] + (b[0] - a[0]) * t + (r() - .5) * jj, a[1] + (b[1] - a[1]) * t + (r() - .5) * jj]); } } if (!closed) o.push(pts[n - 1]); return o; }
+function curve(a, b, bend, n = 16) { const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, dx = b[0] - a[0], dy = b[1] - a[1], d = Math.hypot(dx, dy) || 1, cx = mx - dy / d * bend, cy = my + dx / d * bend, o = []; for (let i = 0; i <= n; i++) { const t = i / n, u = 1 - t; o.push([u * u * a[0] + 2 * u * t * cx + t * t * b[0], u * u * a[1] + 2 * u * t * cy + t * t * b[1]]); } return o; }
+function bbox(pts) { let a = 1e9, b = 1e9, c = -1e9, d = -1e9; for (const [x, y] of pts) { if (x < a) a = x; if (y < b) b = y; if (x > c) c = x; if (y > d) d = y; } return [a, b, c, d]; }
+function scribble(c, box, color, r, o = {}) {
+  const cx = (box[0] + box[2]) / 2, cy = (box[1] + box[3]) / 2, R = Math.hypot(box[2] - box[0], box[3] - box[1]) / 2 + 8, sp = o.sp || 5.6;
+  c.save(); c.translate(cx, cy); c.rotate(o.ang ?? rnd(r, -.9, .9));
+  c.strokeStyle = color; c.lineWidth = o.slw || 3.4; c.lineCap = 'round'; c.lineJoin = 'round'; c.globalAlpha = o.alpha ?? .92;
+  c.beginPath(); let dir = 1, first = true;
+  for (let y = -R; y <= R; y += sp) {
+    const x0 = -R * dir, x1 = R * dir;
+    if (first) { c.moveTo(x0, y); first = false; } else c.lineTo(x0, y + rnd(r, -1.4, 1.4));
+    for (let k = 1; k <= 4; k++) c.lineTo(x0 + (x1 - x0) * k / 4, y + rnd(r, -1.9, 1.9));
+    dir = -dir;
+  }
+  c.stroke(); c.restore();
+}
+function edge(c, P, color, lw) { c.save(); c.strokeStyle = color; c.lineWidth = lw; c.lineCap = 'round'; c.lineJoin = 'round'; P(); c.stroke(); c.globalAlpha = .45; c.lineWidth = lw * .55; c.translate(1.3, -1.1); P(); c.stroke(); c.restore(); }
+function shape(c, pts, color, r, o = {}) {
+  const P = o.sharp ? () => polyPath(c, pts) : () => smoothPath(c, pts), b = bbox(pts);
+  c.save(); c.globalAlpha = o.op ?? 1; P(); c.clip();
+  c.fillStyle = o.base ?? light(color, .42); c.fillRect(b[0] - 6, b[1] - 6, b[2] - b[0] + 12, b[3] - b[1] + 12);
+  if (!o.plain) scribble(c, b, color, r, o);
+  c.restore();
+  if (o.lw !== 0) edge(c, P, o.edge ?? dark(color), o.lw ?? 5);
+}
+const plainShape = (c, pts, fill, r, edgeCol, lw = 4) => shape(c, pts, fill, r, { plain: true, base: fill, edge: edgeCol, lw });
+function stroke(c, pts, color, lw) { edge(c, () => smoothPath(c, pts, false), color, lw); }
+function tube(c, pts, w, color, r) {
+  c.save(); c.lineCap = 'round'; c.lineJoin = 'round';
+  smoothPath(c, pts, false); c.strokeStyle = dark(color); c.lineWidth = w + 9; c.stroke();
+  smoothPath(c, pts, false); c.strokeStyle = light(color, .4); c.lineWidth = w; c.stroke();
+  c.globalAlpha = .9; c.strokeStyle = color; c.lineWidth = w * .3;
+  for (const f of [-.27, 0, .27]) { c.save(); c.translate(f * w * .7 + rnd(r, -1, 1), f * w * .5); smoothPath(c, pts, false); c.stroke(); c.restore(); }
+  c.restore();
+}
+const INK = '#2a1f1c';
+
+/* Keith's eye: a big oval, scribbled gray inside, with a big shine up top and a little one down low */
+function keithEye(c, cx, cy, rx, ry, rot, col, r) {
+  const pts = blob(cx, cy, rx, ry, r, { rot, jit: .015, n: 40, h: [[2, .025, r() * 6]] }), P = () => smoothPath(c, pts), b = bbox(pts);
+  c.save(); P(); c.fillStyle = '#fff'; c.fill(); c.clip(); scribble(c, b, col, r, { slw: 2.6, sp: 4.6, alpha: .85 }); c.restore();
+  for (const h of [ell(cx - rx * .2, cy - ry * .36, rx * .46, ry * .3, r, rot - .35, .03), ell(cx + rx * .3, cy + ry * .44, rx * .3, ry * .2, r, rot + .25, .03)]) {
+    smoothPath(c, h); c.fillStyle = '#fff'; c.fill(); c.strokeStyle = dark(col, .25); c.lineWidth = 2; c.stroke();
+  }
+  edge(c, P, dark(col, .45), 3.6);
+}
+function ballEye(c, x, y, R, iris, r, dx, dy) {
+  plainShape(c, ell(x, y, R, R * 1.06, r), '#ffffff', r, INK, 4.5);
+  if (iris) shape(c, ell(x + dx, y + dy, R * .55, R * .58, r), iris, r, { lw: 2.5, sp: 4.4 });
+  plainShape(c, ell(x + dx * 1.15, y + dy * 1.15, R * .28, R * .3, r), '#141414', r, '#141414', 1);
+  plainShape(c, ell(x + dx - R * .16, y + dy - R * .2, R * .11, R * .11, r), '#ffffff', r, '#ffffff', 0.5);
+}
+
+/* ---------- piece recipes ---------- */
+const G = {};
+function def(cat, name, o) { G[name] = { cat, name, rank: o.rank ?? 2, scale: o.scale ?? 1, col: o.col, draw: o.draw }; }
+const pair = f => { f(-1); f(1); };
+const anyCol = r => pick(r, BODY_COLS);
+const C = 180;
+
+// bodies
+for (const k of ['round', 'egg', 'tall', 'boxy', 'fluffy', 'spiky', 'pear', 'bean', 'wide']) def('body', 'b-' + k, { rank: 1, scale: 1.32, draw(c, r, col) {
+  let pts; const y = 185;
+  switch (k) {
+    case 'round': pts = blob(C, y, rnd(r, 118, 140), rnd(r, 112, 140), r, { h: [[2, rnd(r, .02, .07), r() * 6], [3, rnd(r, 0, .04), r() * 6]] }); break;
+    case 'egg': pts = blob(C, y, rnd(r, 100, 116), rnd(r, 140, 156), r, { egg: .2 }); break;
+    case 'tall': pts = blob(C, y, rnd(r, 78, 92), rnd(r, 148, 160), r, { h: [[2, .04, r() * 6]] }); break;
+    case 'boxy': pts = superE(C, y, rnd(r, 118, 138), rnd(r, 118, 148), rnd(r, 3.2, 5), r); break;
+    case 'fluffy': pts = blob(C, y, 118, 118, r, { n: 140, bump: .09, bumpN: Math.round(rnd(r, 9, 14)) }); break;
+    case 'spiky': { const f = Math.round(rnd(r, 7, 11)); pts = blob(C, y, 118, 118, r, { n: f * 8, h: [[f, .13, 0]] }); break; }
+    case 'pear': pts = blob(C, y, 108, 148, r, { egg: .32, h: [[2, .03, r() * 6]] }); break;
+    case 'bean': pts = blob(C, y, 140, 108, r, { h: [[2, .1, r() * 6], [3, .05, r() * 6]], rot: rnd(r, -.3, .3) }); break;
+    default: pts = blob(C, y + 15, 160, 98, r, { h: [[2, .03, r() * 6]] });
+  }
+  shape(c, pts, col, r, { lw: 6 });
+  const b = bbox(pts), roll = r();
+  c.save(); smoothPath(c, pts); c.clip();
+  if (roll < .5) {
+    const bw = (b[2] - b[0]) * rnd(r, .24, .33), bh = (b[3] - b[1]) * rnd(r, .2, .28);
+    shape(c, ell(C, b[3] - bh - (b[3] - b[1]) * .1, bw, bh, r), light(col, .62), r, { lw: 3.5, edge: dark(col, .25) });
+  } else if (roll < .8) {
+    const n = Math.round(rnd(r, 3, 6));
+    for (let i = 0; i < n; i++) { const sr = rnd(r, 10, 20); shape(c, ell(rnd(r, b[0] + 40, b[2] - 40), rnd(r, b[1] + 40, b[3] - 40), sr, sr * rnd(r, .8, 1.15), r), dark(col, .22), r, { lw: 2.5, sp: 4.2 }); }
+  }
+  c.restore();
+} });
+
+// eyes
+const eyeShade = r => pick(r, ['#8b8f96', '#8b8f96', '#8b8f96', '#5f86d9', '#9a5b2e', '#14a84b', '#7b4fe0']);
+def('eyes', 'e-keith2', { scale: .95, col: eyeShade, draw(c, r, col) { const rx = rnd(r, 50, 62), ry = rnd(r, 66, 82), gap = rx + rnd(r, 8, 22), t = rnd(r, .05, .3); keithEye(c, C - gap, C, rx, ry, t, col, r); keithEye(c, C + gap, C, rx, ry, -t, col, r); } });
+def('eyes', 'e-keith1', { scale: .85, col: eyeShade, draw(c, r, col) { keithEye(c, C, C, rnd(r, 80, 94), rnd(r, 96, 112), rnd(r, -.15, .15), col, r); } });
+def('eyes', 'e-keith3', { scale: .9, col: eyeShade, draw(c, r, col) { keithEye(c, C - 78, 205, 44, 54, .15, col, r); keithEye(c, C + 78, 205, 44, 54, -.15, col, r); keithEye(c, C, 112, 46, 56, 0, col, r); } });
+def('eyes', 'e-dots', { scale: .85, col: r => pick(r, ['#3fa9f5', '#14a84b', '#9a5b2e', '#7b4fe0', '#e8322b']), draw(c, r, col) { const R = rnd(r, 40, 50), g = R + rnd(r, 14, 26), dx = rnd(r, -8, 8), dy = rnd(r, -6, 8); pair(s => ballEye(c, C + s * g, C, R, col, r, dx, dy)); } });
+def('eyes', 'e-googly', { scale: .85, draw(c, r) { const R = rnd(r, 52, 62); pair(s => { const a = rnd(r, 0, 6.28); ballEye(c, C + s * (R + 8), C, R, null, r, Math.cos(a) * R * .5, Math.sin(a) * R * .5); }); } });
+def('eyes', 'e-beady', { scale: .7, col: () => '#141414', draw(c, r, col) { const R = rnd(r, 18, 26), g = rnd(r, 50, 75); pair(s => { plainShape(c, ell(C + s * g, C, R, R * 1.1, r), col, r, dark(col, .3), 2); plainShape(c, ell(C + s * g - R * .3, C - R * .35, R * .3, R * .3, r), '#ffffff', r, '#ffffff', .5); }); } });
+def('eyes', 'e-happy', { scale: .75, col: () => '#141414', draw(c, r, col) { const g = rnd(r, 55, 75); pair(s => stroke(c, curve([C + s * g - 32, 196], [C + s * g + 32, 196], -rnd(r, 30, 42)), col, 9)); } });
+def('eyes', 'e-angry', { scale: .8, col: () => '#141414', draw(c, r, col) { pair(s => { const x = C + s * 62; ballEye(c, x, 200, 36, null, r, -s * 6, 4); stroke(c, [[x + s * 44, 128], [x, 140], [x - s * 40, 160]], col, 12); }); } });
+def('eyes', 'e-star', { scale: .85, col: r => pick(r, ['#ffd23f', '#ff6fb5', '#3fa9f5', '#e8322b']), draw(c, r, col) { pair(s => { const x = C + s * 62; plainShape(c, ell(x, C, 50, 52, r), '#ffffff', r, INK, 4.5); shape(c, dens(starPts(x, C, 34, 15, 5, -Math.PI / 2, r), r, 3), col, r, { sharp: true, lw: 3, sp: 4 }); }); } });
+def('eyes', 'e-swirl', { scale: .8, col: () => '#141414', draw(c, r, col) { pair(s => { const x = C + s * 62; plainShape(c, ell(x, C, 50, 52, r), '#ffffff', r, INK, 4.5); const p = []; for (let i = 0; i <= 60; i++) { const a = i / 60 * Math.PI * 5 * s, rr = 3 + i / 60 * 36; p.push([x + Math.cos(a) * rr, C + Math.sin(a) * rr]); } stroke(c, p, col, 4.5); }); } });
+
+// mouths and noses
+const MOUTH = '#4a1d1d';
+def('mouth', 'm-smile', { scale: .7, col: () => INK, draw(c, r, col) { const w = rnd(r, 70, 100), b = rnd(r, 40, 70); stroke(c, curve([C - w, 165], [C + w, 165], b), col, 9); if (r() < .6) pair(s => stroke(c, [[C + s * (w + 4), 150], [C + s * (w + 10), 178]], col, 7)); } });
+def('mouth', 'm-grin', { scale: .7, col: r => pick(r, ['#ff6fb5', '#e8322b']), draw(c, r, col) {
+  const w = rnd(r, 80, 105), top = 140, d = rnd(r, 70, 100), pts = dens([[C - w, top], [C + w, top]], r, 6, false).concat(curve([C + w, top], [C - w, top], -d).slice(1, -1));
+  const P = () => smoothPath(c, pts); c.save(); P(); c.fillStyle = MOUTH; c.fill(); c.clip();
+  c.fillStyle = '#fff'; c.fillRect(C - w, top - 4, w * 2, 26); c.strokeStyle = '#c9c4bb'; c.lineWidth = 2; for (let x = C - w + 30; x < C + w; x += 30) { c.beginPath(); c.moveTo(x, top); c.lineTo(x, top + 22); c.stroke(); }
+  shape(c, ell(C, top + d * .62 + 10, w * .55, d * .38, r), col, r, { lw: 3 }); c.restore(); edge(c, P, INK, 6); } });
+def('mouth', 'm-cat', { scale: .65, col: r => pick(r, ['#ff6fb5', '#e8322b', '#141414', '#9a5b2e']), draw(c, r, col) { shape(c, blob(C, 130, 30, 22, r, { egg: -.25 }), col, r, { lw: 3.5 }); stroke(c, [[C, 152], [C, 188]], INK, 6); stroke(c, curve([C - 52, 178], [C, 188], 20), INK, 6); stroke(c, curve([C, 188], [C + 52, 178], 20), INK, 6); } });
+def('mouth', 'm-fangs', { scale: .7, col: () => INK, draw(c, r, col) { const w = rnd(r, 80, 100); const m = curve([C - w, 150], [C + w, 150], rnd(r, 35, 55)); pair(s => { const x = C + s * 34, y = 150 + 32; plainShape(c, dens([[x - 14, y - 12], [x + 14, y - 12], [x + s * 4, y + 30]], r, 4), '#ffffff', r, INK, 3.5); }); stroke(c, m, col, 9); } });
+def('mouth', 'm-chomp', { scale: .75, col: r => pick(r, ['#ff6fb5', '#e8322b']), draw(c, r, col) {
+  const pts = ell(C, C, rnd(r, 100, 120), rnd(r, 64, 80), r), P = () => smoothPath(c, pts), b = bbox(pts);
+  c.save(); P(); c.fillStyle = MOUTH; c.fill(); c.clip(); shape(c, ell(C, b[3] - 10, 60, 34, r), col, r, { lw: 3 });
+  for (const [y0, dir] of [[b[1] - 4, 1], [b[3] + 4, -1]]) { const t = [[b[0], y0]]; for (let x = b[0]; x < b[2]; x += 28) { t.push([x + 14, y0 + dir * rnd(r, 26, 36)]); t.push([x + 28, y0]); } t.push([b[2], y0 - dir * 20], [b[0], y0 - dir * 20]); plainShape(c, t, '#ffffff', r, '#bdb6aa', 2); }
+  c.restore(); edge(c, P, INK, 6); } });
+def('mouth', 'm-oh', { scale: .55, col: r => pick(r, ['#ff6fb5', '#e8322b']), draw(c, r, col) { const pts = ell(C, C, rnd(r, 34, 46), rnd(r, 44, 58), r); c.save(); smoothPath(c, pts); c.fillStyle = MOUTH; c.fill(); c.clip(); shape(c, ell(C, C + 40, 30, 22, r), col, r, { lw: 2.5 }); c.restore(); edge(c, () => smoothPath(c, pts), INK, 6); } });
+def('mouth', 'm-tongue', { scale: .7, col: r => pick(r, ['#ff6fb5', '#e8322b']), draw(c, r, col) { const w = rnd(r, 70, 95); const tx = C + rnd(r, -20, 20); shape(c, blob(tx, 190, 32, 42, r, { egg: .15 }), col, r, { lw: 4 }); stroke(c, [[tx, 168], [tx, 205]], dark(col, .4), 3.5); stroke(c, curve([C - w, 160], [C + w, 160], rnd(r, 30, 50)), INK, 9); } });
+def('mouth', 'm-buck', { scale: .65, col: () => INK, draw(c, r, col) { pair(s => plainShape(c, dens([[C + s * 2, 168], [C + s * 34, 168], [C + s * 32, 214], [C + s * 4, 214]], r, 4), '#ffffff', r, INK, 3.5)); stroke(c, curve([C - 90, 160], [C + 90, 160], rnd(r, 25, 40)), col, 9); } });
+def('mouth', 'm-nose', { scale: .45, col: r => pick(r, ['#ff6fb5', '#e8322b', '#141414', '#9a5b2e']), draw(c, r, col) { shape(c, blob(C, C, rnd(r, 40, 56), rnd(r, 30, 42), r, { egg: -.2 }), col, r, { lw: 4 }); plainShape(c, ell(C - 14, C - 10, 10, 6, r, -.4), '#ffffff', r, '#ffffff', .5); } });
+def('mouth', 'm-wavy', { scale: .65, col: () => INK, draw(c, r, col) { const p = [], a = rnd(r, 8, 14), f = rnd(r, 2.5, 4); for (let i = 0; i <= 40; i++) { const x = C - 100 + i * 5; p.push([x, C + Math.sin(i / 40 * Math.PI * 2 * f) * a]); } stroke(c, p, col, 8); } });
+
+// ears and horns (these tuck behind the body)
+def('ears', 'h-bunny', { rank: 0, scale: 1.1, draw(c, r, col) { const rx = rnd(r, 32, 40), ry = rnd(r, 100, 120), t = rnd(r, .15, .32); pair(s => { const x = C + s * 72; shape(c, ell(x, 150, rx, ry, r, s * t), col, r, { lw: 5 }); shape(c, ell(x + s * 3, 165, rx * .45, ry * .68, r, s * t), '#ff9cc8', r, { lw: 2.5 }); }); } });
+def('ears', 'h-cat', { rank: 0, scale: 1.1, draw(c, r, col) { pair(s => { const a = [C + s * 30, 260], b = [C + s * 150, 260], tip = [C + s * rnd(r, 95, 125), rnd(r, 50, 80)]; shape(c, dens([a, b, tip], r, 7), col, r, { lw: 5 }); const m = (p, k) => [p[0] + (C + s * 95 - p[0]) * k, p[1] + (200 - p[1]) * k]; shape(c, dens([m(a, .45), m(b, .45), m(tip, .3)], r, 6), '#ff9cc8', r, { lw: 2.5 }); }); } });
+def('ears', 'h-bear', { rank: 0, scale: 1.1, draw(c, r, col) { const R = rnd(r, 44, 56); pair(s => { const x = C + s * rnd(r, 100, 115); shape(c, ell(x, 150, R, R, r), col, r, { lw: 5 }); shape(c, ell(x, 154, R * .55, R * .55, r), light(col, .6), r, { lw: 2.5 }); }); } });
+def('ears', 'h-horns', { rank: 0, scale: 1.1, col: r => pick(r, ['#f3e6c4', '#f3e6c4', '#ffd23f', '#9a5b2e', '#8b8f96']), draw(c, r, col) { const h = rnd(r, 40, 90), out = rnd(r, 130, 165); pair(s => { const bi = [C + s * 58, 280], bo = [C + s * 120, 280], tip = [C + s * out, h]; shape(c, curve(bi, tip, s * 30).concat(curve(tip, bo, s * 22).slice(1)), col, r, { lw: 5, sharp: true }); }); } });
+def('ears', 'h-antennae', { rank: 0, scale: 1.1, draw(c, r, col) { const w = rnd(r, 80, 115); pair(s => { stroke(c, curve([C + s * 35, 310], [C + s * w, 90], -s * rnd(r, 15, 40)), dark(col, .5), 7); shape(c, ell(C + s * w, 76, 26, 26, r), col, r, { lw: 4 }); }); } });
+def('ears', 'h-horn', { rank: 0, scale: 1, col: r => pick(r, ['#ffd23f', '#ff6fb5', '#3fa9f5', '#f3e6c4']), draw(c, r, col) { const pts = dens([[C - 48, 320], [C + 48, 320], [C + rnd(r, -10, 10), 30]], r, 8); shape(c, pts, col, r, { lw: 5 }); c.save(); smoothPath(c, pts); c.clip(); c.strokeStyle = dark(col, .3); c.lineWidth = 4; for (let y = 90; y < 320; y += 42) { c.beginPath(); c.moveTo(C - 60, y + 22); c.lineTo(C + 60, y - 6); c.stroke(); } c.restore(); } });
+def('ears', 'h-sprout', { rank: 0, scale: .9, col: r => pick(r, ['#14a84b', '#9bd93b']), draw(c, r, col) { stroke(c, curve([C, 320], [C + 4, 170], rnd(r, -20, 20)), dark(col, .4), 8); shape(c, blob(C - 52, 165, 56, 26, r, { rot: -.45, egg: .3 }), col, r, { lw: 4 }); shape(c, blob(C + 50, 150, 56, 26, r, { rot: .5, egg: .3 }), col, r, { lw: 4 }); } });
+def('ears', 'h-spikes', { rank: 0, scale: 1.1, draw(c, r, col) { const n = Math.round(rnd(r, 4, 6)), pts = [[30, 300]]; for (let i = 0; i < n; i++) { const x0 = 30 + i * 300 / n, x1 = 30 + (i + 1) * 300 / n, mid = (x0 + x1) / 2, h = 300 - rnd(r, 120, 200) * Math.sin(Math.PI * (i + .5) / n); pts.push([mid, h], [x1, 300]); } shape(c, dens(pts, r, 4), col, r, { lw: 5, sharp: true }); } });
+def('ears', 'h-floppy', { rank: 0, scale: 1.15, draw(c, r, col) { const t = rnd(r, .25, .5); pair(s => shape(c, ell(C + s * 125, 200, rnd(r, 38, 46), rnd(r, 90, 110), r, -s * t), col, r, { lw: 5 })); } });
+
+// arms, legs and tails
+def('limbs', 'l-feet', { rank: 2, scale: .95, draw(c, r, col) { const rx = rnd(r, 44, 56), ry = rnd(r, 28, 36), g = rnd(r, 58, 80); pair(s => { const x = C + s * g; shape(c, ell(x, 190, rx, ry, r, s * .12), col, r, { lw: 5 }); for (const o of [-.3, .3]) stroke(c, [[x + o * rx, 190 + ry * .95], [x + o * rx * 1.05, 190 + ry * .3]], dark(col), 4); }); } });
+def('limbs', 'l-paws', { rank: 2, scale: .9, draw(c, r, col) { pair(s => { const x = C + s * 66; shape(c, ell(x, 190, 46, 42, r), col, r, { lw: 5 }); shape(c, ell(x, 204, 20, 15, r), '#ff9cc8', r, { lw: 2.5 }); for (const o of [-1, 0, 1]) shape(c, ell(x + o * 19, 172 - (o ? 0 : 6), 8, 9, r), '#ff9cc8', r, { lw: 2 }); }); } });
+def('limbs', 'l-arms', { rank: 0, scale: 1.3, draw(c, r, col) { const y = rnd(r, 110, 250), b = rnd(r, -40, 40); pair(s => { const end = [C + s * 160, y]; tube(c, curve([C + s * 30, 190], end, s * b, 18), 26, col, r); shape(c, ell(end[0], end[1], 26, 24, r), col, r, { lw: 5 }); }); } });
+def('limbs', 'l-legs', { rank: 0, scale: 1.2, draw(c, r, col) { const g = rnd(r, 40, 60); pair(s => { tube(c, curve([C + s * g, 30], [C + s * (g + 10), 290], s * rnd(r, -25, 25), 18), 30, col, r); shape(c, ell(C + s * (g + 32), 300, 48, 26, r, s * .05), col, r, { lw: 5 }); }); } });
+def('limbs', 'l-wings', { rank: 0, scale: 1.35, draw(c, r, col) { pair(s => { const X = v => C + s * v; const pts = [[X(10), 130], [X(170), 50], [X(132), 122], [X(166), 150], [X(118), 178], [X(140), 222], [X(80), 212], [X(10), 210]]; shape(c, dens(pts, r, 5), col, r, { lw: 5 }); }); } });
+def('limbs', 'l-curly', { rank: 0, scale: 1, draw(c, r, col) { const p = [[60, 300], [110, 250]]; const cx = 230, cy = 150, turns = rnd(r, 1.3, 1.8); for (let i = 0; i <= 50; i++) { const a = Math.PI * .75 + i / 50 * Math.PI * 2 * turns, rr = 85 - i / 50 * 60; p.push([cx + Math.cos(a) * rr, cy + Math.sin(a) * rr]); } tube(c, p, 24, col, r); } });
+def('limbs', 'l-zigzag', { rank: 0, scale: 1, draw(c, r, col) { shape(c, dens([[50, 320], [150, 210], [125, 190], [225, 118], [200, 98], [320, 30], [255, 140], [280, 160], [172, 246], [196, 262]], r, 4), col, r, { lw: 5, sharp: true }); } });
+def('limbs', 'l-puff', { rank: 0, scale: .75, draw(c, r, col) { shape(c, blob(C, C, 95, 95, r, { n: 130, bump: .1, bumpN: Math.round(rnd(r, 9, 13)) }), col, r, { lw: 5 }); } });
+def('limbs', 'l-tentacles', { rank: 0, scale: 1.25, draw(c, r, col) { for (let k = 0; k < 4; k++) { const x = C + (k - 1.5) * 52, ph = rnd(r, 0, 6), p = []; for (let i = 0; i <= 24; i++) { const t = i / 24; p.push([x + (k - 1.5) * 30 * t + Math.sin(t * 7 + ph) * 16 * t, 40 + t * 280]); } tube(c, p, 24 - k % 2 * 2, col, r); } } });
+def('limbs', 'l-fins', { rank: 0, scale: 1.25, draw(c, r, col) { pair(s => shape(c, curve([C + s * 20, 120], [C + s * rnd(r, 150, 172), 250], -s * 40).concat(curve([C + s * 160, 250], [C + s * 20, 240], -s * 10).slice(1)), col, r, { lw: 5 })); } });
+
+// hats and extras
+def('extra', 'x-party', { scale: .8, draw(c, r, col) { const pts = dens([[C - 85, 310], [C + 85, 310], [C + rnd(r, -15, 15), 60]], r, 8), other = pick(r, BODY_COLS.filter(x => x !== col)); shape(c, pts, col, r, { lw: 5 }); c.save(); smoothPath(c, pts); c.clip(); c.strokeStyle = other; c.lineWidth = 16; c.globalAlpha = .9; for (let y = 110; y < 320; y += 55) { c.beginPath(); c.moveTo(C - 100, y + 30); c.lineTo(C + 100, y - 10); c.stroke(); } c.restore(); edge(c, () => smoothPath(c, pts), dark(col), 5); shape(c, blob(pts[pts.length - 8 * 1][0] || C, 58, 30, 30, r, { n: 90, bump: .14, bumpN: 9 }), '#ffffff', r, { lw: 4, edge: '#8b8f96', base: '#fff', alpha: .2 }); } });
+def('extra', 'x-crown', { scale: .8, col: r => pick(r, ['#ffd23f', '#ffd23f', '#ff8a1f', '#ff6fb5']), draw(c, r, col) { shape(c, dens([[70, 280], [70, 140], [125, 205], [C, 110], [235, 205], [290, 140], [290, 280]], r, 5), col, r, { lw: 5, sharp: true }); [[120, '#e8322b'], [C, '#3fa9f5'], [240, '#14a84b']].forEach(([x, g]) => shape(c, ell(x, 245, 17, 17, r), g, r, { lw: 3 })); } });
+def('extra', 'x-bow', { scale: .65, col: r => pick(r, ['#ff6fb5', '#e8322b', '#7b4fe0', '#3fa9f5']), draw(c, r, col) { pair(s => shape(c, dens([[C + s * 12, C - 8], [C + s * 140, C - 80], [C + s * 150, C + 80], [C + s * 12, C + 8]], r, 6), col, r, { lw: 5 })); shape(c, ell(C, C, 30, 34, r), dark(col, .15), r, { lw: 5 }); } });
+def('extra', 'x-blush', { scale: .8, col: r => pick(r, ['#ff6fb5', '#ff8a1f', '#e8322b']), draw(c, r, col) { const g = rnd(r, 95, 130); pair(s => shape(c, ell(C + s * g, C, 44, 28, r), col, r, { lw: 0, op: .65, base: light(col, .55), slw: 3, sp: 6 })); } });
+def('extra', 'x-glasses', { scale: .9, col: r => pick(r, ['#141414', '#141414', '#e8322b', '#1f5fd6', '#7b4fe0']), draw(c, r, col) { const R = rnd(r, 44, 54), round = r() < .5; pair(s => { const x = C + s * (R + 18), pts = round ? ell(x, C, R, R * .92, r) : superE(x, C, R, R * .8, 4, r); c.save(); c.globalAlpha = .35; smoothPath(c, pts); c.fillStyle = '#dff1ff'; c.fill(); c.restore(); edge(c, () => smoothPath(c, pts), col, 11); stroke(c, [[x + s * R * .95, C - 14], [x + s * (R + 40), C - 26]], col, 9); }); stroke(c, curve([C - 20, C - 6], [C + 20, C - 6], -12), col, 9); } });
+def('extra', 'x-stache', { scale: .7, col: r => pick(r, ['#5a3a22', '#141414', '#9a5b2e', '#8b8f96']), draw(c, r, col) { pair(s => tube(c, [[C, 170], [C + s * 50, 196], [C + s * 105, 186], [C + s * 130, 150], [C + s * 112, 128]], 30, col, r)); } });
+def('extra', 'x-heart', { scale: .55, col: r => pick(r, ['#e8322b', '#ff6fb5', '#7b4fe0']), draw(c, r, col) { const p = []; for (let i = 0; i < 60; i++) { const t = i / 60 * Math.PI * 2; p.push([C + 9 * 16 * Math.pow(Math.sin(t), 3), C - 10 - 9 * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t))]); } shape(c, p, col, r, { lw: 5 }); } });
+def('extra', 'x-star', { scale: .6, col: r => pick(r, ['#ffd23f', '#ff8a1f', '#3fa9f5']), draw(c, r, col) { shape(c, dens(starPts(C, C + 10, 150, rnd(r, 60, 72), 5, -Math.PI / 2, r), r, 5), col, r, { lw: 5, sharp: true }); } });
+def('extra', 'x-cap', { scale: .85, draw(c, r, col) { const dome = []; for (let i = 0; i <= 24; i++) { const t = Math.PI + i / 24 * Math.PI; dome.push([C - 20 + Math.cos(t) * 115, 230 + Math.sin(t) * rnd(r, 105, 112)]); } shape(c, ell(C + 110, 232, 100, 22, r, .06), dark(col, .2), r, { lw: 5 }); shape(c, dome, col, r, { lw: 5 }); shape(c, ell(C - 20, 122, 14, 10, r), dark(col, .2), r, { lw: 3 }); } });
+def('extra', 'x-flower', { scale: .6, col: r => pick(r, ['#ff6fb5', '#e8322b', '#7b4fe0', '#3fa9f5', '#ffffff']), draw(c, r, col) { const n = Math.round(rnd(r, 5, 7)); for (let i = 0; i < n; i++) { const a = i / n * Math.PI * 2; shape(c, ell(C + Math.cos(a) * 82, C + Math.sin(a) * 82, 66, 44, r, a), col, r, { lw: 4 }); } shape(c, ell(C, C, 52, 52, r), '#ffd23f', r, { lw: 4 }); } });
+
+const CATS = [['body', 'Bodies'], ['eyes', 'Eyes'], ['mouth', 'Mouths'], ['ears', 'Ears & horns'], ['limbs', 'Arms & tails'], ['extra', 'Hats & stuff'], ['mine', 'My pieces']];
+
+/* ---------- turning recipes into pictures ---------- */
+function finish(cv) {
+  const c = cv.getContext('2d', { willReadFrequently: true }), w = cv.width, h = cv.height, d = c.getImageData(0, 0, w, h).data;
+  let x0 = w, y0 = h, x1 = -1, y1 = -1;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (d[(y * w + x) * 4 + 3] > 8) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+  if (x1 < 0) return null;
+  x0 = Math.max(0, x0 - 3); y0 = Math.max(0, y0 - 3); x1 = Math.min(w - 1, x1 + 3); y1 = Math.min(h - 1, y1 + 3);
+  const o = document.createElement('canvas'); o.width = x1 - x0 + 1; o.height = y1 - y0 + 1;
+  const oc = o.getContext('2d', { willReadFrequently: true }); oc.drawImage(cv, -x0, -y0);
+  const od = oc.getImageData(0, 0, o.width, o.height).data, a = new Uint8Array(o.width * o.height);
+  for (let i = 0; i < a.length; i++) a[i] = od[i * 4 + 3];
+  return { img: o, a };
+}
+function makeGen(name, seed, color) {
+  const cv = document.createElement('canvas'); cv.width = cv.height = PS;
+  const c = cv.getContext('2d', { willReadFrequently: true });
+  try { G[name].draw(c, rng(seed), color); } catch (e) { console.error(name, e); }
+  return finish(cv);
+}
+function hsl(r, g, b) { r /= 255; g /= 255; b /= 255; const mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2; let h = 0, s = 0; if (mx !== mn) { const d = mx - mn; s = l > .5 ? d / (2 - mx - mn) : d / (mx + mn); h = mx === r ? (g - b) / d + (g < b ? 6 : 0) : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; h /= 6; } return [h, s, l]; }
+function rgbOf(h, s, l) { if (!s) return [l * 255, l * 255, l * 255]; const q = l < .5 ? l * (1 + s) : l + s - l * s, p = 2 * l - q, f = t => { t = (t + 1) % 1; return t < 1 / 6 ? p + (q - p) * 6 * t : t < .5 ? q : t < 2 / 3 ? p + (q - p) * (2 / 3 - t) * 6 : p; }; return [f(h + 1 / 3) * 255, f(h) * 255, f(h - 1 / 3) * 255]; }
+function tint(orig, color) {
+  const o = document.createElement('canvas'); o.width = orig.width; o.height = orig.height;
+  const c = o.getContext('2d', { willReadFrequently: true }); c.drawImage(orig, 0, 0);
+  const id = c.getImageData(0, 0, o.width, o.height), d = id.data, [th, ts, tl] = hsl(...hexRgb(color)), a = new Uint8Array(o.width * o.height);
+  for (let i = 0; i < d.length; i += 4) {
+    a[i / 4] = d[i + 3]; if (!d[i + 3]) continue;
+    const [, , l] = hsl(d[i], d[i + 1], d[i + 2]);
+    if (l < .14 || l > .93) continue;
+    const nl = ts < .08 ? tl * .5 + l * .5 : l * .55 + tl * .45, [R, Gg, B] = rgbOf(th, ts, nl);
+    d[i] = R; d[i + 1] = Gg; d[i + 2] = B;
+  }
+  c.putImageData(id, 0, 0); return { img: o, a };
+}
+function loadImg(src) { return new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = src; }); }
+async function makeDrawn(src) {
+  const im = await loadImg(src), o = document.createElement('canvas'); o.width = im.naturalWidth; o.height = im.naturalHeight;
+  const c = o.getContext('2d', { willReadFrequently: true }); c.drawImage(im, 0, 0);
+  const d = c.getImageData(0, 0, o.width, o.height).data, a = new Uint8Array(o.width * o.height);
+  for (let i = 0; i < a.length; i++) a[i] = d[i * 4 + 3];
+  return { img: o, a };
+}
+
+/* ---------- state ---------- */
+let pieces = [], sel = null, mode = 'build', uid = 1, pending = null;
+const S = { tool: 'pen', size: 1, color: '#141414' };
+const cv = $('#cv'), ctx = cv.getContext('2d');
+const ink = document.createElement('canvas'); ink.width = ink.height = L;
+const ictx = ink.getContext('2d', { willReadFrequently: true });
+let inkData = null, inkURL = null, inkDirty = false;
+
+function insertByRank(p) { let i = pieces.length; while (i > 0 && pieces[i - 1].rank > p.rank) i--; pieces.splice(i, 0, p); }
+function newPiece(it, x, y) { return { id: uid++, t: it.t, def: it.def, seed: it.seed, color: it.color, src: it.src, tint: null, img: it.img, a: it.a, orig: it.orig, x, y, s: it.scale, r: 0, f: false, rank: it.rank }; }
+
+/* ---------- drawing the paper ---------- */
+let cssSize = 300, dpr = 1;
+function drawPiece(c, p, alpha = 1) {
+  c.save(); c.globalAlpha = alpha; c.translate(p.x, p.y); c.rotate(p.r); c.scale(p.f ? -p.s : p.s, p.s);
+  c.drawImage(p.img, -p.img.width / 2, -p.img.height / 2); c.restore();
+}
+function scene(c, withInk = true) { c.fillStyle = '#fff'; c.fillRect(0, 0, L, L); for (const p of pieces) drawPiece(c, p); if (withInk) c.drawImage(ink, 0, 0); }
+let rq = 0;
+function render() { if (!rq) rq = requestAnimationFrame(paint); }
+function paint() {
+  rq = 0; const k = cv.width / L; ctx.setTransform(k, 0, 0, k, 0, 0); scene(ctx);
+  if (pending) drawPiece(ctx, { ...pending.it, img: pending.it.img, x: pending.x, y: pending.y, s: pending.it.scale, r: 0, f: false }, .85);
+  if (sel && mode === 'build') {
+    const u = L / cssSize, p = sel, w = p.img.width * p.s / 2 + 6 * u, h = p.img.height * p.s / 2 + 6 * u;
+    ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
+    ctx.lineWidth = 2.5 * u; ctx.strokeStyle = '#7b4fe0'; ctx.setLineDash([8 * u, 6 * u]); ctx.strokeRect(-w, -h, w * 2, h * 2); ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(0, -h); ctx.lineTo(0, -h - 22 * u); ctx.stroke();
+    handle(0, -h - 22 * u, u, 'rot'); handle(w, h, u, 'size');
+    ctx.restore();
+  }
+}
+function handle(x, y, u, kind) {
+  ctx.beginPath(); ctx.arc(x, y, 13 * u, 0, 7); ctx.fillStyle = kind === 'rot' ? '#7b4fe0' : '#ffffff'; ctx.fill(); ctx.lineWidth = 3 * u; ctx.strokeStyle = '#141414'; ctx.stroke();
+  ctx.strokeStyle = kind === 'rot' ? '#fff' : '#141414'; ctx.lineWidth = 2.2 * u; ctx.lineCap = 'round'; ctx.beginPath();
+  if (kind === 'rot') { ctx.arc(x, y, 6 * u, -2.6, 1.4); ctx.moveTo(x + 6 * u * Math.cos(1.4) + 2.5 * u, y + 6 * u * Math.sin(1.4) - 1.5 * u); ctx.lineTo(x + 6 * u * Math.cos(1.4), y + 6 * u * Math.sin(1.4)); }
+  else { ctx.moveTo(x - 5 * u, y - 5 * u); ctx.lineTo(x + 5 * u, y + 5 * u); ctx.moveTo(x + 5 * u, y); ctx.lineTo(x + 5 * u, y + 5 * u); ctx.lineTo(x, y + 5 * u); }
+  ctx.stroke();
+}
+function selHandles(p) { const u = L / cssSize, w = p.img.width * p.s / 2 + 6 * u, h = p.img.height * p.s / 2 + 6 * u, c = Math.cos(p.r), s = Math.sin(p.r), at = (x, y) => [p.x + x * c - y * s, p.y + x * s + y * c]; return { rot: at(0, -h - 22 * u), size: at(w, h), R: 22 * u }; }
+
+const stage = $('#stage');
+function fit() {
+  const r = stage.getBoundingClientRect(), s = Math.max(120, Math.floor(Math.min(r.width - 8, r.height - 10)));
+  cssSize = s - 7; dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+  cv.style.width = cv.style.height = s + 'px';
+  const b = Math.min(2000, Math.round(cssSize * dpr)); if (cv.width !== b) { cv.width = cv.height = b; }
+  paint(); fitPad();
+}
+new ResizeObserver(fit).observe(stage);
+
+function toLogical(el, N, cx, cy) { const r = el.getBoundingClientRect(), bw = el.clientLeft; return [(cx - r.left - bw) / el.clientWidth * N, (cy - r.top - bw) / el.clientHeight * N]; }
+function hit(p, x, y) {
+  const dx = x - p.x, dy = y - p.y, c = Math.cos(-p.r), s = Math.sin(-p.r);
+  let lx = (dx * c - dy * s) / p.s; const ly = (dx * s + dy * c) / p.s; if (p.f) lx = -lx;
+  const w = p.img.width, h = p.img.height, ix = Math.round(lx + w / 2), iy = Math.round(ly + h / 2);
+  if (ix < -8 || iy < -8 || ix > w + 8 || iy > h + 8) return false;
+  const R = Math.max(2, Math.round(9 / p.s));
+  for (let oy = -R; oy <= R; oy += R) for (let ox = -R; ox <= R; ox += R) { const xx = ix + ox, yy = iy + oy; if (xx >= 0 && yy >= 0 && xx < w && yy < h && p.a[yy * w + xx] > 24) return true; }
+  return false;
+}
+
+/* ---------- history ---------- */
+let hist = [], hi = -1;
+function commit(inkChanged) {
+  if (inkChanged) { inkData = ictx.getImageData(0, 0, L, L); inkDirty = true; }
+  hist = hist.slice(0, hi + 1); hist.push({ pieces: pieces.map(p => ({ ...p })), ink: inkData, sel: sel && sel.id });
+  if (hist.length > 24) hist.shift(); hi = hist.length - 1; syncUndo(); save();
+}
+function restore(h) {
+  pieces = h.pieces.map(p => ({ ...p }));
+  if (h.ink !== inkData) { if (h.ink) ictx.putImageData(h.ink, 0, 0); else ictx.clearRect(0, 0, L, L); inkData = h.ink; inkDirty = true; }
+  sel = sel && pieces.find(p => p.id === sel.id) || null; syncSel(); render(); save();
+}
+function syncUndo() { $('#undoBtn').disabled = hi <= 0; $('#redoBtn').disabled = hi >= hist.length - 1; }
+$('#undoBtn').onclick = () => { if (hi > 0) { hi--; restore(hist[hi]); syncUndo(); } };
+$('#redoBtn').onclick = () => { if (hi < hist.length - 1) { hi++; restore(hist[hi]); syncUndo(); } };
+
+/* ---------- keeping my work on this device ---------- */
+let saveT;
+function save() { clearTimeout(saveT); saveT = setTimeout(() => {
+  if (inkDirty) { inkURL = inkData ? ink.toDataURL('image/png') : null; inkDirty = false; }
+  store('ck-paper', { v: 1, ink: inkURL, pieces: pieces.map(p => ({ t: p.t, def: p.def, seed: p.seed, color: p.color, src: p.t === 'd' ? p.src : undefined, tint: p.tint, x: p.x, y: p.y, s: p.s, r: p.r, f: p.f, rank: p.rank })) });
+}, 500); }
+async function load() {
+  const d = store('ck-paper'); if (!d || !d.pieces) return false;
+  for (const q of d.pieces) {
+    try {
+      let made;
+      if (q.t === 'g') { if (!G[q.def]) continue; made = makeGen(q.def, q.seed, q.color); }
+      else { const base = await makeDrawn(q.src); made = q.tint ? tint(base.img, q.tint) : base; made.orig = base.img; }
+      if (!made) continue;
+      pieces.push({ ...q, id: uid++, img: made.img, a: made.a, orig: made.orig });
+    } catch (e) { /* skip a piece that won't load */ }
+  }
+  if (d.ink) { try { const im = await loadImg(d.ink); ictx.drawImage(im, 0, 0); inkData = ictx.getImageData(0, 0, L, L); inkURL = d.ink; } catch (e) {} }
+  return true;
+}
+
+/* ---------- the tray ---------- */
+const tabsEl = $('#tabs'), tray = $('#tray');
+let tab = 'body', items = [], tidy = false;
+const trays = {};
+CATS.forEach(([id, label]) => { const b = document.createElement('button'); b.className = 'tab'; b.type = 'button'; b.role = 'tab'; b.textContent = label; b.dataset.tab = id; b.setAttribute('aria-selected', id === tab); b.onclick = () => setTab(id); tabsEl.append(b); });
+function genTray(cat) {
+  const defs = Object.values(G).filter(d => d.cat === cat), order = [];
+  while (order.length < 10) { const sh = defs.slice().sort(() => Math.random() - .5); order.push(...sh); }
+  return order.slice(0, 10).map(d => { const seed = newSeed(), cr = rng(seed ^ 0x5bd1e995), color = d.col ? d.col(cr) : anyCol(cr), m = makeGen(d.name, seed, color); return m && { t: 'g', def: d.name, seed, color, img: m.img, a: m.a, scale: d.scale, rank: d.rank }; }).filter(Boolean);
+}
+async function mineTray() {
+  const list = store('ck-mine') || [], out = [];
+  for (const m of list) { try { if (!mineCache[m.id]) mineCache[m.id] = await makeDrawn(m.src); const d = mineCache[m.id]; out.push({ t: 'd', id: m.id, src: m.src, img: d.img, a: d.a, orig: d.img, scale: m.scale || .62, rank: 2, color: null }); } catch (e) {} }
+  return out;
+}
+const mineCache = {};
+async function setTab(id) {
+  tab = id; tidy = false;
+  tabsEl.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', b.dataset.tab === id));
+  if (id === 'mine') items = await mineTray(); else items = trays[id] || (trays[id] = genTray(id));
+  drawTray();
+}
+function drawTray() {
+  tray.textContent = '';
+  const mk = document.createElement('button'); mk.type = 'button'; mk.className = 'tile make';
+  if (tab === 'mine') { mk.innerHTML = '<svg class="i"><use href="#i-pen"/></svg>Draw one'; mk.onclick = openStudio; }
+  else { mk.innerHTML = '<svg class="i"><use href="#i-dice"/></svg>New ones!'; mk.onclick = () => { trays[tab] = items = genTray(tab); drawTray(); tray.scrollLeft = 0; }; }
+  tray.append(mk);
+  items.forEach((it, i) => {
+    const t = document.createElement('div'); t.className = 'tile'; t.dataset.i = i; t.setAttribute('role', 'button'); t.tabIndex = 0;
+    t.setAttribute('aria-label', 'Add this piece'); t.append(it.img.cloneNode ? thumb(it.img) : it.img);
+    t.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); addAt(it, L / 2, L / 2); } };
+    if (tab === 'mine' && tidy) { const x = document.createElement('button'); x.type = 'button'; x.className = 'x'; x.setAttribute('aria-label', 'Remove from my pieces'); x.innerHTML = '<svg class="i"><use href="#i-x"/></svg>'; x.onclick = e => { e.stopPropagation(); removeMine(it.id); }; t.append(x); }
+    tray.append(t);
+  });
+  if (tab === 'mine') {
+    if (!items.length) { const h = document.createElement('p'); h.className = 'trayhint'; h.textContent = 'Draw your own piece and it lives here.'; tray.append(h); }
+    else { const td = document.createElement('button'); td.type = 'button'; td.className = 'tidy'; td.textContent = tidy ? 'All done' : 'Tidy up'; td.onclick = () => { tidy = !tidy; drawTray(); }; tray.append(td); }
+  }
+}
+function thumb(img) { const c = document.createElement('canvas'), k = Math.min(1, 150 / Math.max(img.width, img.height)); c.width = Math.max(1, Math.round(img.width * k)); c.height = Math.max(1, Math.round(img.height * k)); c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); return c; }
+function removeMine(id) { const list = (store('ck-mine') || []).filter(m => m.id !== id); store('ck-mine', list); setTab('mine').then(() => { tidy = true; drawTray(); }); }
+
+function addAt(it, x, y) {
+  const p = newPiece(it, x, y); insertByRank(p); sel = p; syncSel(); render(); commit(false);
+}
+
+/* drag a piece up out of the tray */
+let tg = null; const ghost = document.createElement('canvas'); ghost.className = 'ghost'; ghost.hidden = true; document.body.append(ghost);
+tray.addEventListener('pointerdown', e => {
+  const t = e.target.closest('.tile[data-i]'); if (!t || e.target.closest('.x')) return;
+  tg = { id: e.pointerId, t, it: items[+t.dataset.i], x0: e.clientX, y0: e.clientY, drag: false, mouse: e.pointerType === 'mouse' };
+});
+addEventListener('pointermove', e => {
+  if (!tg || e.pointerId !== tg.id) return;
+  const dx = e.clientX - tg.x0, dy = e.clientY - tg.y0;
+  if (!tg.drag) {
+    if (Math.hypot(dx, dy) < 9) return;
+    if (!tg.mouse && -dy < Math.abs(dx) * .7) return;
+    tg.drag = true; try { tg.t.setPointerCapture(e.pointerId); } catch (er) {}
+    const im = tg.it.img, k = Math.min(1, 120 / Math.max(im.width, im.height)); ghost.width = im.width * k; ghost.height = im.height * k;
+    const gc = ghost.getContext('2d'); gc.clearRect(0, 0, ghost.width, ghost.height); gc.drawImage(im, 0, 0, ghost.width, ghost.height);
+  }
+  e.preventDefault(); moveGhost(e.clientX, e.clientY);
+}, { passive: false });
+function moveGhost(x, y) {
+  const r = cv.getBoundingClientRect(), lift = tg.mouse ? 0 : 46, py = y - lift;
+  if (x >= r.left && x <= r.right && py >= r.top && py <= r.bottom) { const [lx, ly] = toLogical(cv, L, x, py); pending = { it: tg.it, x: lx, y: ly }; ghost.hidden = true; }
+  else { pending = null; ghost.hidden = false; ghost.style.left = x + 'px'; ghost.style.top = y + 'px'; }
+  render();
+}
+addEventListener('pointerup', e => {
+  if (!tg || e.pointerId !== tg.id) return;
+  if (tg.drag) { ghost.hidden = true; if (pending) { addAt(pending.it, pending.x, pending.y); pending = null; } else render(); }
+  else if (Math.hypot(e.clientX - tg.x0, e.clientY - tg.y0) < 9) { addAt(tg.it, L / 2 + (Math.random() - .5) * 120, L / 2 + (Math.random() - .5) * 120); hint('Tip: you can also drag pieces up onto the paper.'); }
+  tg = null;
+});
+addEventListener('pointercancel', e => { if (tg && e.pointerId === tg.id) { ghost.hidden = true; pending = null; tg = null; render(); } });
+const said = store('ck-said') || {};
+function hint(m) { if (said[m]) return; said[m] = 1; store('ck-said', said); toast(m); }
+
+/* ---------- moving, stretching and spinning pieces ---------- */
+const ptrs = new Map(); let gst = null, changed = false;
+cv.addEventListener('pointerdown', e => {
+  e.preventDefault(); try { cv.setPointerCapture(e.pointerId); } catch (er) {}
+  const [x, y] = toLogical(cv, L, e.clientX, e.clientY); ptrs.set(e.pointerId, [x, y]);
+  if (mode === 'draw') { if (ptrs.size === 1) mainPaint.down(x, y); return; }
+  closeRecolor();
+  if (ptrs.size === 2 && sel) { const [a, b] = [...ptrs.values()]; gst = { k: 'pinch', d0: Math.hypot(b[0] - a[0], b[1] - a[1]) || 1, a0: Math.atan2(b[1] - a[1], b[0] - a[0]), s0: sel.s, r0: sel.r, m0: [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], x0: sel.x, y0: sel.y }; return; }
+  if (ptrs.size > 1) return;
+  if (sel) {
+    const H = selHandles(sel);
+    if (Math.hypot(x - H.rot[0], y - H.rot[1]) < H.R) { gst = { k: 'rot', a0: Math.atan2(y - sel.y, x - sel.x), r0: sel.r }; return; }
+    if (Math.hypot(x - H.size[0], y - H.size[1]) < H.R) { gst = { k: 'size', d0: Math.hypot(x - sel.x, y - sel.y) || 1, s0: sel.s }; return; }
+  }
+  let found = null; for (let i = pieces.length - 1; i >= 0; i--) if (hit(pieces[i], x, y)) { found = pieces[i]; break; }
+  if (found) { sel = found; gst = { k: 'move', ox: x - found.x, oy: y - found.y }; } else { sel = null; gst = null; }
+  syncSel(); render();
+});
+cv.addEventListener('pointermove', e => {
+  if (!ptrs.has(e.pointerId)) return;
+  const [x, y] = toLogical(cv, L, e.clientX, e.clientY); ptrs.set(e.pointerId, [x, y]);
+  if (mode === 'draw') { mainPaint.move(x, y); return; }
+  if (!gst || !sel) return;
+  if (gst.k === 'move' && ptrs.size === 1) { sel.x = clamp(x - gst.ox, -100, L + 100); sel.y = clamp(y - gst.oy, -100, L + 100); }
+  else if (gst.k === 'rot') { let r = gst.r0 + Math.atan2(y - sel.y, x - sel.x) - gst.a0; const snap = Math.round(r / (Math.PI / 2)) * Math.PI / 2; if (Math.abs(r - snap) < .07) r = snap; sel.r = r; }
+  else if (gst.k === 'size') { sel.s = clamp(gst.s0 * Math.hypot(x - sel.x, y - sel.y) / gst.d0, .12, 6); }
+  else if (gst.k === 'pinch' && ptrs.size >= 2) { const [a, b] = [...ptrs.values()], d = Math.hypot(b[0] - a[0], b[1] - a[1]), an = Math.atan2(b[1] - a[1], b[0] - a[0]); sel.s = clamp(gst.s0 * d / gst.d0, .12, 6); sel.r = gst.r0 + an - gst.a0; sel.x = gst.x0 + (a[0] + b[0]) / 2 - gst.m0[0]; sel.y = gst.y0 + (a[1] + b[1]) / 2 - gst.m0[1]; }
+  else return;
+  changed = true; render();
+});
+function endPtr(e) {
+  if (!ptrs.has(e.pointerId)) return; ptrs.delete(e.pointerId);
+  if (mode === 'draw') { if (!ptrs.size) mainPaint.up(); return; }
+  if (gst && gst.k === 'pinch' && ptrs.size === 1) gst = null;
+  if (!ptrs.size) { if (changed) commit(false); changed = false; gst = null; }
+}
+cv.addEventListener('pointerup', endPtr); cv.addEventListener('pointercancel', endPtr);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+/* the piece toolbar */
+const selRow = $('#selRow'), modeRowBits = [$('#modeSeg'), $('#mixBtn')], recolorEl = $('#recolor');
+function syncSel() {
+  const on = !!sel && mode === 'build';
+  selRow.hidden = !on; modeRowBits.forEach(el => el.hidden = on || (el.id === 'mixBtn' && mode !== 'build'));
+  $('#wipeBtn').hidden = on || mode !== 'draw';
+  if (!on) closeRecolor();
+}
+function closeRecolor() { recolorEl.hidden = true; selRow.querySelector('[data-act="color"]').setAttribute('aria-pressed', 'false'); }
+selRow.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]'); if (!b || !sel) return; const a = b.dataset.act;
+  if (a === 'color') { const open = recolorEl.hidden; if (open) { swatches(recolorEl, sel.tint || sel.color, recolorSel); recolorEl.hidden = false; } else recolorEl.hidden = true; b.setAttribute('aria-pressed', open); return; }
+  closeRecolor();
+  if (a === 'flip') sel.f = !sel.f;
+  else if (a === 'front') { pieces.splice(pieces.indexOf(sel), 1); pieces.push(sel); }
+  else if (a === 'back') { pieces.splice(pieces.indexOf(sel), 1); pieces.unshift(sel); }
+  else if (a === 'copy') { const p = { ...sel, id: uid++, x: sel.x + 40, y: sel.y + 40 }; pieces.splice(pieces.indexOf(sel) + 1, 0, p); sel = p; }
+  else if (a === 'del') { pieces.splice(pieces.indexOf(sel), 1); sel = null; }
+  else if (a === 'ok') { sel = null; syncSel(); render(); return; }
+  syncSel(); render(); commit(false);
+});
+function recolorSel(col) {
+  if (!sel) return;
+  const i = pieces.indexOf(sel); let m;
+  if (sel.t === 'g') { m = makeGen(sel.def, sel.seed, col); if (!m) return; pieces[i] = sel = { ...sel, img: m.img, a: m.a, color: col }; }
+  else { m = tint(sel.orig, col); pieces[i] = sel = { ...sel, img: m.img, a: m.a, tint: col }; }
+  swatches(recolorEl, col, recolorSel); render(); commit(false);
+}
+function swatches(el, cur, onPick) {
+  el.textContent = '';
+  for (const c of PAL) { const b = document.createElement('button'); b.type = 'button'; b.className = 'sw'; b.style.setProperty('--sw', c); b.setAttribute('aria-label', 'Color ' + c); b.setAttribute('aria-pressed', c === cur); b.onclick = () => onPick(c); el.append(b); }
+}
+
+/* ---------- drawing ---------- */
+function painter(T) {
+  let last = null, on = false;
+  const size = () => [.009, .022, .05][S.size] * T.N * (S.tool === 'erase' ? 1.8 : 1);
+  const set = c => { c.globalCompositeOperation = S.tool === 'erase' ? 'destination-out' : 'source-over'; c.strokeStyle = c.fillStyle = S.color; c.lineWidth = size(); c.lineCap = 'round'; c.lineJoin = 'round'; };
+  return {
+    down(x, y) { if (S.tool === 'fill') { fillAt(T, x, y); T.commit(); return; } on = true; last = [x, y]; const c = T.ctx; c.save(); set(c); c.beginPath(); c.arc(x, y, size() / 2, 0, 7); c.fill(); c.restore(); T.render(); },
+    move(x, y) { if (!on) return; const c = T.ctx; c.save(); set(c); c.beginPath(); c.moveTo(last[0], last[1]); c.lineTo(x, y); c.stroke(); c.restore(); last = [x, y]; T.render(); },
+    up() { if (on) { on = false; T.commit(); } }
+  };
+}
+function fillAt(T, x, y) {
+  const N = T.N, sx = Math.floor(x), sy = Math.floor(y); if (sx < 0 || sy < 0 || sx >= N || sy >= N) return;
+  const comp = document.createElement('canvas'); comp.width = comp.height = N; const cc = comp.getContext('2d', { willReadFrequently: true }); T.composite(cc);
+  const d = cc.getImageData(0, 0, N, N).data, i0 = (sy * N + sx) * 4, r0 = d[i0], g0 = d[i0 + 1], b0 = d[i0 + 2], tol = 60, mask = new Uint8Array(N * N);
+  const ok = i => { const j = i * 4; return Math.abs(d[j] - r0) <= tol && Math.abs(d[j + 1] - g0) <= tol && Math.abs(d[j + 2] - b0) <= tol; };
+  const st = [sx, sy];
+  while (st.length) {
+    const yy = st.pop(); let xx = st.pop(), i = yy * N + xx;
+    while (xx >= 0 && !mask[i] && ok(i)) { xx--; i--; } xx++; i++;
+    let up = false, dn = false;
+    while (xx < N && !mask[i] && ok(i)) {
+      mask[i] = 1;
+      if (yy > 0) { const k = i - N; if (!mask[k] && ok(k)) { if (!up) { st.push(xx, yy - 1); up = true; } } else up = false; }
+      if (yy < N - 1) { const k = i + N; if (!mask[k] && ok(k)) { if (!dn) { st.push(xx, yy + 1); dn = true; } } else dn = false; }
+      xx++; i++;
+    }
+  }
+  const id = T.ctx.getImageData(0, 0, N, N), o = id.data, [R, Gc, B] = hexRgb(S.color);
+  for (let i = 0; i < mask.length; i++) {
+    if (!(mask[i] || (i % N > 0 && mask[i - 1]) || (i % N < N - 1 && mask[i + 1]) || (i >= N && mask[i - N]) || (i < mask.length - N && mask[i + N]))) continue;
+    const j = i * 4; o[j] = R; o[j + 1] = Gc; o[j + 2] = B; o[j + 3] = 255;
+  }
+  T.ctx.putImageData(id, 0, 0); T.render();
+}
+const mainPaint = painter({ ctx: ictx, N: L, render, commit: () => commit(true), composite: c => scene(c) });
+
+function buildTools(el, strip, extra) {
+  el.textContent = '';
+  [0, 1, 2].forEach(i => { const b = document.createElement('button'); b.type = 'button'; b.className = 'ib'; b.dataset.size = i; b.setAttribute('aria-label', ['Thin', 'Medium', 'Thick'][i] + ' marker'); b.innerHTML = `<span class="dotsz" style="width:${[6, 12, 20][i]}px;height:${[6, 12, 20][i]}px"></span>`; b.onclick = () => { S.size = i; if (S.tool === 'fill') S.tool = 'pen'; syncTools(); }; el.append(b); });
+  const sep = document.createElement('span'); sep.className = 'sep'; el.append(sep);
+  [['pen', 'Marker'], ['erase', 'Eraser'], ['fill', 'Fill']].forEach(([t, lab]) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'ib'; b.dataset.tool = t; b.setAttribute('aria-label', lab); b.innerHTML = `<svg class="i"><use href="#i-${t}"/></svg>`; b.onclick = () => { S.tool = t; syncTools(); }; el.append(b); });
+  if (extra) el.append(extra);
+  strip.dataset.strip = 1;
+}
+function syncTools() {
+  document.querySelectorAll('[data-size]').forEach(b => { b.setAttribute('aria-pressed', S.tool !== 'fill' && +b.dataset.size === S.size); b.style.color = S.tool === 'erase' ? '#8b8f96' : S.color === '#ffffff' ? '#d8d2c4' : S.color; });
+  document.querySelectorAll('[data-tool]').forEach(b => b.setAttribute('aria-pressed', b.dataset.tool === S.tool));
+  document.querySelectorAll('[data-strip]').forEach(s => swatches(s, S.color, c => { S.color = c; if (S.tool === 'erase') S.tool = 'pen'; syncTools(); }));
+}
+buildTools($('#drawTools'), $('#drawStrip'));
+
+/* modes */
+$('#modeSeg').addEventListener('click', e => { const b = e.target.closest('[data-mode]'); if (b) setMode(b.dataset.mode); });
+function setMode(m) {
+  mode = m; sel = null; pending = null;
+  $('#modeSeg').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
+  $('#buildPanel').hidden = m !== 'build'; $('#drawPanel').hidden = m !== 'draw';
+  cv.style.cursor = m === 'draw' ? 'crosshair' : 'default';
+  syncSel(); syncTools(); render();
+  if (m === 'draw') hint('Draw right on top of everything!');
+}
+$('#wipeBtn').onclick = () => { if (!inkData) return; ictx.clearRect(0, 0, L, L); render(); commit(true); inkData = null; hist[hi].ink = null; toast('Drawing wiped. Undo brings it back.'); };
+
+/* ---------- mix one up ---------- */
+function rollItem(cat) { const d = pick(Math.random, Object.values(G).filter(x => x.cat === cat)), seed = newSeed(), cr = rng(seed ^ 0x5bd1e995), color = d.col ? d.col(cr) : anyCol(cr); return { d, seed, color }; }
+function placeRolled({ d, seed, color }, x, yFn, s) { const m = makeGen(d.name, seed, color); if (!m) return null; const it = { t: 'g', def: d.name, seed, color, img: m.img, a: m.a, scale: s ?? d.scale, rank: d.rank }; const h = m.img.height * it.scale; const p = newPiece(it, x, yFn(h)); insertByRank(p); return p; }
+function mixOneUp() {
+  pieces = []; sel = null;
+  const body = rollItem('body'), bp = placeRolled(body, 500, () => 560);
+  const H = bp.img.height * bp.s, top = 560 - H / 2, bot = 560 + H / 2;
+  const ears = rollItem('ears'); if (Math.random() < .65 && ears.d.name !== 'h-horns') ears.color = body.color;
+  placeRolled(ears, 500, h => top + 70 - h / 2);
+  placeRolled(rollItem('eyes'), 500, () => top + H * .36);
+  placeRolled(rollItem('mouth'), 500, () => top + H * .64);
+  if (Math.random() < .7) { const f = rollItem('limbs'); if (['l-feet', 'l-paws'].includes(f.d.name)) { f.color = body.color; placeRolled(f, 500, h => bot - h * .3); } else { if (Math.random() < .5) f.color = body.color; placeRolled(f, 500, h => f.d.name === 'l-legs' || f.d.name === 'l-tentacles' ? bot - h * .25 : 560); } }
+  if (Math.random() < .45) { const x = rollItem('extra'), n = x.d.name; placeRolled(x, 500, h => n === 'x-blush' ? top + H * .55 : n === 'x-glasses' ? top + H * .36 : n === 'x-stache' ? top + H * .56 : n === 'x-bow' || n === 'x-flower' || n === 'x-heart' || n === 'x-star' ? top + 20 : top + 30 - h / 2); }
+  render();
+}
+$('#mixBtn').onclick = () => { mixOneUp(); commit(false); };
+
+/* ---------- draw-a-piece studio ---------- */
+const studio = $('#studio'), pad = $('#pad'), pctx = pad.getContext('2d');
+const padInk = document.createElement('canvas'); padInk.width = padInk.height = PADN;
+const padC = padInk.getContext('2d', { willReadFrequently: true });
+let padHist = [];
+function padRender() { const k = pad.width / PADN; pctx.setTransform(1, 0, 0, 1, 0, 0); pctx.clearRect(0, 0, pad.width, pad.height); pctx.setTransform(k, 0, 0, k, 0, 0); pctx.drawImage(padInk, 0, 0); }
+const padPaint = painter({ ctx: padC, N: PADN, render: padRender, commit: () => { padHist.push(padC.getImageData(0, 0, PADN, PADN)); if (padHist.length > 25) padHist.shift(); $('#padUndo').disabled = padHist.length < 2; }, composite: c => { c.fillStyle = '#fff'; c.fillRect(0, 0, PADN, PADN); c.drawImage(padInk, 0, 0); } });
+const padClear = document.createElement('button'); padClear.type = 'button'; padClear.className = 'ib'; padClear.setAttribute('aria-label', 'Clear'); padClear.innerHTML = '<svg class="i"><use href="#i-trash"/></svg>'; padClear.style.marginLeft = 'auto';
+padClear.onclick = () => { padC.clearRect(0, 0, PADN, PADN); padRender(); padHist.push(padC.getImageData(0, 0, PADN, PADN)); $('#padUndo').disabled = false; };
+buildTools($('#padTools'), $('#padStrip'), padClear);
+function fitPad() {
+  if (studio.hidden) return;
+  const r = $('#padWrap').getBoundingClientRect(), s = Math.max(120, Math.floor(Math.min(r.width - 8, r.height - 10)));
+  pad.style.width = pad.style.height = s + 'px'; const b = Math.min(1600, Math.round((s - 7) * dpr)); if (pad.width !== b) pad.width = pad.height = b; padRender();
+}
+new ResizeObserver(fitPad).observe($('#padWrap'));
+function openStudio() {
+  studio.hidden = false; padC.clearRect(0, 0, PADN, PADN); padHist = [padC.getImageData(0, 0, PADN, PADN)]; $('#padUndo').disabled = true;
+  if (S.tool === 'fill' || S.tool === 'erase') S.tool = 'pen'; if (S.color === '#ffffff') S.color = '#141414'; syncTools(); requestAnimationFrame(fitPad);
+}
+$('#padCancel').onclick = () => { studio.hidden = true; };
+$('#padUndo').onclick = () => { if (padHist.length > 1) { padHist.pop(); padC.putImageData(padHist[padHist.length - 1], 0, 0); padRender(); } $('#padUndo').disabled = padHist.length < 2; };
+const pptr = new Set();
+pad.addEventListener('pointerdown', e => { e.preventDefault(); try { pad.setPointerCapture(e.pointerId); } catch (er) {} pptr.add(e.pointerId); if (pptr.size === 1) { const [x, y] = toLogical(pad, PADN, e.clientX, e.clientY); padPaint.down(x, y); } });
+pad.addEventListener('pointermove', e => { if (!pptr.has(e.pointerId)) return; const [x, y] = toLogical(pad, PADN, e.clientX, e.clientY); padPaint.move(x, y); });
+const padEnd = e => { if (!pptr.delete(e.pointerId)) return; if (!pptr.size) padPaint.up(); };
+pad.addEventListener('pointerup', padEnd); pad.addEventListener('pointercancel', padEnd);
+$('#padAdd').onclick = async () => {
+  const m = finish(padInk); if (!m) { toast('Draw something first!'); return; }
+  const src = m.img.toDataURL('image/png'), id = 'm' + Date.now().toString(36), scale = +(380 / Math.max(m.img.width, m.img.height)).toFixed(3);
+  const list = store('ck-mine') || []; list.unshift({ id, src, scale: Math.min(1, scale) }); while (list.length > 60) list.pop();
+  store('ck-mine', list); mineCache[id] = { img: m.img, a: m.a };
+  studio.hidden = true; if (mode !== 'build') setMode('build');
+  await setTab('mine'); tabsEl.querySelector('[data-tab="mine"]').scrollIntoView({ inline: 'center', block: 'nearest' });
+  addAt({ t: 'd', src, img: m.img, a: m.a, orig: m.img, scale: Math.min(1, scale), rank: 2, color: null }, L / 2, L / 2);
+  toast('Added to my pieces!');
+};
+
+/* ---------- done: save the picture ---------- */
+const scrim = $('#scrim'), picSheet = $('#picSheet'); let picBlob = null;
+function openSheet() { scrim.classList.add('open'); picSheet.classList.add('open'); picSheet.setAttribute('aria-hidden', 'false'); }
+function closeSheet() { scrim.classList.remove('open'); picSheet.classList.remove('open'); picSheet.setAttribute('aria-hidden', 'true'); disarm(); }
+scrim.onclick = closeSheet; $('#picClose').onclick = closeSheet;
+$('#doneBtn').onclick = () => {
+  sel = null; syncSel(); render();
+  const c = document.createElement('canvas'); c.width = c.height = L; scene(c.getContext('2d'));
+  $('#picImg').src = c.toDataURL('image/png'); picBlob = null; c.toBlob(b => { picBlob = b; syncShare(); }, 'image/png');
+  $('#picDl').hidden = !onSite; openSheet();
+};
+function syncShare() { let ok = false; try { ok = !!(picBlob && navigator.canShare && navigator.canShare({ files: [new File([picBlob], 'critter.png', { type: 'image/png' })] })); } catch (e) {} $('#picShare').hidden = !ok || !onSite; }
+$('#picShare').onclick = async () => { try { await navigator.share({ files: [new File([picBlob], 'my-critter.png', { type: 'image/png' })], title: 'My critter' }); } catch (e) {} };
+$('#picDl').onclick = () => { const a = document.createElement('a'); a.href = $('#picImg').src; a.download = 'my-critter.png'; document.body.append(a); a.click(); a.remove(); };
+let armT; const newBtn = $('#newBtn');
+function disarm() { newBtn.classList.remove('armed'); newBtn.querySelector('span').textContent = 'Start a new critter'; clearTimeout(armT); }
+newBtn.onclick = () => {
+  if (!newBtn.classList.contains('armed')) { newBtn.classList.add('armed'); newBtn.querySelector('span').textContent = 'Tap again to clear my paper'; armT = setTimeout(disarm, 3500); return; }
+  disarm(); pieces = []; sel = null; ictx.clearRect(0, 0, L, L); inkData = null; inkDirty = true; render(); commit(false); closeSheet(); toast('Fresh paper!');
+};
+
+$('#homeBtn').addEventListener('click', e => { if (!onSite) { e.preventDefault(); toast('On my site this goes back to my apps.'); } });
+addEventListener('keydown', e => {
+  if (!studio.hidden || picSheet.classList.contains('open')) { if (e.key === 'Escape') { studio.hidden = true; closeSheet(); } return; }
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); (e.shiftKey ? $('#redoBtn') : $('#undoBtn')).click(); }
+  else if (sel && (e.key === 'Delete' || e.key === 'Backspace')) { selRow.querySelector('[data-act="del"]').click(); }
+});
+
+/* ---------- start ---------- */
+(async () => {
+  syncTools(); setTab('body');
+  const had = await load();
+  if (!had || !pieces.length && !inkData) mixOneUp();
+  hist = []; hi = -1; commit(false); fit();
+  if (!had) setTimeout(() => toast('Drag pieces onto my paper!'), 600);
+})();
+})();
+</script>
+</body>
+</html>
